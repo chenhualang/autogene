@@ -1,0 +1,3286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shhxzq.fin.cif.dao.HopFundChgRecordMapper">
+  <resultMap id="BaseResultMap" type="com.shhxzq.fin.cif.model.HopFundChgRecord">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="Fund_Name" jdbcType="VARCHAR" property="fundName" />
+    <result column="Total_FundVol" jdbcType="DECIMAL" property="totalFundvol" />
+    <result column="Fund_Code" jdbcType="VARCHAR" property="fundCode" />
+    <result column="TA_NO" jdbcType="VARCHAR" property="taNo" />
+    <result column="WORK_DATE" jdbcType="CHAR" property="workDate" />
+    <result column="Fund_Status" jdbcType="CHAR" property="fundStatus" />
+    <result column="NAV" jdbcType="DECIMAL" property="nav" />
+    <result column="Update_Date" jdbcType="CHAR" property="updateDate" />
+    <result column="Net_Value_Type" jdbcType="CHAR" property="netValueType" />
+    <result column="Accumulative_NAV" jdbcType="DECIMAL" property="accumulativeNav" />
+    <result column="Convert_Status" jdbcType="CHAR" property="convertStatus" />
+    <result column="Periodic_Status" jdbcType="CHAR" property="periodicStatus" />
+    <result column="Transfer_Agency_Status" jdbcType="CHAR" property="transferAgencyStatus" />
+    <result column="Fund_Size" jdbcType="DECIMAL" property="fundSize" />
+    <result column="Currency_Type" jdbcType="VARCHAR" property="currencyType" />
+    <result column="Announc_Flag" jdbcType="CHAR" property="announcFlag" />
+    <result column="Def_Dividend_Method" jdbcType="CHAR" property="defDividendMethod" />
+    <result column="Inst_App_Subs_Amnt" jdbcType="DECIMAL" property="instAppSubsAmnt" />
+    <result column="Inst_App_Subs_Vol" jdbcType="DECIMAL" property="instAppSubsVol" />
+    <result column="Min_Amount_ByInst" jdbcType="DECIMAL" property="minAmountByinst" />
+    <result column="Min_Vol_ByInst" jdbcType="DECIMAL" property="minVolByinst" />
+    <result column="Custo_dian_Code" jdbcType="VARCHAR" property="custoDianCode" />
+    <result column="Amount_Of_Periodic_Subs" jdbcType="DECIMAL" property="amountOfPeriodicSubs" />
+    <result column="Date_Of_Periodic_Subs" jdbcType="CHAR" property="dateOfPeriodicSubs" />
+    <result column="Max_Redemption_Vol" jdbcType="DECIMAL" property="maxRedemptionVol" />
+    <result column="Min_Account_Balance" jdbcType="DECIMAL" property="minAccountBalance" />
+    <result column="IPO_Start_Date" jdbcType="CHAR" property="ipoStartDate" />
+    <result column="IPO_EndDate" jdbcType="CHAR" property="ipoEnddate" />
+    <result column="Fund_Manager_Code" jdbcType="VARCHAR" property="fundManagerCode" />
+    <result column="Indi_App_Subs_Vol" jdbcType="DECIMAL" property="indiAppSubsVol" />
+    <result column="Indi_AppSubs_Amount" jdbcType="DECIMAL" property="indiAppsubsAmount" />
+    <result column="Min_Subs_Vol_ByIndi" jdbcType="DECIMAL" property="minSubsVolByindi" />
+    <result column="Min_Subs_Amount_ByIndi" jdbcType="DECIMAL" property="minSubsAmountByindi" />
+    <result column="Regist_rarCode" jdbcType="CHAR" property="registRarcode" />
+    <result column="Fund_Sponsor" jdbcType="CHAR" property="fundSponsor" />
+    <result column="Trading_Price" jdbcType="DECIMAL" property="tradingPrice" />
+    <result column="Face_Value" jdbcType="DECIMAL" property="faceValue" />
+    <result column="Divident_Date" jdbcType="CHAR" property="dividentDate" />
+    <result column="Registration_Date" jdbcType="CHAR" property="registrationDate" />
+    <result column="XR_Date" jdbcType="CHAR" property="xrDate" />
+    <result column="Max_Subs_Vol_ByIndi" jdbcType="DECIMAL" property="maxSubsVolByindi" />
+    <result column="Max_Subs_Amount_ByIndi" jdbcType="DECIMAL" property="maxSubsAmountByindi" />
+    <result column="Max_Subs_Vol_ByInst" jdbcType="DECIMAL" property="maxSubsVolByinst" />
+    <result column="Max_Subs_Amount_ByInst" jdbcType="DECIMAL" property="maxSubsAmountByinst" />
+    <result column="Unit_Subs_Vol_ByIndi" jdbcType="DECIMAL" property="unitSubsVolByindi" />
+    <result column="Unit_Subs_Amount_ByIndi" jdbcType="DECIMAL" property="unitSubsAmountByindi" />
+    <result column="Unit_Subs_Vol_ByInst" jdbcType="DECIMAL" property="unitSubsVolByinst" />
+    <result column="Unit_Subs_Amount_ByInst" jdbcType="DECIMAL" property="unitSubsAmountByinst" />
+    <result column="Min_Bids_Amount_ByIndi" jdbcType="DECIMAL" property="minBidsAmountByindi" />
+    <result column="Min_Bids_Amount_ByInst" jdbcType="DECIMAL" property="minBidsAmountByinst" />
+    <result column="Min_AppBids_Amount_ByIndi" jdbcType="DECIMAL" property="minAppbidsAmountByindi" />
+    <result column="Min_AppBids_Amount_ByInst" jdbcType="DECIMAL" property="minAppbidsAmountByinst" />
+    <result column="Min_Redemption_Vol" jdbcType="DECIMAL" property="minRedemptionVol" />
+    <result column="MinInterconvert_Vol" jdbcType="DECIMAL" property="mininterconvertVol" />
+    <result column="IssueType_ByIndi" jdbcType="CHAR" property="issuetypeByindi" />
+    <result column="IssueType_ByInst" jdbcType="CHAR" property="issuetypeByinst" />
+    <result column="Subs_Type" jdbcType="CHAR" property="subsType" />
+    <result column="Collect_FeeType" jdbcType="CHAR" property="collectFeetype" />
+    <result column="Next_TradeDate" jdbcType="CHAR" property="nextTradedate" />
+    <result column="Value_Line" jdbcType="DECIMAL" property="valueLine" />
+    <result column="Total_Divident" jdbcType="DECIMAL" property="totalDivident" />
+    <result column="Fund_Income" jdbcType="DECIMAL" property="fundIncome" />
+    <result column="Fund_Income_Flag" jdbcType="CHAR" property="fundIncomeFlag" />
+    <result column="Yield" jdbcType="DECIMAL" property="yield" />
+    <result column="Yield_Flag" jdbcType="CHAR" property="yieldFlag" />
+    <result column="Guaranteed_NAV" jdbcType="DECIMAL" property="guaranteedNav" />
+    <result column="FundYearIncome_Rate" jdbcType="DECIMAL" property="fundyearincomeRate" />
+    <result column="FundYearIncome_Rate_Flag" jdbcType="CHAR" property="fundyearincomeRateFlag" />
+    <result column="IndiMax_Purchase" jdbcType="DECIMAL" property="indimaxPurchase" />
+    <result column="InstMax_Purchase" jdbcType="DECIMAL" property="instmaxPurchase" />
+    <result column="IndiDay_MaxSumBuy" jdbcType="DECIMAL" property="indidayMaxsumbuy" />
+    <result column="InstDay_MaxSumBuy" jdbcType="DECIMAL" property="instdayMaxsumbuy" />
+    <result column="IndiDay_MaxSumRedeem" jdbcType="DECIMAL" property="indidayMaxsumredeem" />
+    <result column="InstDay_MaxSumRedeem" jdbcType="DECIMAL" property="instdayMaxsumredeem" />
+    <result column="Indi_Max_Redeem" jdbcType="DECIMAL" property="indiMaxRedeem" />
+    <result column="Inst_Max_Redeem" jdbcType="DECIMAL" property="instMaxRedeem" />
+    <result column="Fund_Day_IncomeFlag" jdbcType="CHAR" property="fundDayIncomeflag" />
+    <result column="Fund_Day_Income" jdbcType="DECIMAL" property="fundDayIncome" />
+    <result column="Allow_Breach_Redempt" jdbcType="CHAR" property="allowBreachRedempt" />
+    <result column="Fund_Type" jdbcType="CHAR" property="fundType" />
+    <result column="Fund_Type_Name" jdbcType="VARCHAR" property="fundTypeName" />
+    <result column="Registrar_Name" jdbcType="VARCHAR" property="registrarName" />
+    <result column="FundManager_Name" jdbcType="VARCHAR" property="fundmanagerName" />
+    <result column="Fund_Server_Tel" jdbcType="VARCHAR" property="fundServerTel" />
+    <result column="Fund_Internet_Address" jdbcType="VARCHAR" property="fundInternetAddress" />
+    <result column="Share_Type" jdbcType="CHAR" property="shareType" />
+    <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, Fund_Name, Total_FundVol, Fund_Code, TA_NO, WORK_DATE, Fund_Status, NAV, Update_Date, 
+    Net_Value_Type, Accumulative_NAV, Convert_Status, Periodic_Status, Transfer_Agency_Status, 
+    Fund_Size, Currency_Type, Announc_Flag, Def_Dividend_Method, Inst_App_Subs_Amnt, 
+    Inst_App_Subs_Vol, Min_Amount_ByInst, Min_Vol_ByInst, Custo_dian_Code, Amount_Of_Periodic_Subs, 
+    Date_Of_Periodic_Subs, Max_Redemption_Vol, Min_Account_Balance, IPO_Start_Date, IPO_EndDate, 
+    Fund_Manager_Code, Indi_App_Subs_Vol, Indi_AppSubs_Amount, Min_Subs_Vol_ByIndi, Min_Subs_Amount_ByIndi, 
+    Regist_rarCode, Fund_Sponsor, Trading_Price, Face_Value, Divident_Date, Registration_Date, 
+    XR_Date, Max_Subs_Vol_ByIndi, Max_Subs_Amount_ByIndi, Max_Subs_Vol_ByInst, Max_Subs_Amount_ByInst, 
+    Unit_Subs_Vol_ByIndi, Unit_Subs_Amount_ByIndi, Unit_Subs_Vol_ByInst, Unit_Subs_Amount_ByInst, 
+    Min_Bids_Amount_ByIndi, Min_Bids_Amount_ByInst, Min_AppBids_Amount_ByIndi, Min_AppBids_Amount_ByInst, 
+    Min_Redemption_Vol, MinInterconvert_Vol, IssueType_ByIndi, IssueType_ByInst, Subs_Type, 
+    Collect_FeeType, Next_TradeDate, Value_Line, Total_Divident, Fund_Income, Fund_Income_Flag, 
+    Yield, Yield_Flag, Guaranteed_NAV, FundYearIncome_Rate, FundYearIncome_Rate_Flag, 
+    IndiMax_Purchase, InstMax_Purchase, IndiDay_MaxSumBuy, InstDay_MaxSumBuy, IndiDay_MaxSumRedeem, 
+    InstDay_MaxSumRedeem, Indi_Max_Redeem, Inst_Max_Redeem, Fund_Day_IncomeFlag, Fund_Day_Income, 
+    Allow_Breach_Redempt, Fund_Type, Fund_Type_Name, Registrar_Name, FundManager_Name, 
+    Fund_Server_Tel, Fund_Internet_Address, Share_Type, is_delete, created_at, updated_at
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CCS_FUND_CHG_RECORD
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from CCS_FUND_CHG_RECORD
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.shhxzq.fin.cif.model.HopFundChgRecord" useGeneratedKeys="true">
+    insert into CCS_FUND_CHG_RECORD (Fund_Name, Total_FundVol, Fund_Code, 
+      TA_NO, WORK_DATE, Fund_Status, 
+      NAV, Update_Date, Net_Value_Type, 
+      Accumulative_NAV, Convert_Status, Periodic_Status, 
+      Transfer_Agency_Status, Fund_Size, Currency_Type, 
+      Announc_Flag, Def_Dividend_Method, Inst_App_Subs_Amnt, 
+      Inst_App_Subs_Vol, Min_Amount_ByInst, Min_Vol_ByInst, 
+      Custo_dian_Code, Amount_Of_Periodic_Subs, Date_Of_Periodic_Subs, 
+      Max_Redemption_Vol, Min_Account_Balance, IPO_Start_Date, 
+      IPO_EndDate, Fund_Manager_Code, Indi_App_Subs_Vol, 
+      Indi_AppSubs_Amount, Min_Subs_Vol_ByIndi, Min_Subs_Amount_ByIndi, 
+      Regist_rarCode, Fund_Sponsor, Trading_Price, 
+      Face_Value, Divident_Date, Registration_Date, 
+      XR_Date, Max_Subs_Vol_ByIndi, Max_Subs_Amount_ByIndi, 
+      Max_Subs_Vol_ByInst, Max_Subs_Amount_ByInst, 
+      Unit_Subs_Vol_ByIndi, Unit_Subs_Amount_ByIndi, 
+      Unit_Subs_Vol_ByInst, Unit_Subs_Amount_ByInst, 
+      Min_Bids_Amount_ByIndi, Min_Bids_Amount_ByInst, 
+      Min_AppBids_Amount_ByIndi, Min_AppBids_Amount_ByInst, 
+      Min_Redemption_Vol, MinInterconvert_Vol, IssueType_ByIndi, 
+      IssueType_ByInst, Subs_Type, Collect_FeeType, 
+      Next_TradeDate, Value_Line, Total_Divident, 
+      Fund_Income, Fund_Income_Flag, Yield, 
+      Yield_Flag, Guaranteed_NAV, FundYearIncome_Rate, 
+      FundYearIncome_Rate_Flag, IndiMax_Purchase, InstMax_Purchase, 
+      IndiDay_MaxSumBuy, InstDay_MaxSumBuy, IndiDay_MaxSumRedeem, 
+      InstDay_MaxSumRedeem, Indi_Max_Redeem, Inst_Max_Redeem, 
+      Fund_Day_IncomeFlag, Fund_Day_Income, Allow_Breach_Redempt, 
+      Fund_Type, Fund_Type_Name, Registrar_Name, 
+      FundManager_Name, Fund_Server_Tel, Fund_Internet_Address, 
+      Share_Type, is_delete, created_at, 
+      updated_at)
+    values (#{fundName,jdbcType=VARCHAR}, #{totalFundvol,jdbcType=DECIMAL}, #{fundCode,jdbcType=VARCHAR}, 
+      #{taNo,jdbcType=VARCHAR}, #{workDate,jdbcType=CHAR}, #{fundStatus,jdbcType=CHAR}, 
+      #{nav,jdbcType=DECIMAL}, #{updateDate,jdbcType=CHAR}, #{netValueType,jdbcType=CHAR}, 
+      #{accumulativeNav,jdbcType=DECIMAL}, #{convertStatus,jdbcType=CHAR}, #{periodicStatus,jdbcType=CHAR}, 
+      #{transferAgencyStatus,jdbcType=CHAR}, #{fundSize,jdbcType=DECIMAL}, #{currencyType,jdbcType=VARCHAR}, 
+      #{announcFlag,jdbcType=CHAR}, #{defDividendMethod,jdbcType=CHAR}, #{instAppSubsAmnt,jdbcType=DECIMAL}, 
+      #{instAppSubsVol,jdbcType=DECIMAL}, #{minAmountByinst,jdbcType=DECIMAL}, #{minVolByinst,jdbcType=DECIMAL}, 
+      #{custoDianCode,jdbcType=VARCHAR}, #{amountOfPeriodicSubs,jdbcType=DECIMAL}, #{dateOfPeriodicSubs,jdbcType=CHAR}, 
+      #{maxRedemptionVol,jdbcType=DECIMAL}, #{minAccountBalance,jdbcType=DECIMAL}, #{ipoStartDate,jdbcType=CHAR}, 
+      #{ipoEnddate,jdbcType=CHAR}, #{fundManagerCode,jdbcType=VARCHAR}, #{indiAppSubsVol,jdbcType=DECIMAL}, 
+      #{indiAppsubsAmount,jdbcType=DECIMAL}, #{minSubsVolByindi,jdbcType=DECIMAL}, #{minSubsAmountByindi,jdbcType=DECIMAL}, 
+      #{registRarcode,jdbcType=CHAR}, #{fundSponsor,jdbcType=CHAR}, #{tradingPrice,jdbcType=DECIMAL}, 
+      #{faceValue,jdbcType=DECIMAL}, #{dividentDate,jdbcType=CHAR}, #{registrationDate,jdbcType=CHAR}, 
+      #{xrDate,jdbcType=CHAR}, #{maxSubsVolByindi,jdbcType=DECIMAL}, #{maxSubsAmountByindi,jdbcType=DECIMAL}, 
+      #{maxSubsVolByinst,jdbcType=DECIMAL}, #{maxSubsAmountByinst,jdbcType=DECIMAL}, 
+      #{unitSubsVolByindi,jdbcType=DECIMAL}, #{unitSubsAmountByindi,jdbcType=DECIMAL}, 
+      #{unitSubsVolByinst,jdbcType=DECIMAL}, #{unitSubsAmountByinst,jdbcType=DECIMAL}, 
+      #{minBidsAmountByindi,jdbcType=DECIMAL}, #{minBidsAmountByinst,jdbcType=DECIMAL}, 
+      #{minAppbidsAmountByindi,jdbcType=DECIMAL}, #{minAppbidsAmountByinst,jdbcType=DECIMAL}, 
+      #{minRedemptionVol,jdbcType=DECIMAL}, #{mininterconvertVol,jdbcType=DECIMAL}, #{issuetypeByindi,jdbcType=CHAR}, 
+      #{issuetypeByinst,jdbcType=CHAR}, #{subsType,jdbcType=CHAR}, #{collectFeetype,jdbcType=CHAR}, 
+      #{nextTradedate,jdbcType=CHAR}, #{valueLine,jdbcType=DECIMAL}, #{totalDivident,jdbcType=DECIMAL}, 
+      #{fundIncome,jdbcType=DECIMAL}, #{fundIncomeFlag,jdbcType=CHAR}, #{yield,jdbcType=DECIMAL}, 
+      #{yieldFlag,jdbcType=CHAR}, #{guaranteedNav,jdbcType=DECIMAL}, #{fundyearincomeRate,jdbcType=DECIMAL}, 
+      #{fundyearincomeRateFlag,jdbcType=CHAR}, #{indimaxPurchase,jdbcType=DECIMAL}, #{instmaxPurchase,jdbcType=DECIMAL}, 
+      #{indidayMaxsumbuy,jdbcType=DECIMAL}, #{instdayMaxsumbuy,jdbcType=DECIMAL}, #{indidayMaxsumredeem,jdbcType=DECIMAL}, 
+      #{instdayMaxsumredeem,jdbcType=DECIMAL}, #{indiMaxRedeem,jdbcType=DECIMAL}, #{instMaxRedeem,jdbcType=DECIMAL}, 
+      #{fundDayIncomeflag,jdbcType=CHAR}, #{fundDayIncome,jdbcType=DECIMAL}, #{allowBreachRedempt,jdbcType=CHAR}, 
+      #{fundType,jdbcType=CHAR}, #{fundTypeName,jdbcType=VARCHAR}, #{registrarName,jdbcType=VARCHAR}, 
+      #{fundmanagerName,jdbcType=VARCHAR}, #{fundServerTel,jdbcType=VARCHAR}, #{fundInternetAddress,jdbcType=VARCHAR}, 
+      #{shareType,jdbcType=CHAR}, #{isDelete,jdbcType=TINYINT}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.shhxzq.fin.cif.model.HopFundChgRecord" useGeneratedKeys="true">
+    insert into CCS_FUND_CHG_RECORD
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fundName != null">
+        Fund_Name,
+      </if>
+      <if test="totalFundvol != null">
+        Total_FundVol,
+      </if>
+      <if test="fundCode != null">
+        Fund_Code,
+      </if>
+      <if test="taNo != null">
+        TA_NO,
+      </if>
+      <if test="workDate != null">
+        WORK_DATE,
+      </if>
+      <if test="fundStatus != null">
+        Fund_Status,
+      </if>
+      <if test="nav != null">
+        NAV,
+      </if>
+      <if test="updateDate != null">
+        Update_Date,
+      </if>
+      <if test="netValueType != null">
+        Net_Value_Type,
+      </if>
+      <if test="accumulativeNav != null">
+        Accumulative_NAV,
+      </if>
+      <if test="convertStatus != null">
+        Convert_Status,
+      </if>
+      <if test="periodicStatus != null">
+        Periodic_Status,
+      </if>
+      <if test="transferAgencyStatus != null">
+        Transfer_Agency_Status,
+      </if>
+      <if test="fundSize != null">
+        Fund_Size,
+      </if>
+      <if test="currencyType != null">
+        Currency_Type,
+      </if>
+      <if test="announcFlag != null">
+        Announc_Flag,
+      </if>
+      <if test="defDividendMethod != null">
+        Def_Dividend_Method,
+      </if>
+      <if test="instAppSubsAmnt != null">
+        Inst_App_Subs_Amnt,
+      </if>
+      <if test="instAppSubsVol != null">
+        Inst_App_Subs_Vol,
+      </if>
+      <if test="minAmountByinst != null">
+        Min_Amount_ByInst,
+      </if>
+      <if test="minVolByinst != null">
+        Min_Vol_ByInst,
+      </if>
+      <if test="custoDianCode != null">
+        Custo_dian_Code,
+      </if>
+      <if test="amountOfPeriodicSubs != null">
+        Amount_Of_Periodic_Subs,
+      </if>
+      <if test="dateOfPeriodicSubs != null">
+        Date_Of_Periodic_Subs,
+      </if>
+      <if test="maxRedemptionVol != null">
+        Max_Redemption_Vol,
+      </if>
+      <if test="minAccountBalance != null">
+        Min_Account_Balance,
+      </if>
+      <if test="ipoStartDate != null">
+        IPO_Start_Date,
+      </if>
+      <if test="ipoEnddate != null">
+        IPO_EndDate,
+      </if>
+      <if test="fundManagerCode != null">
+        Fund_Manager_Code,
+      </if>
+      <if test="indiAppSubsVol != null">
+        Indi_App_Subs_Vol,
+      </if>
+      <if test="indiAppsubsAmount != null">
+        Indi_AppSubs_Amount,
+      </if>
+      <if test="minSubsVolByindi != null">
+        Min_Subs_Vol_ByIndi,
+      </if>
+      <if test="minSubsAmountByindi != null">
+        Min_Subs_Amount_ByIndi,
+      </if>
+      <if test="registRarcode != null">
+        Regist_rarCode,
+      </if>
+      <if test="fundSponsor != null">
+        Fund_Sponsor,
+      </if>
+      <if test="tradingPrice != null">
+        Trading_Price,
+      </if>
+      <if test="faceValue != null">
+        Face_Value,
+      </if>
+      <if test="dividentDate != null">
+        Divident_Date,
+      </if>
+      <if test="registrationDate != null">
+        Registration_Date,
+      </if>
+      <if test="xrDate != null">
+        XR_Date,
+      </if>
+      <if test="maxSubsVolByindi != null">
+        Max_Subs_Vol_ByIndi,
+      </if>
+      <if test="maxSubsAmountByindi != null">
+        Max_Subs_Amount_ByIndi,
+      </if>
+      <if test="maxSubsVolByinst != null">
+        Max_Subs_Vol_ByInst,
+      </if>
+      <if test="maxSubsAmountByinst != null">
+        Max_Subs_Amount_ByInst,
+      </if>
+      <if test="unitSubsVolByindi != null">
+        Unit_Subs_Vol_ByIndi,
+      </if>
+      <if test="unitSubsAmountByindi != null">
+        Unit_Subs_Amount_ByIndi,
+      </if>
+      <if test="unitSubsVolByinst != null">
+        Unit_Subs_Vol_ByInst,
+      </if>
+      <if test="unitSubsAmountByinst != null">
+        Unit_Subs_Amount_ByInst,
+      </if>
+      <if test="minBidsAmountByindi != null">
+        Min_Bids_Amount_ByIndi,
+      </if>
+      <if test="minBidsAmountByinst != null">
+        Min_Bids_Amount_ByInst,
+      </if>
+      <if test="minAppbidsAmountByindi != null">
+        Min_AppBids_Amount_ByIndi,
+      </if>
+      <if test="minAppbidsAmountByinst != null">
+        Min_AppBids_Amount_ByInst,
+      </if>
+      <if test="minRedemptionVol != null">
+        Min_Redemption_Vol,
+      </if>
+      <if test="mininterconvertVol != null">
+        MinInterconvert_Vol,
+      </if>
+      <if test="issuetypeByindi != null">
+        IssueType_ByIndi,
+      </if>
+      <if test="issuetypeByinst != null">
+        IssueType_ByInst,
+      </if>
+      <if test="subsType != null">
+        Subs_Type,
+      </if>
+      <if test="collectFeetype != null">
+        Collect_FeeType,
+      </if>
+      <if test="nextTradedate != null">
+        Next_TradeDate,
+      </if>
+      <if test="valueLine != null">
+        Value_Line,
+      </if>
+      <if test="totalDivident != null">
+        Total_Divident,
+      </if>
+      <if test="fundIncome != null">
+        Fund_Income,
+      </if>
+      <if test="fundIncomeFlag != null">
+        Fund_Income_Flag,
+      </if>
+      <if test="yield != null">
+        Yield,
+      </if>
+      <if test="yieldFlag != null">
+        Yield_Flag,
+      </if>
+      <if test="guaranteedNav != null">
+        Guaranteed_NAV,
+      </if>
+      <if test="fundyearincomeRate != null">
+        FundYearIncome_Rate,
+      </if>
+      <if test="fundyearincomeRateFlag != null">
+        FundYearIncome_Rate_Flag,
+      </if>
+      <if test="indimaxPurchase != null">
+        IndiMax_Purchase,
+      </if>
+      <if test="instmaxPurchase != null">
+        InstMax_Purchase,
+      </if>
+      <if test="indidayMaxsumbuy != null">
+        IndiDay_MaxSumBuy,
+      </if>
+      <if test="instdayMaxsumbuy != null">
+        InstDay_MaxSumBuy,
+      </if>
+      <if test="indidayMaxsumredeem != null">
+        IndiDay_MaxSumRedeem,
+      </if>
+      <if test="instdayMaxsumredeem != null">
+        InstDay_MaxSumRedeem,
+      </if>
+      <if test="indiMaxRedeem != null">
+        Indi_Max_Redeem,
+      </if>
+      <if test="instMaxRedeem != null">
+        Inst_Max_Redeem,
+      </if>
+      <if test="fundDayIncomeflag != null">
+        Fund_Day_IncomeFlag,
+      </if>
+      <if test="fundDayIncome != null">
+        Fund_Day_Income,
+      </if>
+      <if test="allowBreachRedempt != null">
+        Allow_Breach_Redempt,
+      </if>
+      <if test="fundType != null">
+        Fund_Type,
+      </if>
+      <if test="fundTypeName != null">
+        Fund_Type_Name,
+      </if>
+      <if test="registrarName != null">
+        Registrar_Name,
+      </if>
+      <if test="fundmanagerName != null">
+        FundManager_Name,
+      </if>
+      <if test="fundServerTel != null">
+        Fund_Server_Tel,
+      </if>
+      <if test="fundInternetAddress != null">
+        Fund_Internet_Address,
+      </if>
+      <if test="shareType != null">
+        Share_Type,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="createdAt != null">
+        created_at,
+      </if>
+      <if test="updatedAt != null">
+        updated_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fundName != null">
+        #{fundName,jdbcType=VARCHAR},
+      </if>
+      <if test="totalFundvol != null">
+        #{totalFundvol,jdbcType=DECIMAL},
+      </if>
+      <if test="fundCode != null">
+        #{fundCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taNo != null">
+        #{taNo,jdbcType=VARCHAR},
+      </if>
+      <if test="workDate != null">
+        #{workDate,jdbcType=CHAR},
+      </if>
+      <if test="fundStatus != null">
+        #{fundStatus,jdbcType=CHAR},
+      </if>
+      <if test="nav != null">
+        #{nav,jdbcType=DECIMAL},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=CHAR},
+      </if>
+      <if test="netValueType != null">
+        #{netValueType,jdbcType=CHAR},
+      </if>
+      <if test="accumulativeNav != null">
+        #{accumulativeNav,jdbcType=DECIMAL},
+      </if>
+      <if test="convertStatus != null">
+        #{convertStatus,jdbcType=CHAR},
+      </if>
+      <if test="periodicStatus != null">
+        #{periodicStatus,jdbcType=CHAR},
+      </if>
+      <if test="transferAgencyStatus != null">
+        #{transferAgencyStatus,jdbcType=CHAR},
+      </if>
+      <if test="fundSize != null">
+        #{fundSize,jdbcType=DECIMAL},
+      </if>
+      <if test="currencyType != null">
+        #{currencyType,jdbcType=VARCHAR},
+      </if>
+      <if test="announcFlag != null">
+        #{announcFlag,jdbcType=CHAR},
+      </if>
+      <if test="defDividendMethod != null">
+        #{defDividendMethod,jdbcType=CHAR},
+      </if>
+      <if test="instAppSubsAmnt != null">
+        #{instAppSubsAmnt,jdbcType=DECIMAL},
+      </if>
+      <if test="instAppSubsVol != null">
+        #{instAppSubsVol,jdbcType=DECIMAL},
+      </if>
+      <if test="minAmountByinst != null">
+        #{minAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="minVolByinst != null">
+        #{minVolByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="custoDianCode != null">
+        #{custoDianCode,jdbcType=VARCHAR},
+      </if>
+      <if test="amountOfPeriodicSubs != null">
+        #{amountOfPeriodicSubs,jdbcType=DECIMAL},
+      </if>
+      <if test="dateOfPeriodicSubs != null">
+        #{dateOfPeriodicSubs,jdbcType=CHAR},
+      </if>
+      <if test="maxRedemptionVol != null">
+        #{maxRedemptionVol,jdbcType=DECIMAL},
+      </if>
+      <if test="minAccountBalance != null">
+        #{minAccountBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="ipoStartDate != null">
+        #{ipoStartDate,jdbcType=CHAR},
+      </if>
+      <if test="ipoEnddate != null">
+        #{ipoEnddate,jdbcType=CHAR},
+      </if>
+      <if test="fundManagerCode != null">
+        #{fundManagerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="indiAppSubsVol != null">
+        #{indiAppSubsVol,jdbcType=DECIMAL},
+      </if>
+      <if test="indiAppsubsAmount != null">
+        #{indiAppsubsAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="minSubsVolByindi != null">
+        #{minSubsVolByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="minSubsAmountByindi != null">
+        #{minSubsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="registRarcode != null">
+        #{registRarcode,jdbcType=CHAR},
+      </if>
+      <if test="fundSponsor != null">
+        #{fundSponsor,jdbcType=CHAR},
+      </if>
+      <if test="tradingPrice != null">
+        #{tradingPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="faceValue != null">
+        #{faceValue,jdbcType=DECIMAL},
+      </if>
+      <if test="dividentDate != null">
+        #{dividentDate,jdbcType=CHAR},
+      </if>
+      <if test="registrationDate != null">
+        #{registrationDate,jdbcType=CHAR},
+      </if>
+      <if test="xrDate != null">
+        #{xrDate,jdbcType=CHAR},
+      </if>
+      <if test="maxSubsVolByindi != null">
+        #{maxSubsVolByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="maxSubsAmountByindi != null">
+        #{maxSubsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="maxSubsVolByinst != null">
+        #{maxSubsVolByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="maxSubsAmountByinst != null">
+        #{maxSubsAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="unitSubsVolByindi != null">
+        #{unitSubsVolByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="unitSubsAmountByindi != null">
+        #{unitSubsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="unitSubsVolByinst != null">
+        #{unitSubsVolByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="unitSubsAmountByinst != null">
+        #{unitSubsAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="minBidsAmountByindi != null">
+        #{minBidsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="minBidsAmountByinst != null">
+        #{minBidsAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="minAppbidsAmountByindi != null">
+        #{minAppbidsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="minAppbidsAmountByinst != null">
+        #{minAppbidsAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="minRedemptionVol != null">
+        #{minRedemptionVol,jdbcType=DECIMAL},
+      </if>
+      <if test="mininterconvertVol != null">
+        #{mininterconvertVol,jdbcType=DECIMAL},
+      </if>
+      <if test="issuetypeByindi != null">
+        #{issuetypeByindi,jdbcType=CHAR},
+      </if>
+      <if test="issuetypeByinst != null">
+        #{issuetypeByinst,jdbcType=CHAR},
+      </if>
+      <if test="subsType != null">
+        #{subsType,jdbcType=CHAR},
+      </if>
+      <if test="collectFeetype != null">
+        #{collectFeetype,jdbcType=CHAR},
+      </if>
+      <if test="nextTradedate != null">
+        #{nextTradedate,jdbcType=CHAR},
+      </if>
+      <if test="valueLine != null">
+        #{valueLine,jdbcType=DECIMAL},
+      </if>
+      <if test="totalDivident != null">
+        #{totalDivident,jdbcType=DECIMAL},
+      </if>
+      <if test="fundIncome != null">
+        #{fundIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="fundIncomeFlag != null">
+        #{fundIncomeFlag,jdbcType=CHAR},
+      </if>
+      <if test="yield != null">
+        #{yield,jdbcType=DECIMAL},
+      </if>
+      <if test="yieldFlag != null">
+        #{yieldFlag,jdbcType=CHAR},
+      </if>
+      <if test="guaranteedNav != null">
+        #{guaranteedNav,jdbcType=DECIMAL},
+      </if>
+      <if test="fundyearincomeRate != null">
+        #{fundyearincomeRate,jdbcType=DECIMAL},
+      </if>
+      <if test="fundyearincomeRateFlag != null">
+        #{fundyearincomeRateFlag,jdbcType=CHAR},
+      </if>
+      <if test="indimaxPurchase != null">
+        #{indimaxPurchase,jdbcType=DECIMAL},
+      </if>
+      <if test="instmaxPurchase != null">
+        #{instmaxPurchase,jdbcType=DECIMAL},
+      </if>
+      <if test="indidayMaxsumbuy != null">
+        #{indidayMaxsumbuy,jdbcType=DECIMAL},
+      </if>
+      <if test="instdayMaxsumbuy != null">
+        #{instdayMaxsumbuy,jdbcType=DECIMAL},
+      </if>
+      <if test="indidayMaxsumredeem != null">
+        #{indidayMaxsumredeem,jdbcType=DECIMAL},
+      </if>
+      <if test="instdayMaxsumredeem != null">
+        #{instdayMaxsumredeem,jdbcType=DECIMAL},
+      </if>
+      <if test="indiMaxRedeem != null">
+        #{indiMaxRedeem,jdbcType=DECIMAL},
+      </if>
+      <if test="instMaxRedeem != null">
+        #{instMaxRedeem,jdbcType=DECIMAL},
+      </if>
+      <if test="fundDayIncomeflag != null">
+        #{fundDayIncomeflag,jdbcType=CHAR},
+      </if>
+      <if test="fundDayIncome != null">
+        #{fundDayIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="allowBreachRedempt != null">
+        #{allowBreachRedempt,jdbcType=CHAR},
+      </if>
+      <if test="fundType != null">
+        #{fundType,jdbcType=CHAR},
+      </if>
+      <if test="fundTypeName != null">
+        #{fundTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="registrarName != null">
+        #{registrarName,jdbcType=VARCHAR},
+      </if>
+      <if test="fundmanagerName != null">
+        #{fundmanagerName,jdbcType=VARCHAR},
+      </if>
+      <if test="fundServerTel != null">
+        #{fundServerTel,jdbcType=VARCHAR},
+      </if>
+      <if test="fundInternetAddress != null">
+        #{fundInternetAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="shareType != null">
+        #{shareType,jdbcType=CHAR},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shhxzq.fin.cif.model.HopFundChgRecord">
+    update CCS_FUND_CHG_RECORD
+    <set>
+      <if test="fundName != null">
+        Fund_Name = #{fundName,jdbcType=VARCHAR},
+      </if>
+      <if test="totalFundvol != null">
+        Total_FundVol = #{totalFundvol,jdbcType=DECIMAL},
+      </if>
+      <if test="fundCode != null">
+        Fund_Code = #{fundCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taNo != null">
+        TA_NO = #{taNo,jdbcType=VARCHAR},
+      </if>
+      <if test="workDate != null">
+        WORK_DATE = #{workDate,jdbcType=CHAR},
+      </if>
+      <if test="fundStatus != null">
+        Fund_Status = #{fundStatus,jdbcType=CHAR},
+      </if>
+      <if test="nav != null">
+        NAV = #{nav,jdbcType=DECIMAL},
+      </if>
+      <if test="updateDate != null">
+        Update_Date = #{updateDate,jdbcType=CHAR},
+      </if>
+      <if test="netValueType != null">
+        Net_Value_Type = #{netValueType,jdbcType=CHAR},
+      </if>
+      <if test="accumulativeNav != null">
+        Accumulative_NAV = #{accumulativeNav,jdbcType=DECIMAL},
+      </if>
+      <if test="convertStatus != null">
+        Convert_Status = #{convertStatus,jdbcType=CHAR},
+      </if>
+      <if test="periodicStatus != null">
+        Periodic_Status = #{periodicStatus,jdbcType=CHAR},
+      </if>
+      <if test="transferAgencyStatus != null">
+        Transfer_Agency_Status = #{transferAgencyStatus,jdbcType=CHAR},
+      </if>
+      <if test="fundSize != null">
+        Fund_Size = #{fundSize,jdbcType=DECIMAL},
+      </if>
+      <if test="currencyType != null">
+        Currency_Type = #{currencyType,jdbcType=VARCHAR},
+      </if>
+      <if test="announcFlag != null">
+        Announc_Flag = #{announcFlag,jdbcType=CHAR},
+      </if>
+      <if test="defDividendMethod != null">
+        Def_Dividend_Method = #{defDividendMethod,jdbcType=CHAR},
+      </if>
+      <if test="instAppSubsAmnt != null">
+        Inst_App_Subs_Amnt = #{instAppSubsAmnt,jdbcType=DECIMAL},
+      </if>
+      <if test="instAppSubsVol != null">
+        Inst_App_Subs_Vol = #{instAppSubsVol,jdbcType=DECIMAL},
+      </if>
+      <if test="minAmountByinst != null">
+        Min_Amount_ByInst = #{minAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="minVolByinst != null">
+        Min_Vol_ByInst = #{minVolByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="custoDianCode != null">
+        Custo_dian_Code = #{custoDianCode,jdbcType=VARCHAR},
+      </if>
+      <if test="amountOfPeriodicSubs != null">
+        Amount_Of_Periodic_Subs = #{amountOfPeriodicSubs,jdbcType=DECIMAL},
+      </if>
+      <if test="dateOfPeriodicSubs != null">
+        Date_Of_Periodic_Subs = #{dateOfPeriodicSubs,jdbcType=CHAR},
+      </if>
+      <if test="maxRedemptionVol != null">
+        Max_Redemption_Vol = #{maxRedemptionVol,jdbcType=DECIMAL},
+      </if>
+      <if test="minAccountBalance != null">
+        Min_Account_Balance = #{minAccountBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="ipoStartDate != null">
+        IPO_Start_Date = #{ipoStartDate,jdbcType=CHAR},
+      </if>
+      <if test="ipoEnddate != null">
+        IPO_EndDate = #{ipoEnddate,jdbcType=CHAR},
+      </if>
+      <if test="fundManagerCode != null">
+        Fund_Manager_Code = #{fundManagerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="indiAppSubsVol != null">
+        Indi_App_Subs_Vol = #{indiAppSubsVol,jdbcType=DECIMAL},
+      </if>
+      <if test="indiAppsubsAmount != null">
+        Indi_AppSubs_Amount = #{indiAppsubsAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="minSubsVolByindi != null">
+        Min_Subs_Vol_ByIndi = #{minSubsVolByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="minSubsAmountByindi != null">
+        Min_Subs_Amount_ByIndi = #{minSubsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="registRarcode != null">
+        Regist_rarCode = #{registRarcode,jdbcType=CHAR},
+      </if>
+      <if test="fundSponsor != null">
+        Fund_Sponsor = #{fundSponsor,jdbcType=CHAR},
+      </if>
+      <if test="tradingPrice != null">
+        Trading_Price = #{tradingPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="faceValue != null">
+        Face_Value = #{faceValue,jdbcType=DECIMAL},
+      </if>
+      <if test="dividentDate != null">
+        Divident_Date = #{dividentDate,jdbcType=CHAR},
+      </if>
+      <if test="registrationDate != null">
+        Registration_Date = #{registrationDate,jdbcType=CHAR},
+      </if>
+      <if test="xrDate != null">
+        XR_Date = #{xrDate,jdbcType=CHAR},
+      </if>
+      <if test="maxSubsVolByindi != null">
+        Max_Subs_Vol_ByIndi = #{maxSubsVolByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="maxSubsAmountByindi != null">
+        Max_Subs_Amount_ByIndi = #{maxSubsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="maxSubsVolByinst != null">
+        Max_Subs_Vol_ByInst = #{maxSubsVolByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="maxSubsAmountByinst != null">
+        Max_Subs_Amount_ByInst = #{maxSubsAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="unitSubsVolByindi != null">
+        Unit_Subs_Vol_ByIndi = #{unitSubsVolByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="unitSubsAmountByindi != null">
+        Unit_Subs_Amount_ByIndi = #{unitSubsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="unitSubsVolByinst != null">
+        Unit_Subs_Vol_ByInst = #{unitSubsVolByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="unitSubsAmountByinst != null">
+        Unit_Subs_Amount_ByInst = #{unitSubsAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="minBidsAmountByindi != null">
+        Min_Bids_Amount_ByIndi = #{minBidsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="minBidsAmountByinst != null">
+        Min_Bids_Amount_ByInst = #{minBidsAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="minAppbidsAmountByindi != null">
+        Min_AppBids_Amount_ByIndi = #{minAppbidsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="minAppbidsAmountByinst != null">
+        Min_AppBids_Amount_ByInst = #{minAppbidsAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="minRedemptionVol != null">
+        Min_Redemption_Vol = #{minRedemptionVol,jdbcType=DECIMAL},
+      </if>
+      <if test="mininterconvertVol != null">
+        MinInterconvert_Vol = #{mininterconvertVol,jdbcType=DECIMAL},
+      </if>
+      <if test="issuetypeByindi != null">
+        IssueType_ByIndi = #{issuetypeByindi,jdbcType=CHAR},
+      </if>
+      <if test="issuetypeByinst != null">
+        IssueType_ByInst = #{issuetypeByinst,jdbcType=CHAR},
+      </if>
+      <if test="subsType != null">
+        Subs_Type = #{subsType,jdbcType=CHAR},
+      </if>
+      <if test="collectFeetype != null">
+        Collect_FeeType = #{collectFeetype,jdbcType=CHAR},
+      </if>
+      <if test="nextTradedate != null">
+        Next_TradeDate = #{nextTradedate,jdbcType=CHAR},
+      </if>
+      <if test="valueLine != null">
+        Value_Line = #{valueLine,jdbcType=DECIMAL},
+      </if>
+      <if test="totalDivident != null">
+        Total_Divident = #{totalDivident,jdbcType=DECIMAL},
+      </if>
+      <if test="fundIncome != null">
+        Fund_Income = #{fundIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="fundIncomeFlag != null">
+        Fund_Income_Flag = #{fundIncomeFlag,jdbcType=CHAR},
+      </if>
+      <if test="yield != null">
+        Yield = #{yield,jdbcType=DECIMAL},
+      </if>
+      <if test="yieldFlag != null">
+        Yield_Flag = #{yieldFlag,jdbcType=CHAR},
+      </if>
+      <if test="guaranteedNav != null">
+        Guaranteed_NAV = #{guaranteedNav,jdbcType=DECIMAL},
+      </if>
+      <if test="fundyearincomeRate != null">
+        FundYearIncome_Rate = #{fundyearincomeRate,jdbcType=DECIMAL},
+      </if>
+      <if test="fundyearincomeRateFlag != null">
+        FundYearIncome_Rate_Flag = #{fundyearincomeRateFlag,jdbcType=CHAR},
+      </if>
+      <if test="indimaxPurchase != null">
+        IndiMax_Purchase = #{indimaxPurchase,jdbcType=DECIMAL},
+      </if>
+      <if test="instmaxPurchase != null">
+        InstMax_Purchase = #{instmaxPurchase,jdbcType=DECIMAL},
+      </if>
+      <if test="indidayMaxsumbuy != null">
+        IndiDay_MaxSumBuy = #{indidayMaxsumbuy,jdbcType=DECIMAL},
+      </if>
+      <if test="instdayMaxsumbuy != null">
+        InstDay_MaxSumBuy = #{instdayMaxsumbuy,jdbcType=DECIMAL},
+      </if>
+      <if test="indidayMaxsumredeem != null">
+        IndiDay_MaxSumRedeem = #{indidayMaxsumredeem,jdbcType=DECIMAL},
+      </if>
+      <if test="instdayMaxsumredeem != null">
+        InstDay_MaxSumRedeem = #{instdayMaxsumredeem,jdbcType=DECIMAL},
+      </if>
+      <if test="indiMaxRedeem != null">
+        Indi_Max_Redeem = #{indiMaxRedeem,jdbcType=DECIMAL},
+      </if>
+      <if test="instMaxRedeem != null">
+        Inst_Max_Redeem = #{instMaxRedeem,jdbcType=DECIMAL},
+      </if>
+      <if test="fundDayIncomeflag != null">
+        Fund_Day_IncomeFlag = #{fundDayIncomeflag,jdbcType=CHAR},
+      </if>
+      <if test="fundDayIncome != null">
+        Fund_Day_Income = #{fundDayIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="allowBreachRedempt != null">
+        Allow_Breach_Redempt = #{allowBreachRedempt,jdbcType=CHAR},
+      </if>
+      <if test="fundType != null">
+        Fund_Type = #{fundType,jdbcType=CHAR},
+      </if>
+      <if test="fundTypeName != null">
+        Fund_Type_Name = #{fundTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="registrarName != null">
+        Registrar_Name = #{registrarName,jdbcType=VARCHAR},
+      </if>
+      <if test="fundmanagerName != null">
+        FundManager_Name = #{fundmanagerName,jdbcType=VARCHAR},
+      </if>
+      <if test="fundServerTel != null">
+        Fund_Server_Tel = #{fundServerTel,jdbcType=VARCHAR},
+      </if>
+      <if test="fundInternetAddress != null">
+        Fund_Internet_Address = #{fundInternetAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="shareType != null">
+        Share_Type = #{shareType,jdbcType=CHAR},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createdAt != null">
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shhxzq.fin.cif.model.HopFundChgRecord">
+    update CCS_FUND_CHG_RECORD
+    set Fund_Name = #{fundName,jdbcType=VARCHAR},
+      Total_FundVol = #{totalFundvol,jdbcType=DECIMAL},
+      Fund_Code = #{fundCode,jdbcType=VARCHAR},
+      TA_NO = #{taNo,jdbcType=VARCHAR},
+      WORK_DATE = #{workDate,jdbcType=CHAR},
+      Fund_Status = #{fundStatus,jdbcType=CHAR},
+      NAV = #{nav,jdbcType=DECIMAL},
+      Update_Date = #{updateDate,jdbcType=CHAR},
+      Net_Value_Type = #{netValueType,jdbcType=CHAR},
+      Accumulative_NAV = #{accumulativeNav,jdbcType=DECIMAL},
+      Convert_Status = #{convertStatus,jdbcType=CHAR},
+      Periodic_Status = #{periodicStatus,jdbcType=CHAR},
+      Transfer_Agency_Status = #{transferAgencyStatus,jdbcType=CHAR},
+      Fund_Size = #{fundSize,jdbcType=DECIMAL},
+      Currency_Type = #{currencyType,jdbcType=VARCHAR},
+      Announc_Flag = #{announcFlag,jdbcType=CHAR},
+      Def_Dividend_Method = #{defDividendMethod,jdbcType=CHAR},
+      Inst_App_Subs_Amnt = #{instAppSubsAmnt,jdbcType=DECIMAL},
+      Inst_App_Subs_Vol = #{instAppSubsVol,jdbcType=DECIMAL},
+      Min_Amount_ByInst = #{minAmountByinst,jdbcType=DECIMAL},
+      Min_Vol_ByInst = #{minVolByinst,jdbcType=DECIMAL},
+      Custo_dian_Code = #{custoDianCode,jdbcType=VARCHAR},
+      Amount_Of_Periodic_Subs = #{amountOfPeriodicSubs,jdbcType=DECIMAL},
+      Date_Of_Periodic_Subs = #{dateOfPeriodicSubs,jdbcType=CHAR},
+      Max_Redemption_Vol = #{maxRedemptionVol,jdbcType=DECIMAL},
+      Min_Account_Balance = #{minAccountBalance,jdbcType=DECIMAL},
+      IPO_Start_Date = #{ipoStartDate,jdbcType=CHAR},
+      IPO_EndDate = #{ipoEnddate,jdbcType=CHAR},
+      Fund_Manager_Code = #{fundManagerCode,jdbcType=VARCHAR},
+      Indi_App_Subs_Vol = #{indiAppSubsVol,jdbcType=DECIMAL},
+      Indi_AppSubs_Amount = #{indiAppsubsAmount,jdbcType=DECIMAL},
+      Min_Subs_Vol_ByIndi = #{minSubsVolByindi,jdbcType=DECIMAL},
+      Min_Subs_Amount_ByIndi = #{minSubsAmountByindi,jdbcType=DECIMAL},
+      Regist_rarCode = #{registRarcode,jdbcType=CHAR},
+      Fund_Sponsor = #{fundSponsor,jdbcType=CHAR},
+      Trading_Price = #{tradingPrice,jdbcType=DECIMAL},
+      Face_Value = #{faceValue,jdbcType=DECIMAL},
+      Divident_Date = #{dividentDate,jdbcType=CHAR},
+      Registration_Date = #{registrationDate,jdbcType=CHAR},
+      XR_Date = #{xrDate,jdbcType=CHAR},
+      Max_Subs_Vol_ByIndi = #{maxSubsVolByindi,jdbcType=DECIMAL},
+      Max_Subs_Amount_ByIndi = #{maxSubsAmountByindi,jdbcType=DECIMAL},
+      Max_Subs_Vol_ByInst = #{maxSubsVolByinst,jdbcType=DECIMAL},
+      Max_Subs_Amount_ByInst = #{maxSubsAmountByinst,jdbcType=DECIMAL},
+      Unit_Subs_Vol_ByIndi = #{unitSubsVolByindi,jdbcType=DECIMAL},
+      Unit_Subs_Amount_ByIndi = #{unitSubsAmountByindi,jdbcType=DECIMAL},
+      Unit_Subs_Vol_ByInst = #{unitSubsVolByinst,jdbcType=DECIMAL},
+      Unit_Subs_Amount_ByInst = #{unitSubsAmountByinst,jdbcType=DECIMAL},
+      Min_Bids_Amount_ByIndi = #{minBidsAmountByindi,jdbcType=DECIMAL},
+      Min_Bids_Amount_ByInst = #{minBidsAmountByinst,jdbcType=DECIMAL},
+      Min_AppBids_Amount_ByIndi = #{minAppbidsAmountByindi,jdbcType=DECIMAL},
+      Min_AppBids_Amount_ByInst = #{minAppbidsAmountByinst,jdbcType=DECIMAL},
+      Min_Redemption_Vol = #{minRedemptionVol,jdbcType=DECIMAL},
+      MinInterconvert_Vol = #{mininterconvertVol,jdbcType=DECIMAL},
+      IssueType_ByIndi = #{issuetypeByindi,jdbcType=CHAR},
+      IssueType_ByInst = #{issuetypeByinst,jdbcType=CHAR},
+      Subs_Type = #{subsType,jdbcType=CHAR},
+      Collect_FeeType = #{collectFeetype,jdbcType=CHAR},
+      Next_TradeDate = #{nextTradedate,jdbcType=CHAR},
+      Value_Line = #{valueLine,jdbcType=DECIMAL},
+      Total_Divident = #{totalDivident,jdbcType=DECIMAL},
+      Fund_Income = #{fundIncome,jdbcType=DECIMAL},
+      Fund_Income_Flag = #{fundIncomeFlag,jdbcType=CHAR},
+      Yield = #{yield,jdbcType=DECIMAL},
+      Yield_Flag = #{yieldFlag,jdbcType=CHAR},
+      Guaranteed_NAV = #{guaranteedNav,jdbcType=DECIMAL},
+      FundYearIncome_Rate = #{fundyearincomeRate,jdbcType=DECIMAL},
+      FundYearIncome_Rate_Flag = #{fundyearincomeRateFlag,jdbcType=CHAR},
+      IndiMax_Purchase = #{indimaxPurchase,jdbcType=DECIMAL},
+      InstMax_Purchase = #{instmaxPurchase,jdbcType=DECIMAL},
+      IndiDay_MaxSumBuy = #{indidayMaxsumbuy,jdbcType=DECIMAL},
+      InstDay_MaxSumBuy = #{instdayMaxsumbuy,jdbcType=DECIMAL},
+      IndiDay_MaxSumRedeem = #{indidayMaxsumredeem,jdbcType=DECIMAL},
+      InstDay_MaxSumRedeem = #{instdayMaxsumredeem,jdbcType=DECIMAL},
+      Indi_Max_Redeem = #{indiMaxRedeem,jdbcType=DECIMAL},
+      Inst_Max_Redeem = #{instMaxRedeem,jdbcType=DECIMAL},
+      Fund_Day_IncomeFlag = #{fundDayIncomeflag,jdbcType=CHAR},
+      Fund_Day_Income = #{fundDayIncome,jdbcType=DECIMAL},
+      Allow_Breach_Redempt = #{allowBreachRedempt,jdbcType=CHAR},
+      Fund_Type = #{fundType,jdbcType=CHAR},
+      Fund_Type_Name = #{fundTypeName,jdbcType=VARCHAR},
+      Registrar_Name = #{registrarName,jdbcType=VARCHAR},
+      FundManager_Name = #{fundmanagerName,jdbcType=VARCHAR},
+      Fund_Server_Tel = #{fundServerTel,jdbcType=VARCHAR},
+      Fund_Internet_Address = #{fundInternetAddress,jdbcType=VARCHAR},
+      Share_Type = #{shareType,jdbcType=CHAR},
+      is_delete = #{isDelete,jdbcType=TINYINT},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="com.shhxzq.fin.cif.model.HopFundChgRecord">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="Fund_Name" jdbcType="VARCHAR" property="fundName" />
+    <result column="Total_FundVol" jdbcType="DECIMAL" property="totalFundvol" />
+    <result column="Fund_Code" jdbcType="VARCHAR" property="fundCode" />
+    <result column="TA_NO" jdbcType="VARCHAR" property="taNo" />
+    <result column="WORK_DATE" jdbcType="CHAR" property="workDate" />
+    <result column="Fund_Status" jdbcType="CHAR" property="fundStatus" />
+    <result column="NAV" jdbcType="DECIMAL" property="nav" />
+    <result column="Update_Date" jdbcType="CHAR" property="updateDate" />
+    <result column="Net_Value_Type" jdbcType="CHAR" property="netValueType" />
+    <result column="Accumulative_NAV" jdbcType="DECIMAL" property="accumulativeNav" />
+    <result column="Convert_Status" jdbcType="CHAR" property="convertStatus" />
+    <result column="Periodic_Status" jdbcType="CHAR" property="periodicStatus" />
+    <result column="Transfer_Agency_Status" jdbcType="CHAR" property="transferAgencyStatus" />
+    <result column="Fund_Size" jdbcType="DECIMAL" property="fundSize" />
+    <result column="Currency_Type" jdbcType="VARCHAR" property="currencyType" />
+    <result column="Announc_Flag" jdbcType="CHAR" property="announcFlag" />
+    <result column="Def_Dividend_Method" jdbcType="CHAR" property="defDividendMethod" />
+    <result column="Inst_App_Subs_Amnt" jdbcType="DECIMAL" property="instAppSubsAmnt" />
+    <result column="Inst_App_Subs_Vol" jdbcType="DECIMAL" property="instAppSubsVol" />
+    <result column="Min_Amount_ByInst" jdbcType="DECIMAL" property="minAmountByinst" />
+    <result column="Min_Vol_ByInst" jdbcType="DECIMAL" property="minVolByinst" />
+    <result column="Custo_dian_Code" jdbcType="VARCHAR" property="custoDianCode" />
+    <result column="Amount_Of_Periodic_Subs" jdbcType="DECIMAL" property="amountOfPeriodicSubs" />
+    <result column="Date_Of_Periodic_Subs" jdbcType="CHAR" property="dateOfPeriodicSubs" />
+    <result column="Max_Redemption_Vol" jdbcType="DECIMAL" property="maxRedemptionVol" />
+    <result column="Min_Account_Balance" jdbcType="DECIMAL" property="minAccountBalance" />
+    <result column="IPO_Start_Date" jdbcType="CHAR" property="ipoStartDate" />
+    <result column="IPO_EndDate" jdbcType="CHAR" property="ipoEnddate" />
+    <result column="Fund_Manager_Code" jdbcType="VARCHAR" property="fundManagerCode" />
+    <result column="Indi_App_Subs_Vol" jdbcType="DECIMAL" property="indiAppSubsVol" />
+    <result column="Indi_AppSubs_Amount" jdbcType="DECIMAL" property="indiAppsubsAmount" />
+    <result column="Min_Subs_Vol_ByIndi" jdbcType="DECIMAL" property="minSubsVolByindi" />
+    <result column="Min_Subs_Amount_ByIndi" jdbcType="DECIMAL" property="minSubsAmountByindi" />
+    <result column="Regist_rarCode" jdbcType="CHAR" property="registRarcode" />
+    <result column="Fund_Sponsor" jdbcType="CHAR" property="fundSponsor" />
+    <result column="Trading_Price" jdbcType="DECIMAL" property="tradingPrice" />
+    <result column="Face_Value" jdbcType="DECIMAL" property="faceValue" />
+    <result column="Divident_Date" jdbcType="CHAR" property="dividentDate" />
+    <result column="Registration_Date" jdbcType="CHAR" property="registrationDate" />
+    <result column="XR_Date" jdbcType="CHAR" property="xrDate" />
+    <result column="Max_Subs_Vol_ByIndi" jdbcType="DECIMAL" property="maxSubsVolByindi" />
+    <result column="Max_Subs_Amount_ByIndi" jdbcType="DECIMAL" property="maxSubsAmountByindi" />
+    <result column="Max_Subs_Vol_ByInst" jdbcType="DECIMAL" property="maxSubsVolByinst" />
+    <result column="Max_Subs_Amount_ByInst" jdbcType="DECIMAL" property="maxSubsAmountByinst" />
+    <result column="Unit_Subs_Vol_ByIndi" jdbcType="DECIMAL" property="unitSubsVolByindi" />
+    <result column="Unit_Subs_Amount_ByIndi" jdbcType="DECIMAL" property="unitSubsAmountByindi" />
+    <result column="Unit_Subs_Vol_ByInst" jdbcType="DECIMAL" property="unitSubsVolByinst" />
+    <result column="Unit_Subs_Amount_ByInst" jdbcType="DECIMAL" property="unitSubsAmountByinst" />
+    <result column="Min_Bids_Amount_ByIndi" jdbcType="DECIMAL" property="minBidsAmountByindi" />
+    <result column="Min_Bids_Amount_ByInst" jdbcType="DECIMAL" property="minBidsAmountByinst" />
+    <result column="Min_AppBids_Amount_ByIndi" jdbcType="DECIMAL" property="minAppbidsAmountByindi" />
+    <result column="Min_AppBids_Amount_ByInst" jdbcType="DECIMAL" property="minAppbidsAmountByinst" />
+    <result column="Min_Redemption_Vol" jdbcType="DECIMAL" property="minRedemptionVol" />
+    <result column="MinInterconvert_Vol" jdbcType="DECIMAL" property="mininterconvertVol" />
+    <result column="IssueType_ByIndi" jdbcType="CHAR" property="issuetypeByindi" />
+    <result column="IssueType_ByInst" jdbcType="CHAR" property="issuetypeByinst" />
+    <result column="Subs_Type" jdbcType="CHAR" property="subsType" />
+    <result column="Collect_FeeType" jdbcType="CHAR" property="collectFeetype" />
+    <result column="Next_TradeDate" jdbcType="CHAR" property="nextTradedate" />
+    <result column="Value_Line" jdbcType="DECIMAL" property="valueLine" />
+    <result column="Total_Divident" jdbcType="DECIMAL" property="totalDivident" />
+    <result column="Fund_Income" jdbcType="DECIMAL" property="fundIncome" />
+    <result column="Fund_Income_Flag" jdbcType="CHAR" property="fundIncomeFlag" />
+    <result column="Yield" jdbcType="DECIMAL" property="yield" />
+    <result column="Yield_Flag" jdbcType="CHAR" property="yieldFlag" />
+    <result column="Guaranteed_NAV" jdbcType="DECIMAL" property="guaranteedNav" />
+    <result column="FundYearIncome_Rate" jdbcType="DECIMAL" property="fundyearincomeRate" />
+    <result column="FundYearIncome_Rate_Flag" jdbcType="CHAR" property="fundyearincomeRateFlag" />
+    <result column="IndiMax_Purchase" jdbcType="DECIMAL" property="indimaxPurchase" />
+    <result column="InstMax_Purchase" jdbcType="DECIMAL" property="instmaxPurchase" />
+    <result column="IndiDay_MaxSumBuy" jdbcType="DECIMAL" property="indidayMaxsumbuy" />
+    <result column="InstDay_MaxSumBuy" jdbcType="DECIMAL" property="instdayMaxsumbuy" />
+    <result column="IndiDay_MaxSumRedeem" jdbcType="DECIMAL" property="indidayMaxsumredeem" />
+    <result column="InstDay_MaxSumRedeem" jdbcType="DECIMAL" property="instdayMaxsumredeem" />
+    <result column="Indi_Max_Redeem" jdbcType="DECIMAL" property="indiMaxRedeem" />
+    <result column="Inst_Max_Redeem" jdbcType="DECIMAL" property="instMaxRedeem" />
+    <result column="Fund_Day_IncomeFlag" jdbcType="CHAR" property="fundDayIncomeflag" />
+    <result column="Fund_Day_Income" jdbcType="DECIMAL" property="fundDayIncome" />
+    <result column="Allow_Breach_Redempt" jdbcType="CHAR" property="allowBreachRedempt" />
+    <result column="Fund_Type" jdbcType="CHAR" property="fundType" />
+    <result column="Fund_Type_Name" jdbcType="VARCHAR" property="fundTypeName" />
+    <result column="Registrar_Name" jdbcType="VARCHAR" property="registrarName" />
+    <result column="FundManager_Name" jdbcType="VARCHAR" property="fundmanagerName" />
+    <result column="Fund_Server_Tel" jdbcType="VARCHAR" property="fundServerTel" />
+    <result column="Fund_Internet_Address" jdbcType="VARCHAR" property="fundInternetAddress" />
+    <result column="Share_Type" jdbcType="CHAR" property="shareType" />
+    <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, Fund_Name, Total_FundVol, Fund_Code, TA_NO, WORK_DATE, Fund_Status, NAV, Update_Date, 
+    Net_Value_Type, Accumulative_NAV, Convert_Status, Periodic_Status, Transfer_Agency_Status, 
+    Fund_Size, Currency_Type, Announc_Flag, Def_Dividend_Method, Inst_App_Subs_Amnt, 
+    Inst_App_Subs_Vol, Min_Amount_ByInst, Min_Vol_ByInst, Custo_dian_Code, Amount_Of_Periodic_Subs, 
+    Date_Of_Periodic_Subs, Max_Redemption_Vol, Min_Account_Balance, IPO_Start_Date, IPO_EndDate, 
+    Fund_Manager_Code, Indi_App_Subs_Vol, Indi_AppSubs_Amount, Min_Subs_Vol_ByIndi, Min_Subs_Amount_ByIndi, 
+    Regist_rarCode, Fund_Sponsor, Trading_Price, Face_Value, Divident_Date, Registration_Date, 
+    XR_Date, Max_Subs_Vol_ByIndi, Max_Subs_Amount_ByIndi, Max_Subs_Vol_ByInst, Max_Subs_Amount_ByInst, 
+    Unit_Subs_Vol_ByIndi, Unit_Subs_Amount_ByIndi, Unit_Subs_Vol_ByInst, Unit_Subs_Amount_ByInst, 
+    Min_Bids_Amount_ByIndi, Min_Bids_Amount_ByInst, Min_AppBids_Amount_ByIndi, Min_AppBids_Amount_ByInst, 
+    Min_Redemption_Vol, MinInterconvert_Vol, IssueType_ByIndi, IssueType_ByInst, Subs_Type, 
+    Collect_FeeType, Next_TradeDate, Value_Line, Total_Divident, Fund_Income, Fund_Income_Flag, 
+    Yield, Yield_Flag, Guaranteed_NAV, FundYearIncome_Rate, FundYearIncome_Rate_Flag, 
+    IndiMax_Purchase, InstMax_Purchase, IndiDay_MaxSumBuy, InstDay_MaxSumBuy, IndiDay_MaxSumRedeem, 
+    InstDay_MaxSumRedeem, Indi_Max_Redeem, Inst_Max_Redeem, Fund_Day_IncomeFlag, Fund_Day_Income, 
+    Allow_Breach_Redempt, Fund_Type, Fund_Type_Name, Registrar_Name, FundManager_Name, 
+    Fund_Server_Tel, Fund_Internet_Address, Share_Type, is_delete, created_at, updated_at
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CCS_FUND_CHG_RECORD
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from CCS_FUND_CHG_RECORD
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.shhxzq.fin.cif.model.HopFundChgRecord" useGeneratedKeys="true">
+    insert into CCS_FUND_CHG_RECORD (Fund_Name, Total_FundVol, Fund_Code, 
+      TA_NO, WORK_DATE, Fund_Status, 
+      NAV, Update_Date, Net_Value_Type, 
+      Accumulative_NAV, Convert_Status, Periodic_Status, 
+      Transfer_Agency_Status, Fund_Size, Currency_Type, 
+      Announc_Flag, Def_Dividend_Method, Inst_App_Subs_Amnt, 
+      Inst_App_Subs_Vol, Min_Amount_ByInst, Min_Vol_ByInst, 
+      Custo_dian_Code, Amount_Of_Periodic_Subs, Date_Of_Periodic_Subs, 
+      Max_Redemption_Vol, Min_Account_Balance, IPO_Start_Date, 
+      IPO_EndDate, Fund_Manager_Code, Indi_App_Subs_Vol, 
+      Indi_AppSubs_Amount, Min_Subs_Vol_ByIndi, Min_Subs_Amount_ByIndi, 
+      Regist_rarCode, Fund_Sponsor, Trading_Price, 
+      Face_Value, Divident_Date, Registration_Date, 
+      XR_Date, Max_Subs_Vol_ByIndi, Max_Subs_Amount_ByIndi, 
+      Max_Subs_Vol_ByInst, Max_Subs_Amount_ByInst, 
+      Unit_Subs_Vol_ByIndi, Unit_Subs_Amount_ByIndi, 
+      Unit_Subs_Vol_ByInst, Unit_Subs_Amount_ByInst, 
+      Min_Bids_Amount_ByIndi, Min_Bids_Amount_ByInst, 
+      Min_AppBids_Amount_ByIndi, Min_AppBids_Amount_ByInst, 
+      Min_Redemption_Vol, MinInterconvert_Vol, IssueType_ByIndi, 
+      IssueType_ByInst, Subs_Type, Collect_FeeType, 
+      Next_TradeDate, Value_Line, Total_Divident, 
+      Fund_Income, Fund_Income_Flag, Yield, 
+      Yield_Flag, Guaranteed_NAV, FundYearIncome_Rate, 
+      FundYearIncome_Rate_Flag, IndiMax_Purchase, InstMax_Purchase, 
+      IndiDay_MaxSumBuy, InstDay_MaxSumBuy, IndiDay_MaxSumRedeem, 
+      InstDay_MaxSumRedeem, Indi_Max_Redeem, Inst_Max_Redeem, 
+      Fund_Day_IncomeFlag, Fund_Day_Income, Allow_Breach_Redempt, 
+      Fund_Type, Fund_Type_Name, Registrar_Name, 
+      FundManager_Name, Fund_Server_Tel, Fund_Internet_Address, 
+      Share_Type, is_delete, created_at, 
+      updated_at)
+    values (#{fundName,jdbcType=VARCHAR}, #{totalFundvol,jdbcType=DECIMAL}, #{fundCode,jdbcType=VARCHAR}, 
+      #{taNo,jdbcType=VARCHAR}, #{workDate,jdbcType=CHAR}, #{fundStatus,jdbcType=CHAR}, 
+      #{nav,jdbcType=DECIMAL}, #{updateDate,jdbcType=CHAR}, #{netValueType,jdbcType=CHAR}, 
+      #{accumulativeNav,jdbcType=DECIMAL}, #{convertStatus,jdbcType=CHAR}, #{periodicStatus,jdbcType=CHAR}, 
+      #{transferAgencyStatus,jdbcType=CHAR}, #{fundSize,jdbcType=DECIMAL}, #{currencyType,jdbcType=VARCHAR}, 
+      #{announcFlag,jdbcType=CHAR}, #{defDividendMethod,jdbcType=CHAR}, #{instAppSubsAmnt,jdbcType=DECIMAL}, 
+      #{instAppSubsVol,jdbcType=DECIMAL}, #{minAmountByinst,jdbcType=DECIMAL}, #{minVolByinst,jdbcType=DECIMAL}, 
+      #{custoDianCode,jdbcType=VARCHAR}, #{amountOfPeriodicSubs,jdbcType=DECIMAL}, #{dateOfPeriodicSubs,jdbcType=CHAR}, 
+      #{maxRedemptionVol,jdbcType=DECIMAL}, #{minAccountBalance,jdbcType=DECIMAL}, #{ipoStartDate,jdbcType=CHAR}, 
+      #{ipoEnddate,jdbcType=CHAR}, #{fundManagerCode,jdbcType=VARCHAR}, #{indiAppSubsVol,jdbcType=DECIMAL}, 
+      #{indiAppsubsAmount,jdbcType=DECIMAL}, #{minSubsVolByindi,jdbcType=DECIMAL}, #{minSubsAmountByindi,jdbcType=DECIMAL}, 
+      #{registRarcode,jdbcType=CHAR}, #{fundSponsor,jdbcType=CHAR}, #{tradingPrice,jdbcType=DECIMAL}, 
+      #{faceValue,jdbcType=DECIMAL}, #{dividentDate,jdbcType=CHAR}, #{registrationDate,jdbcType=CHAR}, 
+      #{xrDate,jdbcType=CHAR}, #{maxSubsVolByindi,jdbcType=DECIMAL}, #{maxSubsAmountByindi,jdbcType=DECIMAL}, 
+      #{maxSubsVolByinst,jdbcType=DECIMAL}, #{maxSubsAmountByinst,jdbcType=DECIMAL}, 
+      #{unitSubsVolByindi,jdbcType=DECIMAL}, #{unitSubsAmountByindi,jdbcType=DECIMAL}, 
+      #{unitSubsVolByinst,jdbcType=DECIMAL}, #{unitSubsAmountByinst,jdbcType=DECIMAL}, 
+      #{minBidsAmountByindi,jdbcType=DECIMAL}, #{minBidsAmountByinst,jdbcType=DECIMAL}, 
+      #{minAppbidsAmountByindi,jdbcType=DECIMAL}, #{minAppbidsAmountByinst,jdbcType=DECIMAL}, 
+      #{minRedemptionVol,jdbcType=DECIMAL}, #{mininterconvertVol,jdbcType=DECIMAL}, #{issuetypeByindi,jdbcType=CHAR}, 
+      #{issuetypeByinst,jdbcType=CHAR}, #{subsType,jdbcType=CHAR}, #{collectFeetype,jdbcType=CHAR}, 
+      #{nextTradedate,jdbcType=CHAR}, #{valueLine,jdbcType=DECIMAL}, #{totalDivident,jdbcType=DECIMAL}, 
+      #{fundIncome,jdbcType=DECIMAL}, #{fundIncomeFlag,jdbcType=CHAR}, #{yield,jdbcType=DECIMAL}, 
+      #{yieldFlag,jdbcType=CHAR}, #{guaranteedNav,jdbcType=DECIMAL}, #{fundyearincomeRate,jdbcType=DECIMAL}, 
+      #{fundyearincomeRateFlag,jdbcType=CHAR}, #{indimaxPurchase,jdbcType=DECIMAL}, #{instmaxPurchase,jdbcType=DECIMAL}, 
+      #{indidayMaxsumbuy,jdbcType=DECIMAL}, #{instdayMaxsumbuy,jdbcType=DECIMAL}, #{indidayMaxsumredeem,jdbcType=DECIMAL}, 
+      #{instdayMaxsumredeem,jdbcType=DECIMAL}, #{indiMaxRedeem,jdbcType=DECIMAL}, #{instMaxRedeem,jdbcType=DECIMAL}, 
+      #{fundDayIncomeflag,jdbcType=CHAR}, #{fundDayIncome,jdbcType=DECIMAL}, #{allowBreachRedempt,jdbcType=CHAR}, 
+      #{fundType,jdbcType=CHAR}, #{fundTypeName,jdbcType=VARCHAR}, #{registrarName,jdbcType=VARCHAR}, 
+      #{fundmanagerName,jdbcType=VARCHAR}, #{fundServerTel,jdbcType=VARCHAR}, #{fundInternetAddress,jdbcType=VARCHAR}, 
+      #{shareType,jdbcType=CHAR}, #{isDelete,jdbcType=TINYINT}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.shhxzq.fin.cif.model.HopFundChgRecord" useGeneratedKeys="true">
+    insert into CCS_FUND_CHG_RECORD
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fundName != null">
+        Fund_Name,
+      </if>
+      <if test="totalFundvol != null">
+        Total_FundVol,
+      </if>
+      <if test="fundCode != null">
+        Fund_Code,
+      </if>
+      <if test="taNo != null">
+        TA_NO,
+      </if>
+      <if test="workDate != null">
+        WORK_DATE,
+      </if>
+      <if test="fundStatus != null">
+        Fund_Status,
+      </if>
+      <if test="nav != null">
+        NAV,
+      </if>
+      <if test="updateDate != null">
+        Update_Date,
+      </if>
+      <if test="netValueType != null">
+        Net_Value_Type,
+      </if>
+      <if test="accumulativeNav != null">
+        Accumulative_NAV,
+      </if>
+      <if test="convertStatus != null">
+        Convert_Status,
+      </if>
+      <if test="periodicStatus != null">
+        Periodic_Status,
+      </if>
+      <if test="transferAgencyStatus != null">
+        Transfer_Agency_Status,
+      </if>
+      <if test="fundSize != null">
+        Fund_Size,
+      </if>
+      <if test="currencyType != null">
+        Currency_Type,
+      </if>
+      <if test="announcFlag != null">
+        Announc_Flag,
+      </if>
+      <if test="defDividendMethod != null">
+        Def_Dividend_Method,
+      </if>
+      <if test="instAppSubsAmnt != null">
+        Inst_App_Subs_Amnt,
+      </if>
+      <if test="instAppSubsVol != null">
+        Inst_App_Subs_Vol,
+      </if>
+      <if test="minAmountByinst != null">
+        Min_Amount_ByInst,
+      </if>
+      <if test="minVolByinst != null">
+        Min_Vol_ByInst,
+      </if>
+      <if test="custoDianCode != null">
+        Custo_dian_Code,
+      </if>
+      <if test="amountOfPeriodicSubs != null">
+        Amount_Of_Periodic_Subs,
+      </if>
+      <if test="dateOfPeriodicSubs != null">
+        Date_Of_Periodic_Subs,
+      </if>
+      <if test="maxRedemptionVol != null">
+        Max_Redemption_Vol,
+      </if>
+      <if test="minAccountBalance != null">
+        Min_Account_Balance,
+      </if>
+      <if test="ipoStartDate != null">
+        IPO_Start_Date,
+      </if>
+      <if test="ipoEnddate != null">
+        IPO_EndDate,
+      </if>
+      <if test="fundManagerCode != null">
+        Fund_Manager_Code,
+      </if>
+      <if test="indiAppSubsVol != null">
+        Indi_App_Subs_Vol,
+      </if>
+      <if test="indiAppsubsAmount != null">
+        Indi_AppSubs_Amount,
+      </if>
+      <if test="minSubsVolByindi != null">
+        Min_Subs_Vol_ByIndi,
+      </if>
+      <if test="minSubsAmountByindi != null">
+        Min_Subs_Amount_ByIndi,
+      </if>
+      <if test="registRarcode != null">
+        Regist_rarCode,
+      </if>
+      <if test="fundSponsor != null">
+        Fund_Sponsor,
+      </if>
+      <if test="tradingPrice != null">
+        Trading_Price,
+      </if>
+      <if test="faceValue != null">
+        Face_Value,
+      </if>
+      <if test="dividentDate != null">
+        Divident_Date,
+      </if>
+      <if test="registrationDate != null">
+        Registration_Date,
+      </if>
+      <if test="xrDate != null">
+        XR_Date,
+      </if>
+      <if test="maxSubsVolByindi != null">
+        Max_Subs_Vol_ByIndi,
+      </if>
+      <if test="maxSubsAmountByindi != null">
+        Max_Subs_Amount_ByIndi,
+      </if>
+      <if test="maxSubsVolByinst != null">
+        Max_Subs_Vol_ByInst,
+      </if>
+      <if test="maxSubsAmountByinst != null">
+        Max_Subs_Amount_ByInst,
+      </if>
+      <if test="unitSubsVolByindi != null">
+        Unit_Subs_Vol_ByIndi,
+      </if>
+      <if test="unitSubsAmountByindi != null">
+        Unit_Subs_Amount_ByIndi,
+      </if>
+      <if test="unitSubsVolByinst != null">
+        Unit_Subs_Vol_ByInst,
+      </if>
+      <if test="unitSubsAmountByinst != null">
+        Unit_Subs_Amount_ByInst,
+      </if>
+      <if test="minBidsAmountByindi != null">
+        Min_Bids_Amount_ByIndi,
+      </if>
+      <if test="minBidsAmountByinst != null">
+        Min_Bids_Amount_ByInst,
+      </if>
+      <if test="minAppbidsAmountByindi != null">
+        Min_AppBids_Amount_ByIndi,
+      </if>
+      <if test="minAppbidsAmountByinst != null">
+        Min_AppBids_Amount_ByInst,
+      </if>
+      <if test="minRedemptionVol != null">
+        Min_Redemption_Vol,
+      </if>
+      <if test="mininterconvertVol != null">
+        MinInterconvert_Vol,
+      </if>
+      <if test="issuetypeByindi != null">
+        IssueType_ByIndi,
+      </if>
+      <if test="issuetypeByinst != null">
+        IssueType_ByInst,
+      </if>
+      <if test="subsType != null">
+        Subs_Type,
+      </if>
+      <if test="collectFeetype != null">
+        Collect_FeeType,
+      </if>
+      <if test="nextTradedate != null">
+        Next_TradeDate,
+      </if>
+      <if test="valueLine != null">
+        Value_Line,
+      </if>
+      <if test="totalDivident != null">
+        Total_Divident,
+      </if>
+      <if test="fundIncome != null">
+        Fund_Income,
+      </if>
+      <if test="fundIncomeFlag != null">
+        Fund_Income_Flag,
+      </if>
+      <if test="yield != null">
+        Yield,
+      </if>
+      <if test="yieldFlag != null">
+        Yield_Flag,
+      </if>
+      <if test="guaranteedNav != null">
+        Guaranteed_NAV,
+      </if>
+      <if test="fundyearincomeRate != null">
+        FundYearIncome_Rate,
+      </if>
+      <if test="fundyearincomeRateFlag != null">
+        FundYearIncome_Rate_Flag,
+      </if>
+      <if test="indimaxPurchase != null">
+        IndiMax_Purchase,
+      </if>
+      <if test="instmaxPurchase != null">
+        InstMax_Purchase,
+      </if>
+      <if test="indidayMaxsumbuy != null">
+        IndiDay_MaxSumBuy,
+      </if>
+      <if test="instdayMaxsumbuy != null">
+        InstDay_MaxSumBuy,
+      </if>
+      <if test="indidayMaxsumredeem != null">
+        IndiDay_MaxSumRedeem,
+      </if>
+      <if test="instdayMaxsumredeem != null">
+        InstDay_MaxSumRedeem,
+      </if>
+      <if test="indiMaxRedeem != null">
+        Indi_Max_Redeem,
+      </if>
+      <if test="instMaxRedeem != null">
+        Inst_Max_Redeem,
+      </if>
+      <if test="fundDayIncomeflag != null">
+        Fund_Day_IncomeFlag,
+      </if>
+      <if test="fundDayIncome != null">
+        Fund_Day_Income,
+      </if>
+      <if test="allowBreachRedempt != null">
+        Allow_Breach_Redempt,
+      </if>
+      <if test="fundType != null">
+        Fund_Type,
+      </if>
+      <if test="fundTypeName != null">
+        Fund_Type_Name,
+      </if>
+      <if test="registrarName != null">
+        Registrar_Name,
+      </if>
+      <if test="fundmanagerName != null">
+        FundManager_Name,
+      </if>
+      <if test="fundServerTel != null">
+        Fund_Server_Tel,
+      </if>
+      <if test="fundInternetAddress != null">
+        Fund_Internet_Address,
+      </if>
+      <if test="shareType != null">
+        Share_Type,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="createdAt != null">
+        created_at,
+      </if>
+      <if test="updatedAt != null">
+        updated_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fundName != null">
+        #{fundName,jdbcType=VARCHAR},
+      </if>
+      <if test="totalFundvol != null">
+        #{totalFundvol,jdbcType=DECIMAL},
+      </if>
+      <if test="fundCode != null">
+        #{fundCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taNo != null">
+        #{taNo,jdbcType=VARCHAR},
+      </if>
+      <if test="workDate != null">
+        #{workDate,jdbcType=CHAR},
+      </if>
+      <if test="fundStatus != null">
+        #{fundStatus,jdbcType=CHAR},
+      </if>
+      <if test="nav != null">
+        #{nav,jdbcType=DECIMAL},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=CHAR},
+      </if>
+      <if test="netValueType != null">
+        #{netValueType,jdbcType=CHAR},
+      </if>
+      <if test="accumulativeNav != null">
+        #{accumulativeNav,jdbcType=DECIMAL},
+      </if>
+      <if test="convertStatus != null">
+        #{convertStatus,jdbcType=CHAR},
+      </if>
+      <if test="periodicStatus != null">
+        #{periodicStatus,jdbcType=CHAR},
+      </if>
+      <if test="transferAgencyStatus != null">
+        #{transferAgencyStatus,jdbcType=CHAR},
+      </if>
+      <if test="fundSize != null">
+        #{fundSize,jdbcType=DECIMAL},
+      </if>
+      <if test="currencyType != null">
+        #{currencyType,jdbcType=VARCHAR},
+      </if>
+      <if test="announcFlag != null">
+        #{announcFlag,jdbcType=CHAR},
+      </if>
+      <if test="defDividendMethod != null">
+        #{defDividendMethod,jdbcType=CHAR},
+      </if>
+      <if test="instAppSubsAmnt != null">
+        #{instAppSubsAmnt,jdbcType=DECIMAL},
+      </if>
+      <if test="instAppSubsVol != null">
+        #{instAppSubsVol,jdbcType=DECIMAL},
+      </if>
+      <if test="minAmountByinst != null">
+        #{minAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="minVolByinst != null">
+        #{minVolByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="custoDianCode != null">
+        #{custoDianCode,jdbcType=VARCHAR},
+      </if>
+      <if test="amountOfPeriodicSubs != null">
+        #{amountOfPeriodicSubs,jdbcType=DECIMAL},
+      </if>
+      <if test="dateOfPeriodicSubs != null">
+        #{dateOfPeriodicSubs,jdbcType=CHAR},
+      </if>
+      <if test="maxRedemptionVol != null">
+        #{maxRedemptionVol,jdbcType=DECIMAL},
+      </if>
+      <if test="minAccountBalance != null">
+        #{minAccountBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="ipoStartDate != null">
+        #{ipoStartDate,jdbcType=CHAR},
+      </if>
+      <if test="ipoEnddate != null">
+        #{ipoEnddate,jdbcType=CHAR},
+      </if>
+      <if test="fundManagerCode != null">
+        #{fundManagerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="indiAppSubsVol != null">
+        #{indiAppSubsVol,jdbcType=DECIMAL},
+      </if>
+      <if test="indiAppsubsAmount != null">
+        #{indiAppsubsAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="minSubsVolByindi != null">
+        #{minSubsVolByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="minSubsAmountByindi != null">
+        #{minSubsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="registRarcode != null">
+        #{registRarcode,jdbcType=CHAR},
+      </if>
+      <if test="fundSponsor != null">
+        #{fundSponsor,jdbcType=CHAR},
+      </if>
+      <if test="tradingPrice != null">
+        #{tradingPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="faceValue != null">
+        #{faceValue,jdbcType=DECIMAL},
+      </if>
+      <if test="dividentDate != null">
+        #{dividentDate,jdbcType=CHAR},
+      </if>
+      <if test="registrationDate != null">
+        #{registrationDate,jdbcType=CHAR},
+      </if>
+      <if test="xrDate != null">
+        #{xrDate,jdbcType=CHAR},
+      </if>
+      <if test="maxSubsVolByindi != null">
+        #{maxSubsVolByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="maxSubsAmountByindi != null">
+        #{maxSubsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="maxSubsVolByinst != null">
+        #{maxSubsVolByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="maxSubsAmountByinst != null">
+        #{maxSubsAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="unitSubsVolByindi != null">
+        #{unitSubsVolByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="unitSubsAmountByindi != null">
+        #{unitSubsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="unitSubsVolByinst != null">
+        #{unitSubsVolByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="unitSubsAmountByinst != null">
+        #{unitSubsAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="minBidsAmountByindi != null">
+        #{minBidsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="minBidsAmountByinst != null">
+        #{minBidsAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="minAppbidsAmountByindi != null">
+        #{minAppbidsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="minAppbidsAmountByinst != null">
+        #{minAppbidsAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="minRedemptionVol != null">
+        #{minRedemptionVol,jdbcType=DECIMAL},
+      </if>
+      <if test="mininterconvertVol != null">
+        #{mininterconvertVol,jdbcType=DECIMAL},
+      </if>
+      <if test="issuetypeByindi != null">
+        #{issuetypeByindi,jdbcType=CHAR},
+      </if>
+      <if test="issuetypeByinst != null">
+        #{issuetypeByinst,jdbcType=CHAR},
+      </if>
+      <if test="subsType != null">
+        #{subsType,jdbcType=CHAR},
+      </if>
+      <if test="collectFeetype != null">
+        #{collectFeetype,jdbcType=CHAR},
+      </if>
+      <if test="nextTradedate != null">
+        #{nextTradedate,jdbcType=CHAR},
+      </if>
+      <if test="valueLine != null">
+        #{valueLine,jdbcType=DECIMAL},
+      </if>
+      <if test="totalDivident != null">
+        #{totalDivident,jdbcType=DECIMAL},
+      </if>
+      <if test="fundIncome != null">
+        #{fundIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="fundIncomeFlag != null">
+        #{fundIncomeFlag,jdbcType=CHAR},
+      </if>
+      <if test="yield != null">
+        #{yield,jdbcType=DECIMAL},
+      </if>
+      <if test="yieldFlag != null">
+        #{yieldFlag,jdbcType=CHAR},
+      </if>
+      <if test="guaranteedNav != null">
+        #{guaranteedNav,jdbcType=DECIMAL},
+      </if>
+      <if test="fundyearincomeRate != null">
+        #{fundyearincomeRate,jdbcType=DECIMAL},
+      </if>
+      <if test="fundyearincomeRateFlag != null">
+        #{fundyearincomeRateFlag,jdbcType=CHAR},
+      </if>
+      <if test="indimaxPurchase != null">
+        #{indimaxPurchase,jdbcType=DECIMAL},
+      </if>
+      <if test="instmaxPurchase != null">
+        #{instmaxPurchase,jdbcType=DECIMAL},
+      </if>
+      <if test="indidayMaxsumbuy != null">
+        #{indidayMaxsumbuy,jdbcType=DECIMAL},
+      </if>
+      <if test="instdayMaxsumbuy != null">
+        #{instdayMaxsumbuy,jdbcType=DECIMAL},
+      </if>
+      <if test="indidayMaxsumredeem != null">
+        #{indidayMaxsumredeem,jdbcType=DECIMAL},
+      </if>
+      <if test="instdayMaxsumredeem != null">
+        #{instdayMaxsumredeem,jdbcType=DECIMAL},
+      </if>
+      <if test="indiMaxRedeem != null">
+        #{indiMaxRedeem,jdbcType=DECIMAL},
+      </if>
+      <if test="instMaxRedeem != null">
+        #{instMaxRedeem,jdbcType=DECIMAL},
+      </if>
+      <if test="fundDayIncomeflag != null">
+        #{fundDayIncomeflag,jdbcType=CHAR},
+      </if>
+      <if test="fundDayIncome != null">
+        #{fundDayIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="allowBreachRedempt != null">
+        #{allowBreachRedempt,jdbcType=CHAR},
+      </if>
+      <if test="fundType != null">
+        #{fundType,jdbcType=CHAR},
+      </if>
+      <if test="fundTypeName != null">
+        #{fundTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="registrarName != null">
+        #{registrarName,jdbcType=VARCHAR},
+      </if>
+      <if test="fundmanagerName != null">
+        #{fundmanagerName,jdbcType=VARCHAR},
+      </if>
+      <if test="fundServerTel != null">
+        #{fundServerTel,jdbcType=VARCHAR},
+      </if>
+      <if test="fundInternetAddress != null">
+        #{fundInternetAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="shareType != null">
+        #{shareType,jdbcType=CHAR},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shhxzq.fin.cif.model.HopFundChgRecord">
+    update CCS_FUND_CHG_RECORD
+    <set>
+      <if test="fundName != null">
+        Fund_Name = #{fundName,jdbcType=VARCHAR},
+      </if>
+      <if test="totalFundvol != null">
+        Total_FundVol = #{totalFundvol,jdbcType=DECIMAL},
+      </if>
+      <if test="fundCode != null">
+        Fund_Code = #{fundCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taNo != null">
+        TA_NO = #{taNo,jdbcType=VARCHAR},
+      </if>
+      <if test="workDate != null">
+        WORK_DATE = #{workDate,jdbcType=CHAR},
+      </if>
+      <if test="fundStatus != null">
+        Fund_Status = #{fundStatus,jdbcType=CHAR},
+      </if>
+      <if test="nav != null">
+        NAV = #{nav,jdbcType=DECIMAL},
+      </if>
+      <if test="updateDate != null">
+        Update_Date = #{updateDate,jdbcType=CHAR},
+      </if>
+      <if test="netValueType != null">
+        Net_Value_Type = #{netValueType,jdbcType=CHAR},
+      </if>
+      <if test="accumulativeNav != null">
+        Accumulative_NAV = #{accumulativeNav,jdbcType=DECIMAL},
+      </if>
+      <if test="convertStatus != null">
+        Convert_Status = #{convertStatus,jdbcType=CHAR},
+      </if>
+      <if test="periodicStatus != null">
+        Periodic_Status = #{periodicStatus,jdbcType=CHAR},
+      </if>
+      <if test="transferAgencyStatus != null">
+        Transfer_Agency_Status = #{transferAgencyStatus,jdbcType=CHAR},
+      </if>
+      <if test="fundSize != null">
+        Fund_Size = #{fundSize,jdbcType=DECIMAL},
+      </if>
+      <if test="currencyType != null">
+        Currency_Type = #{currencyType,jdbcType=VARCHAR},
+      </if>
+      <if test="announcFlag != null">
+        Announc_Flag = #{announcFlag,jdbcType=CHAR},
+      </if>
+      <if test="defDividendMethod != null">
+        Def_Dividend_Method = #{defDividendMethod,jdbcType=CHAR},
+      </if>
+      <if test="instAppSubsAmnt != null">
+        Inst_App_Subs_Amnt = #{instAppSubsAmnt,jdbcType=DECIMAL},
+      </if>
+      <if test="instAppSubsVol != null">
+        Inst_App_Subs_Vol = #{instAppSubsVol,jdbcType=DECIMAL},
+      </if>
+      <if test="minAmountByinst != null">
+        Min_Amount_ByInst = #{minAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="minVolByinst != null">
+        Min_Vol_ByInst = #{minVolByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="custoDianCode != null">
+        Custo_dian_Code = #{custoDianCode,jdbcType=VARCHAR},
+      </if>
+      <if test="amountOfPeriodicSubs != null">
+        Amount_Of_Periodic_Subs = #{amountOfPeriodicSubs,jdbcType=DECIMAL},
+      </if>
+      <if test="dateOfPeriodicSubs != null">
+        Date_Of_Periodic_Subs = #{dateOfPeriodicSubs,jdbcType=CHAR},
+      </if>
+      <if test="maxRedemptionVol != null">
+        Max_Redemption_Vol = #{maxRedemptionVol,jdbcType=DECIMAL},
+      </if>
+      <if test="minAccountBalance != null">
+        Min_Account_Balance = #{minAccountBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="ipoStartDate != null">
+        IPO_Start_Date = #{ipoStartDate,jdbcType=CHAR},
+      </if>
+      <if test="ipoEnddate != null">
+        IPO_EndDate = #{ipoEnddate,jdbcType=CHAR},
+      </if>
+      <if test="fundManagerCode != null">
+        Fund_Manager_Code = #{fundManagerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="indiAppSubsVol != null">
+        Indi_App_Subs_Vol = #{indiAppSubsVol,jdbcType=DECIMAL},
+      </if>
+      <if test="indiAppsubsAmount != null">
+        Indi_AppSubs_Amount = #{indiAppsubsAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="minSubsVolByindi != null">
+        Min_Subs_Vol_ByIndi = #{minSubsVolByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="minSubsAmountByindi != null">
+        Min_Subs_Amount_ByIndi = #{minSubsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="registRarcode != null">
+        Regist_rarCode = #{registRarcode,jdbcType=CHAR},
+      </if>
+      <if test="fundSponsor != null">
+        Fund_Sponsor = #{fundSponsor,jdbcType=CHAR},
+      </if>
+      <if test="tradingPrice != null">
+        Trading_Price = #{tradingPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="faceValue != null">
+        Face_Value = #{faceValue,jdbcType=DECIMAL},
+      </if>
+      <if test="dividentDate != null">
+        Divident_Date = #{dividentDate,jdbcType=CHAR},
+      </if>
+      <if test="registrationDate != null">
+        Registration_Date = #{registrationDate,jdbcType=CHAR},
+      </if>
+      <if test="xrDate != null">
+        XR_Date = #{xrDate,jdbcType=CHAR},
+      </if>
+      <if test="maxSubsVolByindi != null">
+        Max_Subs_Vol_ByIndi = #{maxSubsVolByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="maxSubsAmountByindi != null">
+        Max_Subs_Amount_ByIndi = #{maxSubsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="maxSubsVolByinst != null">
+        Max_Subs_Vol_ByInst = #{maxSubsVolByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="maxSubsAmountByinst != null">
+        Max_Subs_Amount_ByInst = #{maxSubsAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="unitSubsVolByindi != null">
+        Unit_Subs_Vol_ByIndi = #{unitSubsVolByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="unitSubsAmountByindi != null">
+        Unit_Subs_Amount_ByIndi = #{unitSubsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="unitSubsVolByinst != null">
+        Unit_Subs_Vol_ByInst = #{unitSubsVolByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="unitSubsAmountByinst != null">
+        Unit_Subs_Amount_ByInst = #{unitSubsAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="minBidsAmountByindi != null">
+        Min_Bids_Amount_ByIndi = #{minBidsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="minBidsAmountByinst != null">
+        Min_Bids_Amount_ByInst = #{minBidsAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="minAppbidsAmountByindi != null">
+        Min_AppBids_Amount_ByIndi = #{minAppbidsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="minAppbidsAmountByinst != null">
+        Min_AppBids_Amount_ByInst = #{minAppbidsAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="minRedemptionVol != null">
+        Min_Redemption_Vol = #{minRedemptionVol,jdbcType=DECIMAL},
+      </if>
+      <if test="mininterconvertVol != null">
+        MinInterconvert_Vol = #{mininterconvertVol,jdbcType=DECIMAL},
+      </if>
+      <if test="issuetypeByindi != null">
+        IssueType_ByIndi = #{issuetypeByindi,jdbcType=CHAR},
+      </if>
+      <if test="issuetypeByinst != null">
+        IssueType_ByInst = #{issuetypeByinst,jdbcType=CHAR},
+      </if>
+      <if test="subsType != null">
+        Subs_Type = #{subsType,jdbcType=CHAR},
+      </if>
+      <if test="collectFeetype != null">
+        Collect_FeeType = #{collectFeetype,jdbcType=CHAR},
+      </if>
+      <if test="nextTradedate != null">
+        Next_TradeDate = #{nextTradedate,jdbcType=CHAR},
+      </if>
+      <if test="valueLine != null">
+        Value_Line = #{valueLine,jdbcType=DECIMAL},
+      </if>
+      <if test="totalDivident != null">
+        Total_Divident = #{totalDivident,jdbcType=DECIMAL},
+      </if>
+      <if test="fundIncome != null">
+        Fund_Income = #{fundIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="fundIncomeFlag != null">
+        Fund_Income_Flag = #{fundIncomeFlag,jdbcType=CHAR},
+      </if>
+      <if test="yield != null">
+        Yield = #{yield,jdbcType=DECIMAL},
+      </if>
+      <if test="yieldFlag != null">
+        Yield_Flag = #{yieldFlag,jdbcType=CHAR},
+      </if>
+      <if test="guaranteedNav != null">
+        Guaranteed_NAV = #{guaranteedNav,jdbcType=DECIMAL},
+      </if>
+      <if test="fundyearincomeRate != null">
+        FundYearIncome_Rate = #{fundyearincomeRate,jdbcType=DECIMAL},
+      </if>
+      <if test="fundyearincomeRateFlag != null">
+        FundYearIncome_Rate_Flag = #{fundyearincomeRateFlag,jdbcType=CHAR},
+      </if>
+      <if test="indimaxPurchase != null">
+        IndiMax_Purchase = #{indimaxPurchase,jdbcType=DECIMAL},
+      </if>
+      <if test="instmaxPurchase != null">
+        InstMax_Purchase = #{instmaxPurchase,jdbcType=DECIMAL},
+      </if>
+      <if test="indidayMaxsumbuy != null">
+        IndiDay_MaxSumBuy = #{indidayMaxsumbuy,jdbcType=DECIMAL},
+      </if>
+      <if test="instdayMaxsumbuy != null">
+        InstDay_MaxSumBuy = #{instdayMaxsumbuy,jdbcType=DECIMAL},
+      </if>
+      <if test="indidayMaxsumredeem != null">
+        IndiDay_MaxSumRedeem = #{indidayMaxsumredeem,jdbcType=DECIMAL},
+      </if>
+      <if test="instdayMaxsumredeem != null">
+        InstDay_MaxSumRedeem = #{instdayMaxsumredeem,jdbcType=DECIMAL},
+      </if>
+      <if test="indiMaxRedeem != null">
+        Indi_Max_Redeem = #{indiMaxRedeem,jdbcType=DECIMAL},
+      </if>
+      <if test="instMaxRedeem != null">
+        Inst_Max_Redeem = #{instMaxRedeem,jdbcType=DECIMAL},
+      </if>
+      <if test="fundDayIncomeflag != null">
+        Fund_Day_IncomeFlag = #{fundDayIncomeflag,jdbcType=CHAR},
+      </if>
+      <if test="fundDayIncome != null">
+        Fund_Day_Income = #{fundDayIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="allowBreachRedempt != null">
+        Allow_Breach_Redempt = #{allowBreachRedempt,jdbcType=CHAR},
+      </if>
+      <if test="fundType != null">
+        Fund_Type = #{fundType,jdbcType=CHAR},
+      </if>
+      <if test="fundTypeName != null">
+        Fund_Type_Name = #{fundTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="registrarName != null">
+        Registrar_Name = #{registrarName,jdbcType=VARCHAR},
+      </if>
+      <if test="fundmanagerName != null">
+        FundManager_Name = #{fundmanagerName,jdbcType=VARCHAR},
+      </if>
+      <if test="fundServerTel != null">
+        Fund_Server_Tel = #{fundServerTel,jdbcType=VARCHAR},
+      </if>
+      <if test="fundInternetAddress != null">
+        Fund_Internet_Address = #{fundInternetAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="shareType != null">
+        Share_Type = #{shareType,jdbcType=CHAR},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createdAt != null">
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shhxzq.fin.cif.model.HopFundChgRecord">
+    update CCS_FUND_CHG_RECORD
+    set Fund_Name = #{fundName,jdbcType=VARCHAR},
+      Total_FundVol = #{totalFundvol,jdbcType=DECIMAL},
+      Fund_Code = #{fundCode,jdbcType=VARCHAR},
+      TA_NO = #{taNo,jdbcType=VARCHAR},
+      WORK_DATE = #{workDate,jdbcType=CHAR},
+      Fund_Status = #{fundStatus,jdbcType=CHAR},
+      NAV = #{nav,jdbcType=DECIMAL},
+      Update_Date = #{updateDate,jdbcType=CHAR},
+      Net_Value_Type = #{netValueType,jdbcType=CHAR},
+      Accumulative_NAV = #{accumulativeNav,jdbcType=DECIMAL},
+      Convert_Status = #{convertStatus,jdbcType=CHAR},
+      Periodic_Status = #{periodicStatus,jdbcType=CHAR},
+      Transfer_Agency_Status = #{transferAgencyStatus,jdbcType=CHAR},
+      Fund_Size = #{fundSize,jdbcType=DECIMAL},
+      Currency_Type = #{currencyType,jdbcType=VARCHAR},
+      Announc_Flag = #{announcFlag,jdbcType=CHAR},
+      Def_Dividend_Method = #{defDividendMethod,jdbcType=CHAR},
+      Inst_App_Subs_Amnt = #{instAppSubsAmnt,jdbcType=DECIMAL},
+      Inst_App_Subs_Vol = #{instAppSubsVol,jdbcType=DECIMAL},
+      Min_Amount_ByInst = #{minAmountByinst,jdbcType=DECIMAL},
+      Min_Vol_ByInst = #{minVolByinst,jdbcType=DECIMAL},
+      Custo_dian_Code = #{custoDianCode,jdbcType=VARCHAR},
+      Amount_Of_Periodic_Subs = #{amountOfPeriodicSubs,jdbcType=DECIMAL},
+      Date_Of_Periodic_Subs = #{dateOfPeriodicSubs,jdbcType=CHAR},
+      Max_Redemption_Vol = #{maxRedemptionVol,jdbcType=DECIMAL},
+      Min_Account_Balance = #{minAccountBalance,jdbcType=DECIMAL},
+      IPO_Start_Date = #{ipoStartDate,jdbcType=CHAR},
+      IPO_EndDate = #{ipoEnddate,jdbcType=CHAR},
+      Fund_Manager_Code = #{fundManagerCode,jdbcType=VARCHAR},
+      Indi_App_Subs_Vol = #{indiAppSubsVol,jdbcType=DECIMAL},
+      Indi_AppSubs_Amount = #{indiAppsubsAmount,jdbcType=DECIMAL},
+      Min_Subs_Vol_ByIndi = #{minSubsVolByindi,jdbcType=DECIMAL},
+      Min_Subs_Amount_ByIndi = #{minSubsAmountByindi,jdbcType=DECIMAL},
+      Regist_rarCode = #{registRarcode,jdbcType=CHAR},
+      Fund_Sponsor = #{fundSponsor,jdbcType=CHAR},
+      Trading_Price = #{tradingPrice,jdbcType=DECIMAL},
+      Face_Value = #{faceValue,jdbcType=DECIMAL},
+      Divident_Date = #{dividentDate,jdbcType=CHAR},
+      Registration_Date = #{registrationDate,jdbcType=CHAR},
+      XR_Date = #{xrDate,jdbcType=CHAR},
+      Max_Subs_Vol_ByIndi = #{maxSubsVolByindi,jdbcType=DECIMAL},
+      Max_Subs_Amount_ByIndi = #{maxSubsAmountByindi,jdbcType=DECIMAL},
+      Max_Subs_Vol_ByInst = #{maxSubsVolByinst,jdbcType=DECIMAL},
+      Max_Subs_Amount_ByInst = #{maxSubsAmountByinst,jdbcType=DECIMAL},
+      Unit_Subs_Vol_ByIndi = #{unitSubsVolByindi,jdbcType=DECIMAL},
+      Unit_Subs_Amount_ByIndi = #{unitSubsAmountByindi,jdbcType=DECIMAL},
+      Unit_Subs_Vol_ByInst = #{unitSubsVolByinst,jdbcType=DECIMAL},
+      Unit_Subs_Amount_ByInst = #{unitSubsAmountByinst,jdbcType=DECIMAL},
+      Min_Bids_Amount_ByIndi = #{minBidsAmountByindi,jdbcType=DECIMAL},
+      Min_Bids_Amount_ByInst = #{minBidsAmountByinst,jdbcType=DECIMAL},
+      Min_AppBids_Amount_ByIndi = #{minAppbidsAmountByindi,jdbcType=DECIMAL},
+      Min_AppBids_Amount_ByInst = #{minAppbidsAmountByinst,jdbcType=DECIMAL},
+      Min_Redemption_Vol = #{minRedemptionVol,jdbcType=DECIMAL},
+      MinInterconvert_Vol = #{mininterconvertVol,jdbcType=DECIMAL},
+      IssueType_ByIndi = #{issuetypeByindi,jdbcType=CHAR},
+      IssueType_ByInst = #{issuetypeByinst,jdbcType=CHAR},
+      Subs_Type = #{subsType,jdbcType=CHAR},
+      Collect_FeeType = #{collectFeetype,jdbcType=CHAR},
+      Next_TradeDate = #{nextTradedate,jdbcType=CHAR},
+      Value_Line = #{valueLine,jdbcType=DECIMAL},
+      Total_Divident = #{totalDivident,jdbcType=DECIMAL},
+      Fund_Income = #{fundIncome,jdbcType=DECIMAL},
+      Fund_Income_Flag = #{fundIncomeFlag,jdbcType=CHAR},
+      Yield = #{yield,jdbcType=DECIMAL},
+      Yield_Flag = #{yieldFlag,jdbcType=CHAR},
+      Guaranteed_NAV = #{guaranteedNav,jdbcType=DECIMAL},
+      FundYearIncome_Rate = #{fundyearincomeRate,jdbcType=DECIMAL},
+      FundYearIncome_Rate_Flag = #{fundyearincomeRateFlag,jdbcType=CHAR},
+      IndiMax_Purchase = #{indimaxPurchase,jdbcType=DECIMAL},
+      InstMax_Purchase = #{instmaxPurchase,jdbcType=DECIMAL},
+      IndiDay_MaxSumBuy = #{indidayMaxsumbuy,jdbcType=DECIMAL},
+      InstDay_MaxSumBuy = #{instdayMaxsumbuy,jdbcType=DECIMAL},
+      IndiDay_MaxSumRedeem = #{indidayMaxsumredeem,jdbcType=DECIMAL},
+      InstDay_MaxSumRedeem = #{instdayMaxsumredeem,jdbcType=DECIMAL},
+      Indi_Max_Redeem = #{indiMaxRedeem,jdbcType=DECIMAL},
+      Inst_Max_Redeem = #{instMaxRedeem,jdbcType=DECIMAL},
+      Fund_Day_IncomeFlag = #{fundDayIncomeflag,jdbcType=CHAR},
+      Fund_Day_Income = #{fundDayIncome,jdbcType=DECIMAL},
+      Allow_Breach_Redempt = #{allowBreachRedempt,jdbcType=CHAR},
+      Fund_Type = #{fundType,jdbcType=CHAR},
+      Fund_Type_Name = #{fundTypeName,jdbcType=VARCHAR},
+      Registrar_Name = #{registrarName,jdbcType=VARCHAR},
+      FundManager_Name = #{fundmanagerName,jdbcType=VARCHAR},
+      Fund_Server_Tel = #{fundServerTel,jdbcType=VARCHAR},
+      Fund_Internet_Address = #{fundInternetAddress,jdbcType=VARCHAR},
+      Share_Type = #{shareType,jdbcType=CHAR},
+      is_delete = #{isDelete,jdbcType=TINYINT},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="com.shhxzq.fin.cif.model.HopFundChgRecord">
+    <id column="ID" jdbcType="BIGINT" property="id" />
+    <result column="Fund_Name" jdbcType="VARCHAR" property="fundName" />
+    <result column="Total_FundVol" jdbcType="DECIMAL" property="totalFundvol" />
+    <result column="Fund_Code" jdbcType="VARCHAR" property="fundCode" />
+    <result column="TA_NO" jdbcType="VARCHAR" property="taNo" />
+    <result column="WORK_DATE" jdbcType="CHAR" property="workDate" />
+    <result column="Fund_Status" jdbcType="CHAR" property="fundStatus" />
+    <result column="NAV" jdbcType="DECIMAL" property="nav" />
+    <result column="Update_Date" jdbcType="CHAR" property="updateDate" />
+    <result column="Net_Value_Type" jdbcType="CHAR" property="netValueType" />
+    <result column="Accumulative_NAV" jdbcType="DECIMAL" property="accumulativeNav" />
+    <result column="Convert_Status" jdbcType="CHAR" property="convertStatus" />
+    <result column="Periodic_Status" jdbcType="CHAR" property="periodicStatus" />
+    <result column="Transfer_Agency_Status" jdbcType="CHAR" property="transferAgencyStatus" />
+    <result column="Fund_Size" jdbcType="DECIMAL" property="fundSize" />
+    <result column="Currency_Type" jdbcType="VARCHAR" property="currencyType" />
+    <result column="Announc_Flag" jdbcType="CHAR" property="announcFlag" />
+    <result column="Def_Dividend_Method" jdbcType="CHAR" property="defDividendMethod" />
+    <result column="Inst_App_Subs_Amnt" jdbcType="DECIMAL" property="instAppSubsAmnt" />
+    <result column="Inst_App_Subs_Vol" jdbcType="DECIMAL" property="instAppSubsVol" />
+    <result column="Min_Amount_ByInst" jdbcType="DECIMAL" property="minAmountByinst" />
+    <result column="Min_Vol_ByInst" jdbcType="DECIMAL" property="minVolByinst" />
+    <result column="Custo_dian_Code" jdbcType="VARCHAR" property="custoDianCode" />
+    <result column="Amount_Of_Periodic_Subs" jdbcType="DECIMAL" property="amountOfPeriodicSubs" />
+    <result column="Date_Of_Periodic_Subs" jdbcType="CHAR" property="dateOfPeriodicSubs" />
+    <result column="Max_Redemption_Vol" jdbcType="DECIMAL" property="maxRedemptionVol" />
+    <result column="Min_Account_Balance" jdbcType="DECIMAL" property="minAccountBalance" />
+    <result column="IPO_Start_Date" jdbcType="CHAR" property="ipoStartDate" />
+    <result column="IPO_EndDate" jdbcType="CHAR" property="ipoEnddate" />
+    <result column="Fund_Manager_Code" jdbcType="VARCHAR" property="fundManagerCode" />
+    <result column="Indi_App_Subs_Vol" jdbcType="DECIMAL" property="indiAppSubsVol" />
+    <result column="Indi_AppSubs_Amount" jdbcType="DECIMAL" property="indiAppsubsAmount" />
+    <result column="Min_Subs_Vol_ByIndi" jdbcType="DECIMAL" property="minSubsVolByindi" />
+    <result column="Min_Subs_Amount_ByIndi" jdbcType="DECIMAL" property="minSubsAmountByindi" />
+    <result column="Regist_rarCode" jdbcType="CHAR" property="registRarcode" />
+    <result column="Fund_Sponsor" jdbcType="CHAR" property="fundSponsor" />
+    <result column="Trading_Price" jdbcType="DECIMAL" property="tradingPrice" />
+    <result column="Face_Value" jdbcType="DECIMAL" property="faceValue" />
+    <result column="Divident_Date" jdbcType="CHAR" property="dividentDate" />
+    <result column="Registration_Date" jdbcType="CHAR" property="registrationDate" />
+    <result column="XR_Date" jdbcType="CHAR" property="xrDate" />
+    <result column="Max_Subs_Vol_ByIndi" jdbcType="DECIMAL" property="maxSubsVolByindi" />
+    <result column="Max_Subs_Amount_ByIndi" jdbcType="DECIMAL" property="maxSubsAmountByindi" />
+    <result column="Max_Subs_Vol_ByInst" jdbcType="DECIMAL" property="maxSubsVolByinst" />
+    <result column="Max_Subs_Amount_ByInst" jdbcType="DECIMAL" property="maxSubsAmountByinst" />
+    <result column="Unit_Subs_Vol_ByIndi" jdbcType="DECIMAL" property="unitSubsVolByindi" />
+    <result column="Unit_Subs_Amount_ByIndi" jdbcType="DECIMAL" property="unitSubsAmountByindi" />
+    <result column="Unit_Subs_Vol_ByInst" jdbcType="DECIMAL" property="unitSubsVolByinst" />
+    <result column="Unit_Subs_Amount_ByInst" jdbcType="DECIMAL" property="unitSubsAmountByinst" />
+    <result column="Min_Bids_Amount_ByIndi" jdbcType="DECIMAL" property="minBidsAmountByindi" />
+    <result column="Min_Bids_Amount_ByInst" jdbcType="DECIMAL" property="minBidsAmountByinst" />
+    <result column="Min_AppBids_Amount_ByIndi" jdbcType="DECIMAL" property="minAppbidsAmountByindi" />
+    <result column="Min_AppBids_Amount_ByInst" jdbcType="DECIMAL" property="minAppbidsAmountByinst" />
+    <result column="Min_Redemption_Vol" jdbcType="DECIMAL" property="minRedemptionVol" />
+    <result column="MinInterconvert_Vol" jdbcType="DECIMAL" property="mininterconvertVol" />
+    <result column="IssueType_ByIndi" jdbcType="CHAR" property="issuetypeByindi" />
+    <result column="IssueType_ByInst" jdbcType="CHAR" property="issuetypeByinst" />
+    <result column="Subs_Type" jdbcType="CHAR" property="subsType" />
+    <result column="Collect_FeeType" jdbcType="CHAR" property="collectFeetype" />
+    <result column="Next_TradeDate" jdbcType="CHAR" property="nextTradedate" />
+    <result column="Value_Line" jdbcType="DECIMAL" property="valueLine" />
+    <result column="Total_Divident" jdbcType="DECIMAL" property="totalDivident" />
+    <result column="Fund_Income" jdbcType="DECIMAL" property="fundIncome" />
+    <result column="Fund_Income_Flag" jdbcType="CHAR" property="fundIncomeFlag" />
+    <result column="Yield" jdbcType="DECIMAL" property="yield" />
+    <result column="Yield_Flag" jdbcType="CHAR" property="yieldFlag" />
+    <result column="Guaranteed_NAV" jdbcType="DECIMAL" property="guaranteedNav" />
+    <result column="FundYearIncome_Rate" jdbcType="DECIMAL" property="fundyearincomeRate" />
+    <result column="FundYearIncome_Rate_Flag" jdbcType="CHAR" property="fundyearincomeRateFlag" />
+    <result column="IndiMax_Purchase" jdbcType="DECIMAL" property="indimaxPurchase" />
+    <result column="InstMax_Purchase" jdbcType="DECIMAL" property="instmaxPurchase" />
+    <result column="IndiDay_MaxSumBuy" jdbcType="DECIMAL" property="indidayMaxsumbuy" />
+    <result column="InstDay_MaxSumBuy" jdbcType="DECIMAL" property="instdayMaxsumbuy" />
+    <result column="IndiDay_MaxSumRedeem" jdbcType="DECIMAL" property="indidayMaxsumredeem" />
+    <result column="InstDay_MaxSumRedeem" jdbcType="DECIMAL" property="instdayMaxsumredeem" />
+    <result column="Indi_Max_Redeem" jdbcType="DECIMAL" property="indiMaxRedeem" />
+    <result column="Inst_Max_Redeem" jdbcType="DECIMAL" property="instMaxRedeem" />
+    <result column="Fund_Day_IncomeFlag" jdbcType="CHAR" property="fundDayIncomeflag" />
+    <result column="Fund_Day_Income" jdbcType="DECIMAL" property="fundDayIncome" />
+    <result column="Allow_Breach_Redempt" jdbcType="CHAR" property="allowBreachRedempt" />
+    <result column="Fund_Type" jdbcType="CHAR" property="fundType" />
+    <result column="Fund_Type_Name" jdbcType="VARCHAR" property="fundTypeName" />
+    <result column="Registrar_Name" jdbcType="VARCHAR" property="registrarName" />
+    <result column="FundManager_Name" jdbcType="VARCHAR" property="fundmanagerName" />
+    <result column="Fund_Server_Tel" jdbcType="VARCHAR" property="fundServerTel" />
+    <result column="Fund_Internet_Address" jdbcType="VARCHAR" property="fundInternetAddress" />
+    <result column="Share_Type" jdbcType="CHAR" property="shareType" />
+    <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    ID, Fund_Name, Total_FundVol, Fund_Code, TA_NO, WORK_DATE, Fund_Status, NAV, Update_Date, 
+    Net_Value_Type, Accumulative_NAV, Convert_Status, Periodic_Status, Transfer_Agency_Status, 
+    Fund_Size, Currency_Type, Announc_Flag, Def_Dividend_Method, Inst_App_Subs_Amnt, 
+    Inst_App_Subs_Vol, Min_Amount_ByInst, Min_Vol_ByInst, Custo_dian_Code, Amount_Of_Periodic_Subs, 
+    Date_Of_Periodic_Subs, Max_Redemption_Vol, Min_Account_Balance, IPO_Start_Date, IPO_EndDate, 
+    Fund_Manager_Code, Indi_App_Subs_Vol, Indi_AppSubs_Amount, Min_Subs_Vol_ByIndi, Min_Subs_Amount_ByIndi, 
+    Regist_rarCode, Fund_Sponsor, Trading_Price, Face_Value, Divident_Date, Registration_Date, 
+    XR_Date, Max_Subs_Vol_ByIndi, Max_Subs_Amount_ByIndi, Max_Subs_Vol_ByInst, Max_Subs_Amount_ByInst, 
+    Unit_Subs_Vol_ByIndi, Unit_Subs_Amount_ByIndi, Unit_Subs_Vol_ByInst, Unit_Subs_Amount_ByInst, 
+    Min_Bids_Amount_ByIndi, Min_Bids_Amount_ByInst, Min_AppBids_Amount_ByIndi, Min_AppBids_Amount_ByInst, 
+    Min_Redemption_Vol, MinInterconvert_Vol, IssueType_ByIndi, IssueType_ByInst, Subs_Type, 
+    Collect_FeeType, Next_TradeDate, Value_Line, Total_Divident, Fund_Income, Fund_Income_Flag, 
+    Yield, Yield_Flag, Guaranteed_NAV, FundYearIncome_Rate, FundYearIncome_Rate_Flag, 
+    IndiMax_Purchase, InstMax_Purchase, IndiDay_MaxSumBuy, InstDay_MaxSumBuy, IndiDay_MaxSumRedeem, 
+    InstDay_MaxSumRedeem, Indi_Max_Redeem, Inst_Max_Redeem, Fund_Day_IncomeFlag, Fund_Day_Income, 
+    Allow_Breach_Redempt, Fund_Type, Fund_Type_Name, Registrar_Name, FundManager_Name, 
+    Fund_Server_Tel, Fund_Internet_Address, Share_Type, is_delete, created_at, updated_at
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CCS_FUND_CHG_RECORD
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from CCS_FUND_CHG_RECORD
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.shhxzq.fin.cif.model.HopFundChgRecord" useGeneratedKeys="true">
+    insert into CCS_FUND_CHG_RECORD (Fund_Name, Total_FundVol, Fund_Code, 
+      TA_NO, WORK_DATE, Fund_Status, 
+      NAV, Update_Date, Net_Value_Type, 
+      Accumulative_NAV, Convert_Status, Periodic_Status, 
+      Transfer_Agency_Status, Fund_Size, Currency_Type, 
+      Announc_Flag, Def_Dividend_Method, Inst_App_Subs_Amnt, 
+      Inst_App_Subs_Vol, Min_Amount_ByInst, Min_Vol_ByInst, 
+      Custo_dian_Code, Amount_Of_Periodic_Subs, Date_Of_Periodic_Subs, 
+      Max_Redemption_Vol, Min_Account_Balance, IPO_Start_Date, 
+      IPO_EndDate, Fund_Manager_Code, Indi_App_Subs_Vol, 
+      Indi_AppSubs_Amount, Min_Subs_Vol_ByIndi, Min_Subs_Amount_ByIndi, 
+      Regist_rarCode, Fund_Sponsor, Trading_Price, 
+      Face_Value, Divident_Date, Registration_Date, 
+      XR_Date, Max_Subs_Vol_ByIndi, Max_Subs_Amount_ByIndi, 
+      Max_Subs_Vol_ByInst, Max_Subs_Amount_ByInst, 
+      Unit_Subs_Vol_ByIndi, Unit_Subs_Amount_ByIndi, 
+      Unit_Subs_Vol_ByInst, Unit_Subs_Amount_ByInst, 
+      Min_Bids_Amount_ByIndi, Min_Bids_Amount_ByInst, 
+      Min_AppBids_Amount_ByIndi, Min_AppBids_Amount_ByInst, 
+      Min_Redemption_Vol, MinInterconvert_Vol, IssueType_ByIndi, 
+      IssueType_ByInst, Subs_Type, Collect_FeeType, 
+      Next_TradeDate, Value_Line, Total_Divident, 
+      Fund_Income, Fund_Income_Flag, Yield, 
+      Yield_Flag, Guaranteed_NAV, FundYearIncome_Rate, 
+      FundYearIncome_Rate_Flag, IndiMax_Purchase, InstMax_Purchase, 
+      IndiDay_MaxSumBuy, InstDay_MaxSumBuy, IndiDay_MaxSumRedeem, 
+      InstDay_MaxSumRedeem, Indi_Max_Redeem, Inst_Max_Redeem, 
+      Fund_Day_IncomeFlag, Fund_Day_Income, Allow_Breach_Redempt, 
+      Fund_Type, Fund_Type_Name, Registrar_Name, 
+      FundManager_Name, Fund_Server_Tel, Fund_Internet_Address, 
+      Share_Type, is_delete, created_at, 
+      updated_at)
+    values (#{fundName,jdbcType=VARCHAR}, #{totalFundvol,jdbcType=DECIMAL}, #{fundCode,jdbcType=VARCHAR}, 
+      #{taNo,jdbcType=VARCHAR}, #{workDate,jdbcType=CHAR}, #{fundStatus,jdbcType=CHAR}, 
+      #{nav,jdbcType=DECIMAL}, #{updateDate,jdbcType=CHAR}, #{netValueType,jdbcType=CHAR}, 
+      #{accumulativeNav,jdbcType=DECIMAL}, #{convertStatus,jdbcType=CHAR}, #{periodicStatus,jdbcType=CHAR}, 
+      #{transferAgencyStatus,jdbcType=CHAR}, #{fundSize,jdbcType=DECIMAL}, #{currencyType,jdbcType=VARCHAR}, 
+      #{announcFlag,jdbcType=CHAR}, #{defDividendMethod,jdbcType=CHAR}, #{instAppSubsAmnt,jdbcType=DECIMAL}, 
+      #{instAppSubsVol,jdbcType=DECIMAL}, #{minAmountByinst,jdbcType=DECIMAL}, #{minVolByinst,jdbcType=DECIMAL}, 
+      #{custoDianCode,jdbcType=VARCHAR}, #{amountOfPeriodicSubs,jdbcType=DECIMAL}, #{dateOfPeriodicSubs,jdbcType=CHAR}, 
+      #{maxRedemptionVol,jdbcType=DECIMAL}, #{minAccountBalance,jdbcType=DECIMAL}, #{ipoStartDate,jdbcType=CHAR}, 
+      #{ipoEnddate,jdbcType=CHAR}, #{fundManagerCode,jdbcType=VARCHAR}, #{indiAppSubsVol,jdbcType=DECIMAL}, 
+      #{indiAppsubsAmount,jdbcType=DECIMAL}, #{minSubsVolByindi,jdbcType=DECIMAL}, #{minSubsAmountByindi,jdbcType=DECIMAL}, 
+      #{registRarcode,jdbcType=CHAR}, #{fundSponsor,jdbcType=CHAR}, #{tradingPrice,jdbcType=DECIMAL}, 
+      #{faceValue,jdbcType=DECIMAL}, #{dividentDate,jdbcType=CHAR}, #{registrationDate,jdbcType=CHAR}, 
+      #{xrDate,jdbcType=CHAR}, #{maxSubsVolByindi,jdbcType=DECIMAL}, #{maxSubsAmountByindi,jdbcType=DECIMAL}, 
+      #{maxSubsVolByinst,jdbcType=DECIMAL}, #{maxSubsAmountByinst,jdbcType=DECIMAL}, 
+      #{unitSubsVolByindi,jdbcType=DECIMAL}, #{unitSubsAmountByindi,jdbcType=DECIMAL}, 
+      #{unitSubsVolByinst,jdbcType=DECIMAL}, #{unitSubsAmountByinst,jdbcType=DECIMAL}, 
+      #{minBidsAmountByindi,jdbcType=DECIMAL}, #{minBidsAmountByinst,jdbcType=DECIMAL}, 
+      #{minAppbidsAmountByindi,jdbcType=DECIMAL}, #{minAppbidsAmountByinst,jdbcType=DECIMAL}, 
+      #{minRedemptionVol,jdbcType=DECIMAL}, #{mininterconvertVol,jdbcType=DECIMAL}, #{issuetypeByindi,jdbcType=CHAR}, 
+      #{issuetypeByinst,jdbcType=CHAR}, #{subsType,jdbcType=CHAR}, #{collectFeetype,jdbcType=CHAR}, 
+      #{nextTradedate,jdbcType=CHAR}, #{valueLine,jdbcType=DECIMAL}, #{totalDivident,jdbcType=DECIMAL}, 
+      #{fundIncome,jdbcType=DECIMAL}, #{fundIncomeFlag,jdbcType=CHAR}, #{yield,jdbcType=DECIMAL}, 
+      #{yieldFlag,jdbcType=CHAR}, #{guaranteedNav,jdbcType=DECIMAL}, #{fundyearincomeRate,jdbcType=DECIMAL}, 
+      #{fundyearincomeRateFlag,jdbcType=CHAR}, #{indimaxPurchase,jdbcType=DECIMAL}, #{instmaxPurchase,jdbcType=DECIMAL}, 
+      #{indidayMaxsumbuy,jdbcType=DECIMAL}, #{instdayMaxsumbuy,jdbcType=DECIMAL}, #{indidayMaxsumredeem,jdbcType=DECIMAL}, 
+      #{instdayMaxsumredeem,jdbcType=DECIMAL}, #{indiMaxRedeem,jdbcType=DECIMAL}, #{instMaxRedeem,jdbcType=DECIMAL}, 
+      #{fundDayIncomeflag,jdbcType=CHAR}, #{fundDayIncome,jdbcType=DECIMAL}, #{allowBreachRedempt,jdbcType=CHAR}, 
+      #{fundType,jdbcType=CHAR}, #{fundTypeName,jdbcType=VARCHAR}, #{registrarName,jdbcType=VARCHAR}, 
+      #{fundmanagerName,jdbcType=VARCHAR}, #{fundServerTel,jdbcType=VARCHAR}, #{fundInternetAddress,jdbcType=VARCHAR}, 
+      #{shareType,jdbcType=CHAR}, #{isDelete,jdbcType=TINYINT}, #{createdAt,jdbcType=TIMESTAMP}, 
+      #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.shhxzq.fin.cif.model.HopFundChgRecord" useGeneratedKeys="true">
+    insert into CCS_FUND_CHG_RECORD
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="fundName != null">
+        Fund_Name,
+      </if>
+      <if test="totalFundvol != null">
+        Total_FundVol,
+      </if>
+      <if test="fundCode != null">
+        Fund_Code,
+      </if>
+      <if test="taNo != null">
+        TA_NO,
+      </if>
+      <if test="workDate != null">
+        WORK_DATE,
+      </if>
+      <if test="fundStatus != null">
+        Fund_Status,
+      </if>
+      <if test="nav != null">
+        NAV,
+      </if>
+      <if test="updateDate != null">
+        Update_Date,
+      </if>
+      <if test="netValueType != null">
+        Net_Value_Type,
+      </if>
+      <if test="accumulativeNav != null">
+        Accumulative_NAV,
+      </if>
+      <if test="convertStatus != null">
+        Convert_Status,
+      </if>
+      <if test="periodicStatus != null">
+        Periodic_Status,
+      </if>
+      <if test="transferAgencyStatus != null">
+        Transfer_Agency_Status,
+      </if>
+      <if test="fundSize != null">
+        Fund_Size,
+      </if>
+      <if test="currencyType != null">
+        Currency_Type,
+      </if>
+      <if test="announcFlag != null">
+        Announc_Flag,
+      </if>
+      <if test="defDividendMethod != null">
+        Def_Dividend_Method,
+      </if>
+      <if test="instAppSubsAmnt != null">
+        Inst_App_Subs_Amnt,
+      </if>
+      <if test="instAppSubsVol != null">
+        Inst_App_Subs_Vol,
+      </if>
+      <if test="minAmountByinst != null">
+        Min_Amount_ByInst,
+      </if>
+      <if test="minVolByinst != null">
+        Min_Vol_ByInst,
+      </if>
+      <if test="custoDianCode != null">
+        Custo_dian_Code,
+      </if>
+      <if test="amountOfPeriodicSubs != null">
+        Amount_Of_Periodic_Subs,
+      </if>
+      <if test="dateOfPeriodicSubs != null">
+        Date_Of_Periodic_Subs,
+      </if>
+      <if test="maxRedemptionVol != null">
+        Max_Redemption_Vol,
+      </if>
+      <if test="minAccountBalance != null">
+        Min_Account_Balance,
+      </if>
+      <if test="ipoStartDate != null">
+        IPO_Start_Date,
+      </if>
+      <if test="ipoEnddate != null">
+        IPO_EndDate,
+      </if>
+      <if test="fundManagerCode != null">
+        Fund_Manager_Code,
+      </if>
+      <if test="indiAppSubsVol != null">
+        Indi_App_Subs_Vol,
+      </if>
+      <if test="indiAppsubsAmount != null">
+        Indi_AppSubs_Amount,
+      </if>
+      <if test="minSubsVolByindi != null">
+        Min_Subs_Vol_ByIndi,
+      </if>
+      <if test="minSubsAmountByindi != null">
+        Min_Subs_Amount_ByIndi,
+      </if>
+      <if test="registRarcode != null">
+        Regist_rarCode,
+      </if>
+      <if test="fundSponsor != null">
+        Fund_Sponsor,
+      </if>
+      <if test="tradingPrice != null">
+        Trading_Price,
+      </if>
+      <if test="faceValue != null">
+        Face_Value,
+      </if>
+      <if test="dividentDate != null">
+        Divident_Date,
+      </if>
+      <if test="registrationDate != null">
+        Registration_Date,
+      </if>
+      <if test="xrDate != null">
+        XR_Date,
+      </if>
+      <if test="maxSubsVolByindi != null">
+        Max_Subs_Vol_ByIndi,
+      </if>
+      <if test="maxSubsAmountByindi != null">
+        Max_Subs_Amount_ByIndi,
+      </if>
+      <if test="maxSubsVolByinst != null">
+        Max_Subs_Vol_ByInst,
+      </if>
+      <if test="maxSubsAmountByinst != null">
+        Max_Subs_Amount_ByInst,
+      </if>
+      <if test="unitSubsVolByindi != null">
+        Unit_Subs_Vol_ByIndi,
+      </if>
+      <if test="unitSubsAmountByindi != null">
+        Unit_Subs_Amount_ByIndi,
+      </if>
+      <if test="unitSubsVolByinst != null">
+        Unit_Subs_Vol_ByInst,
+      </if>
+      <if test="unitSubsAmountByinst != null">
+        Unit_Subs_Amount_ByInst,
+      </if>
+      <if test="minBidsAmountByindi != null">
+        Min_Bids_Amount_ByIndi,
+      </if>
+      <if test="minBidsAmountByinst != null">
+        Min_Bids_Amount_ByInst,
+      </if>
+      <if test="minAppbidsAmountByindi != null">
+        Min_AppBids_Amount_ByIndi,
+      </if>
+      <if test="minAppbidsAmountByinst != null">
+        Min_AppBids_Amount_ByInst,
+      </if>
+      <if test="minRedemptionVol != null">
+        Min_Redemption_Vol,
+      </if>
+      <if test="mininterconvertVol != null">
+        MinInterconvert_Vol,
+      </if>
+      <if test="issuetypeByindi != null">
+        IssueType_ByIndi,
+      </if>
+      <if test="issuetypeByinst != null">
+        IssueType_ByInst,
+      </if>
+      <if test="subsType != null">
+        Subs_Type,
+      </if>
+      <if test="collectFeetype != null">
+        Collect_FeeType,
+      </if>
+      <if test="nextTradedate != null">
+        Next_TradeDate,
+      </if>
+      <if test="valueLine != null">
+        Value_Line,
+      </if>
+      <if test="totalDivident != null">
+        Total_Divident,
+      </if>
+      <if test="fundIncome != null">
+        Fund_Income,
+      </if>
+      <if test="fundIncomeFlag != null">
+        Fund_Income_Flag,
+      </if>
+      <if test="yield != null">
+        Yield,
+      </if>
+      <if test="yieldFlag != null">
+        Yield_Flag,
+      </if>
+      <if test="guaranteedNav != null">
+        Guaranteed_NAV,
+      </if>
+      <if test="fundyearincomeRate != null">
+        FundYearIncome_Rate,
+      </if>
+      <if test="fundyearincomeRateFlag != null">
+        FundYearIncome_Rate_Flag,
+      </if>
+      <if test="indimaxPurchase != null">
+        IndiMax_Purchase,
+      </if>
+      <if test="instmaxPurchase != null">
+        InstMax_Purchase,
+      </if>
+      <if test="indidayMaxsumbuy != null">
+        IndiDay_MaxSumBuy,
+      </if>
+      <if test="instdayMaxsumbuy != null">
+        InstDay_MaxSumBuy,
+      </if>
+      <if test="indidayMaxsumredeem != null">
+        IndiDay_MaxSumRedeem,
+      </if>
+      <if test="instdayMaxsumredeem != null">
+        InstDay_MaxSumRedeem,
+      </if>
+      <if test="indiMaxRedeem != null">
+        Indi_Max_Redeem,
+      </if>
+      <if test="instMaxRedeem != null">
+        Inst_Max_Redeem,
+      </if>
+      <if test="fundDayIncomeflag != null">
+        Fund_Day_IncomeFlag,
+      </if>
+      <if test="fundDayIncome != null">
+        Fund_Day_Income,
+      </if>
+      <if test="allowBreachRedempt != null">
+        Allow_Breach_Redempt,
+      </if>
+      <if test="fundType != null">
+        Fund_Type,
+      </if>
+      <if test="fundTypeName != null">
+        Fund_Type_Name,
+      </if>
+      <if test="registrarName != null">
+        Registrar_Name,
+      </if>
+      <if test="fundmanagerName != null">
+        FundManager_Name,
+      </if>
+      <if test="fundServerTel != null">
+        Fund_Server_Tel,
+      </if>
+      <if test="fundInternetAddress != null">
+        Fund_Internet_Address,
+      </if>
+      <if test="shareType != null">
+        Share_Type,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="createdAt != null">
+        created_at,
+      </if>
+      <if test="updatedAt != null">
+        updated_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="fundName != null">
+        #{fundName,jdbcType=VARCHAR},
+      </if>
+      <if test="totalFundvol != null">
+        #{totalFundvol,jdbcType=DECIMAL},
+      </if>
+      <if test="fundCode != null">
+        #{fundCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taNo != null">
+        #{taNo,jdbcType=VARCHAR},
+      </if>
+      <if test="workDate != null">
+        #{workDate,jdbcType=CHAR},
+      </if>
+      <if test="fundStatus != null">
+        #{fundStatus,jdbcType=CHAR},
+      </if>
+      <if test="nav != null">
+        #{nav,jdbcType=DECIMAL},
+      </if>
+      <if test="updateDate != null">
+        #{updateDate,jdbcType=CHAR},
+      </if>
+      <if test="netValueType != null">
+        #{netValueType,jdbcType=CHAR},
+      </if>
+      <if test="accumulativeNav != null">
+        #{accumulativeNav,jdbcType=DECIMAL},
+      </if>
+      <if test="convertStatus != null">
+        #{convertStatus,jdbcType=CHAR},
+      </if>
+      <if test="periodicStatus != null">
+        #{periodicStatus,jdbcType=CHAR},
+      </if>
+      <if test="transferAgencyStatus != null">
+        #{transferAgencyStatus,jdbcType=CHAR},
+      </if>
+      <if test="fundSize != null">
+        #{fundSize,jdbcType=DECIMAL},
+      </if>
+      <if test="currencyType != null">
+        #{currencyType,jdbcType=VARCHAR},
+      </if>
+      <if test="announcFlag != null">
+        #{announcFlag,jdbcType=CHAR},
+      </if>
+      <if test="defDividendMethod != null">
+        #{defDividendMethod,jdbcType=CHAR},
+      </if>
+      <if test="instAppSubsAmnt != null">
+        #{instAppSubsAmnt,jdbcType=DECIMAL},
+      </if>
+      <if test="instAppSubsVol != null">
+        #{instAppSubsVol,jdbcType=DECIMAL},
+      </if>
+      <if test="minAmountByinst != null">
+        #{minAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="minVolByinst != null">
+        #{minVolByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="custoDianCode != null">
+        #{custoDianCode,jdbcType=VARCHAR},
+      </if>
+      <if test="amountOfPeriodicSubs != null">
+        #{amountOfPeriodicSubs,jdbcType=DECIMAL},
+      </if>
+      <if test="dateOfPeriodicSubs != null">
+        #{dateOfPeriodicSubs,jdbcType=CHAR},
+      </if>
+      <if test="maxRedemptionVol != null">
+        #{maxRedemptionVol,jdbcType=DECIMAL},
+      </if>
+      <if test="minAccountBalance != null">
+        #{minAccountBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="ipoStartDate != null">
+        #{ipoStartDate,jdbcType=CHAR},
+      </if>
+      <if test="ipoEnddate != null">
+        #{ipoEnddate,jdbcType=CHAR},
+      </if>
+      <if test="fundManagerCode != null">
+        #{fundManagerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="indiAppSubsVol != null">
+        #{indiAppSubsVol,jdbcType=DECIMAL},
+      </if>
+      <if test="indiAppsubsAmount != null">
+        #{indiAppsubsAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="minSubsVolByindi != null">
+        #{minSubsVolByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="minSubsAmountByindi != null">
+        #{minSubsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="registRarcode != null">
+        #{registRarcode,jdbcType=CHAR},
+      </if>
+      <if test="fundSponsor != null">
+        #{fundSponsor,jdbcType=CHAR},
+      </if>
+      <if test="tradingPrice != null">
+        #{tradingPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="faceValue != null">
+        #{faceValue,jdbcType=DECIMAL},
+      </if>
+      <if test="dividentDate != null">
+        #{dividentDate,jdbcType=CHAR},
+      </if>
+      <if test="registrationDate != null">
+        #{registrationDate,jdbcType=CHAR},
+      </if>
+      <if test="xrDate != null">
+        #{xrDate,jdbcType=CHAR},
+      </if>
+      <if test="maxSubsVolByindi != null">
+        #{maxSubsVolByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="maxSubsAmountByindi != null">
+        #{maxSubsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="maxSubsVolByinst != null">
+        #{maxSubsVolByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="maxSubsAmountByinst != null">
+        #{maxSubsAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="unitSubsVolByindi != null">
+        #{unitSubsVolByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="unitSubsAmountByindi != null">
+        #{unitSubsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="unitSubsVolByinst != null">
+        #{unitSubsVolByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="unitSubsAmountByinst != null">
+        #{unitSubsAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="minBidsAmountByindi != null">
+        #{minBidsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="minBidsAmountByinst != null">
+        #{minBidsAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="minAppbidsAmountByindi != null">
+        #{minAppbidsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="minAppbidsAmountByinst != null">
+        #{minAppbidsAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="minRedemptionVol != null">
+        #{minRedemptionVol,jdbcType=DECIMAL},
+      </if>
+      <if test="mininterconvertVol != null">
+        #{mininterconvertVol,jdbcType=DECIMAL},
+      </if>
+      <if test="issuetypeByindi != null">
+        #{issuetypeByindi,jdbcType=CHAR},
+      </if>
+      <if test="issuetypeByinst != null">
+        #{issuetypeByinst,jdbcType=CHAR},
+      </if>
+      <if test="subsType != null">
+        #{subsType,jdbcType=CHAR},
+      </if>
+      <if test="collectFeetype != null">
+        #{collectFeetype,jdbcType=CHAR},
+      </if>
+      <if test="nextTradedate != null">
+        #{nextTradedate,jdbcType=CHAR},
+      </if>
+      <if test="valueLine != null">
+        #{valueLine,jdbcType=DECIMAL},
+      </if>
+      <if test="totalDivident != null">
+        #{totalDivident,jdbcType=DECIMAL},
+      </if>
+      <if test="fundIncome != null">
+        #{fundIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="fundIncomeFlag != null">
+        #{fundIncomeFlag,jdbcType=CHAR},
+      </if>
+      <if test="yield != null">
+        #{yield,jdbcType=DECIMAL},
+      </if>
+      <if test="yieldFlag != null">
+        #{yieldFlag,jdbcType=CHAR},
+      </if>
+      <if test="guaranteedNav != null">
+        #{guaranteedNav,jdbcType=DECIMAL},
+      </if>
+      <if test="fundyearincomeRate != null">
+        #{fundyearincomeRate,jdbcType=DECIMAL},
+      </if>
+      <if test="fundyearincomeRateFlag != null">
+        #{fundyearincomeRateFlag,jdbcType=CHAR},
+      </if>
+      <if test="indimaxPurchase != null">
+        #{indimaxPurchase,jdbcType=DECIMAL},
+      </if>
+      <if test="instmaxPurchase != null">
+        #{instmaxPurchase,jdbcType=DECIMAL},
+      </if>
+      <if test="indidayMaxsumbuy != null">
+        #{indidayMaxsumbuy,jdbcType=DECIMAL},
+      </if>
+      <if test="instdayMaxsumbuy != null">
+        #{instdayMaxsumbuy,jdbcType=DECIMAL},
+      </if>
+      <if test="indidayMaxsumredeem != null">
+        #{indidayMaxsumredeem,jdbcType=DECIMAL},
+      </if>
+      <if test="instdayMaxsumredeem != null">
+        #{instdayMaxsumredeem,jdbcType=DECIMAL},
+      </if>
+      <if test="indiMaxRedeem != null">
+        #{indiMaxRedeem,jdbcType=DECIMAL},
+      </if>
+      <if test="instMaxRedeem != null">
+        #{instMaxRedeem,jdbcType=DECIMAL},
+      </if>
+      <if test="fundDayIncomeflag != null">
+        #{fundDayIncomeflag,jdbcType=CHAR},
+      </if>
+      <if test="fundDayIncome != null">
+        #{fundDayIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="allowBreachRedempt != null">
+        #{allowBreachRedempt,jdbcType=CHAR},
+      </if>
+      <if test="fundType != null">
+        #{fundType,jdbcType=CHAR},
+      </if>
+      <if test="fundTypeName != null">
+        #{fundTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="registrarName != null">
+        #{registrarName,jdbcType=VARCHAR},
+      </if>
+      <if test="fundmanagerName != null">
+        #{fundmanagerName,jdbcType=VARCHAR},
+      </if>
+      <if test="fundServerTel != null">
+        #{fundServerTel,jdbcType=VARCHAR},
+      </if>
+      <if test="fundInternetAddress != null">
+        #{fundInternetAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="shareType != null">
+        #{shareType,jdbcType=CHAR},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shhxzq.fin.cif.model.HopFundChgRecord">
+    update CCS_FUND_CHG_RECORD
+    <set>
+      <if test="fundName != null">
+        Fund_Name = #{fundName,jdbcType=VARCHAR},
+      </if>
+      <if test="totalFundvol != null">
+        Total_FundVol = #{totalFundvol,jdbcType=DECIMAL},
+      </if>
+      <if test="fundCode != null">
+        Fund_Code = #{fundCode,jdbcType=VARCHAR},
+      </if>
+      <if test="taNo != null">
+        TA_NO = #{taNo,jdbcType=VARCHAR},
+      </if>
+      <if test="workDate != null">
+        WORK_DATE = #{workDate,jdbcType=CHAR},
+      </if>
+      <if test="fundStatus != null">
+        Fund_Status = #{fundStatus,jdbcType=CHAR},
+      </if>
+      <if test="nav != null">
+        NAV = #{nav,jdbcType=DECIMAL},
+      </if>
+      <if test="updateDate != null">
+        Update_Date = #{updateDate,jdbcType=CHAR},
+      </if>
+      <if test="netValueType != null">
+        Net_Value_Type = #{netValueType,jdbcType=CHAR},
+      </if>
+      <if test="accumulativeNav != null">
+        Accumulative_NAV = #{accumulativeNav,jdbcType=DECIMAL},
+      </if>
+      <if test="convertStatus != null">
+        Convert_Status = #{convertStatus,jdbcType=CHAR},
+      </if>
+      <if test="periodicStatus != null">
+        Periodic_Status = #{periodicStatus,jdbcType=CHAR},
+      </if>
+      <if test="transferAgencyStatus != null">
+        Transfer_Agency_Status = #{transferAgencyStatus,jdbcType=CHAR},
+      </if>
+      <if test="fundSize != null">
+        Fund_Size = #{fundSize,jdbcType=DECIMAL},
+      </if>
+      <if test="currencyType != null">
+        Currency_Type = #{currencyType,jdbcType=VARCHAR},
+      </if>
+      <if test="announcFlag != null">
+        Announc_Flag = #{announcFlag,jdbcType=CHAR},
+      </if>
+      <if test="defDividendMethod != null">
+        Def_Dividend_Method = #{defDividendMethod,jdbcType=CHAR},
+      </if>
+      <if test="instAppSubsAmnt != null">
+        Inst_App_Subs_Amnt = #{instAppSubsAmnt,jdbcType=DECIMAL},
+      </if>
+      <if test="instAppSubsVol != null">
+        Inst_App_Subs_Vol = #{instAppSubsVol,jdbcType=DECIMAL},
+      </if>
+      <if test="minAmountByinst != null">
+        Min_Amount_ByInst = #{minAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="minVolByinst != null">
+        Min_Vol_ByInst = #{minVolByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="custoDianCode != null">
+        Custo_dian_Code = #{custoDianCode,jdbcType=VARCHAR},
+      </if>
+      <if test="amountOfPeriodicSubs != null">
+        Amount_Of_Periodic_Subs = #{amountOfPeriodicSubs,jdbcType=DECIMAL},
+      </if>
+      <if test="dateOfPeriodicSubs != null">
+        Date_Of_Periodic_Subs = #{dateOfPeriodicSubs,jdbcType=CHAR},
+      </if>
+      <if test="maxRedemptionVol != null">
+        Max_Redemption_Vol = #{maxRedemptionVol,jdbcType=DECIMAL},
+      </if>
+      <if test="minAccountBalance != null">
+        Min_Account_Balance = #{minAccountBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="ipoStartDate != null">
+        IPO_Start_Date = #{ipoStartDate,jdbcType=CHAR},
+      </if>
+      <if test="ipoEnddate != null">
+        IPO_EndDate = #{ipoEnddate,jdbcType=CHAR},
+      </if>
+      <if test="fundManagerCode != null">
+        Fund_Manager_Code = #{fundManagerCode,jdbcType=VARCHAR},
+      </if>
+      <if test="indiAppSubsVol != null">
+        Indi_App_Subs_Vol = #{indiAppSubsVol,jdbcType=DECIMAL},
+      </if>
+      <if test="indiAppsubsAmount != null">
+        Indi_AppSubs_Amount = #{indiAppsubsAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="minSubsVolByindi != null">
+        Min_Subs_Vol_ByIndi = #{minSubsVolByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="minSubsAmountByindi != null">
+        Min_Subs_Amount_ByIndi = #{minSubsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="registRarcode != null">
+        Regist_rarCode = #{registRarcode,jdbcType=CHAR},
+      </if>
+      <if test="fundSponsor != null">
+        Fund_Sponsor = #{fundSponsor,jdbcType=CHAR},
+      </if>
+      <if test="tradingPrice != null">
+        Trading_Price = #{tradingPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="faceValue != null">
+        Face_Value = #{faceValue,jdbcType=DECIMAL},
+      </if>
+      <if test="dividentDate != null">
+        Divident_Date = #{dividentDate,jdbcType=CHAR},
+      </if>
+      <if test="registrationDate != null">
+        Registration_Date = #{registrationDate,jdbcType=CHAR},
+      </if>
+      <if test="xrDate != null">
+        XR_Date = #{xrDate,jdbcType=CHAR},
+      </if>
+      <if test="maxSubsVolByindi != null">
+        Max_Subs_Vol_ByIndi = #{maxSubsVolByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="maxSubsAmountByindi != null">
+        Max_Subs_Amount_ByIndi = #{maxSubsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="maxSubsVolByinst != null">
+        Max_Subs_Vol_ByInst = #{maxSubsVolByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="maxSubsAmountByinst != null">
+        Max_Subs_Amount_ByInst = #{maxSubsAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="unitSubsVolByindi != null">
+        Unit_Subs_Vol_ByIndi = #{unitSubsVolByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="unitSubsAmountByindi != null">
+        Unit_Subs_Amount_ByIndi = #{unitSubsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="unitSubsVolByinst != null">
+        Unit_Subs_Vol_ByInst = #{unitSubsVolByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="unitSubsAmountByinst != null">
+        Unit_Subs_Amount_ByInst = #{unitSubsAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="minBidsAmountByindi != null">
+        Min_Bids_Amount_ByIndi = #{minBidsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="minBidsAmountByinst != null">
+        Min_Bids_Amount_ByInst = #{minBidsAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="minAppbidsAmountByindi != null">
+        Min_AppBids_Amount_ByIndi = #{minAppbidsAmountByindi,jdbcType=DECIMAL},
+      </if>
+      <if test="minAppbidsAmountByinst != null">
+        Min_AppBids_Amount_ByInst = #{minAppbidsAmountByinst,jdbcType=DECIMAL},
+      </if>
+      <if test="minRedemptionVol != null">
+        Min_Redemption_Vol = #{minRedemptionVol,jdbcType=DECIMAL},
+      </if>
+      <if test="mininterconvertVol != null">
+        MinInterconvert_Vol = #{mininterconvertVol,jdbcType=DECIMAL},
+      </if>
+      <if test="issuetypeByindi != null">
+        IssueType_ByIndi = #{issuetypeByindi,jdbcType=CHAR},
+      </if>
+      <if test="issuetypeByinst != null">
+        IssueType_ByInst = #{issuetypeByinst,jdbcType=CHAR},
+      </if>
+      <if test="subsType != null">
+        Subs_Type = #{subsType,jdbcType=CHAR},
+      </if>
+      <if test="collectFeetype != null">
+        Collect_FeeType = #{collectFeetype,jdbcType=CHAR},
+      </if>
+      <if test="nextTradedate != null">
+        Next_TradeDate = #{nextTradedate,jdbcType=CHAR},
+      </if>
+      <if test="valueLine != null">
+        Value_Line = #{valueLine,jdbcType=DECIMAL},
+      </if>
+      <if test="totalDivident != null">
+        Total_Divident = #{totalDivident,jdbcType=DECIMAL},
+      </if>
+      <if test="fundIncome != null">
+        Fund_Income = #{fundIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="fundIncomeFlag != null">
+        Fund_Income_Flag = #{fundIncomeFlag,jdbcType=CHAR},
+      </if>
+      <if test="yield != null">
+        Yield = #{yield,jdbcType=DECIMAL},
+      </if>
+      <if test="yieldFlag != null">
+        Yield_Flag = #{yieldFlag,jdbcType=CHAR},
+      </if>
+      <if test="guaranteedNav != null">
+        Guaranteed_NAV = #{guaranteedNav,jdbcType=DECIMAL},
+      </if>
+      <if test="fundyearincomeRate != null">
+        FundYearIncome_Rate = #{fundyearincomeRate,jdbcType=DECIMAL},
+      </if>
+      <if test="fundyearincomeRateFlag != null">
+        FundYearIncome_Rate_Flag = #{fundyearincomeRateFlag,jdbcType=CHAR},
+      </if>
+      <if test="indimaxPurchase != null">
+        IndiMax_Purchase = #{indimaxPurchase,jdbcType=DECIMAL},
+      </if>
+      <if test="instmaxPurchase != null">
+        InstMax_Purchase = #{instmaxPurchase,jdbcType=DECIMAL},
+      </if>
+      <if test="indidayMaxsumbuy != null">
+        IndiDay_MaxSumBuy = #{indidayMaxsumbuy,jdbcType=DECIMAL},
+      </if>
+      <if test="instdayMaxsumbuy != null">
+        InstDay_MaxSumBuy = #{instdayMaxsumbuy,jdbcType=DECIMAL},
+      </if>
+      <if test="indidayMaxsumredeem != null">
+        IndiDay_MaxSumRedeem = #{indidayMaxsumredeem,jdbcType=DECIMAL},
+      </if>
+      <if test="instdayMaxsumredeem != null">
+        InstDay_MaxSumRedeem = #{instdayMaxsumredeem,jdbcType=DECIMAL},
+      </if>
+      <if test="indiMaxRedeem != null">
+        Indi_Max_Redeem = #{indiMaxRedeem,jdbcType=DECIMAL},
+      </if>
+      <if test="instMaxRedeem != null">
+        Inst_Max_Redeem = #{instMaxRedeem,jdbcType=DECIMAL},
+      </if>
+      <if test="fundDayIncomeflag != null">
+        Fund_Day_IncomeFlag = #{fundDayIncomeflag,jdbcType=CHAR},
+      </if>
+      <if test="fundDayIncome != null">
+        Fund_Day_Income = #{fundDayIncome,jdbcType=DECIMAL},
+      </if>
+      <if test="allowBreachRedempt != null">
+        Allow_Breach_Redempt = #{allowBreachRedempt,jdbcType=CHAR},
+      </if>
+      <if test="fundType != null">
+        Fund_Type = #{fundType,jdbcType=CHAR},
+      </if>
+      <if test="fundTypeName != null">
+        Fund_Type_Name = #{fundTypeName,jdbcType=VARCHAR},
+      </if>
+      <if test="registrarName != null">
+        Registrar_Name = #{registrarName,jdbcType=VARCHAR},
+      </if>
+      <if test="fundmanagerName != null">
+        FundManager_Name = #{fundmanagerName,jdbcType=VARCHAR},
+      </if>
+      <if test="fundServerTel != null">
+        Fund_Server_Tel = #{fundServerTel,jdbcType=VARCHAR},
+      </if>
+      <if test="fundInternetAddress != null">
+        Fund_Internet_Address = #{fundInternetAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="shareType != null">
+        Share_Type = #{shareType,jdbcType=CHAR},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createdAt != null">
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shhxzq.fin.cif.model.HopFundChgRecord">
+    update CCS_FUND_CHG_RECORD
+    set Fund_Name = #{fundName,jdbcType=VARCHAR},
+      Total_FundVol = #{totalFundvol,jdbcType=DECIMAL},
+      Fund_Code = #{fundCode,jdbcType=VARCHAR},
+      TA_NO = #{taNo,jdbcType=VARCHAR},
+      WORK_DATE = #{workDate,jdbcType=CHAR},
+      Fund_Status = #{fundStatus,jdbcType=CHAR},
+      NAV = #{nav,jdbcType=DECIMAL},
+      Update_Date = #{updateDate,jdbcType=CHAR},
+      Net_Value_Type = #{netValueType,jdbcType=CHAR},
+      Accumulative_NAV = #{accumulativeNav,jdbcType=DECIMAL},
+      Convert_Status = #{convertStatus,jdbcType=CHAR},
+      Periodic_Status = #{periodicStatus,jdbcType=CHAR},
+      Transfer_Agency_Status = #{transferAgencyStatus,jdbcType=CHAR},
+      Fund_Size = #{fundSize,jdbcType=DECIMAL},
+      Currency_Type = #{currencyType,jdbcType=VARCHAR},
+      Announc_Flag = #{announcFlag,jdbcType=CHAR},
+      Def_Dividend_Method = #{defDividendMethod,jdbcType=CHAR},
+      Inst_App_Subs_Amnt = #{instAppSubsAmnt,jdbcType=DECIMAL},
+      Inst_App_Subs_Vol = #{instAppSubsVol,jdbcType=DECIMAL},
+      Min_Amount_ByInst = #{minAmountByinst,jdbcType=DECIMAL},
+      Min_Vol_ByInst = #{minVolByinst,jdbcType=DECIMAL},
+      Custo_dian_Code = #{custoDianCode,jdbcType=VARCHAR},
+      Amount_Of_Periodic_Subs = #{amountOfPeriodicSubs,jdbcType=DECIMAL},
+      Date_Of_Periodic_Subs = #{dateOfPeriodicSubs,jdbcType=CHAR},
+      Max_Redemption_Vol = #{maxRedemptionVol,jdbcType=DECIMAL},
+      Min_Account_Balance = #{minAccountBalance,jdbcType=DECIMAL},
+      IPO_Start_Date = #{ipoStartDate,jdbcType=CHAR},
+      IPO_EndDate = #{ipoEnddate,jdbcType=CHAR},
+      Fund_Manager_Code = #{fundManagerCode,jdbcType=VARCHAR},
+      Indi_App_Subs_Vol = #{indiAppSubsVol,jdbcType=DECIMAL},
+      Indi_AppSubs_Amount = #{indiAppsubsAmount,jdbcType=DECIMAL},
+      Min_Subs_Vol_ByIndi = #{minSubsVolByindi,jdbcType=DECIMAL},
+      Min_Subs_Amount_ByIndi = #{minSubsAmountByindi,jdbcType=DECIMAL},
+      Regist_rarCode = #{registRarcode,jdbcType=CHAR},
+      Fund_Sponsor = #{fundSponsor,jdbcType=CHAR},
+      Trading_Price = #{tradingPrice,jdbcType=DECIMAL},
+      Face_Value = #{faceValue,jdbcType=DECIMAL},
+      Divident_Date = #{dividentDate,jdbcType=CHAR},
+      Registration_Date = #{registrationDate,jdbcType=CHAR},
+      XR_Date = #{xrDate,jdbcType=CHAR},
+      Max_Subs_Vol_ByIndi = #{maxSubsVolByindi,jdbcType=DECIMAL},
+      Max_Subs_Amount_ByIndi = #{maxSubsAmountByindi,jdbcType=DECIMAL},
+      Max_Subs_Vol_ByInst = #{maxSubsVolByinst,jdbcType=DECIMAL},
+      Max_Subs_Amount_ByInst = #{maxSubsAmountByinst,jdbcType=DECIMAL},
+      Unit_Subs_Vol_ByIndi = #{unitSubsVolByindi,jdbcType=DECIMAL},
+      Unit_Subs_Amount_ByIndi = #{unitSubsAmountByindi,jdbcType=DECIMAL},
+      Unit_Subs_Vol_ByInst = #{unitSubsVolByinst,jdbcType=DECIMAL},
+      Unit_Subs_Amount_ByInst = #{unitSubsAmountByinst,jdbcType=DECIMAL},
+      Min_Bids_Amount_ByIndi = #{minBidsAmountByindi,jdbcType=DECIMAL},
+      Min_Bids_Amount_ByInst = #{minBidsAmountByinst,jdbcType=DECIMAL},
+      Min_AppBids_Amount_ByIndi = #{minAppbidsAmountByindi,jdbcType=DECIMAL},
+      Min_AppBids_Amount_ByInst = #{minAppbidsAmountByinst,jdbcType=DECIMAL},
+      Min_Redemption_Vol = #{minRedemptionVol,jdbcType=DECIMAL},
+      MinInterconvert_Vol = #{mininterconvertVol,jdbcType=DECIMAL},
+      IssueType_ByIndi = #{issuetypeByindi,jdbcType=CHAR},
+      IssueType_ByInst = #{issuetypeByinst,jdbcType=CHAR},
+      Subs_Type = #{subsType,jdbcType=CHAR},
+      Collect_FeeType = #{collectFeetype,jdbcType=CHAR},
+      Next_TradeDate = #{nextTradedate,jdbcType=CHAR},
+      Value_Line = #{valueLine,jdbcType=DECIMAL},
+      Total_Divident = #{totalDivident,jdbcType=DECIMAL},
+      Fund_Income = #{fundIncome,jdbcType=DECIMAL},
+      Fund_Income_Flag = #{fundIncomeFlag,jdbcType=CHAR},
+      Yield = #{yield,jdbcType=DECIMAL},
+      Yield_Flag = #{yieldFlag,jdbcType=CHAR},
+      Guaranteed_NAV = #{guaranteedNav,jdbcType=DECIMAL},
+      FundYearIncome_Rate = #{fundyearincomeRate,jdbcType=DECIMAL},
+      FundYearIncome_Rate_Flag = #{fundyearincomeRateFlag,jdbcType=CHAR},
+      IndiMax_Purchase = #{indimaxPurchase,jdbcType=DECIMAL},
+      InstMax_Purchase = #{instmaxPurchase,jdbcType=DECIMAL},
+      IndiDay_MaxSumBuy = #{indidayMaxsumbuy,jdbcType=DECIMAL},
+      InstDay_MaxSumBuy = #{instdayMaxsumbuy,jdbcType=DECIMAL},
+      IndiDay_MaxSumRedeem = #{indidayMaxsumredeem,jdbcType=DECIMAL},
+      InstDay_MaxSumRedeem = #{instdayMaxsumredeem,jdbcType=DECIMAL},
+      Indi_Max_Redeem = #{indiMaxRedeem,jdbcType=DECIMAL},
+      Inst_Max_Redeem = #{instMaxRedeem,jdbcType=DECIMAL},
+      Fund_Day_IncomeFlag = #{fundDayIncomeflag,jdbcType=CHAR},
+      Fund_Day_Income = #{fundDayIncome,jdbcType=DECIMAL},
+      Allow_Breach_Redempt = #{allowBreachRedempt,jdbcType=CHAR},
+      Fund_Type = #{fundType,jdbcType=CHAR},
+      Fund_Type_Name = #{fundTypeName,jdbcType=VARCHAR},
+      Registrar_Name = #{registrarName,jdbcType=VARCHAR},
+      FundManager_Name = #{fundmanagerName,jdbcType=VARCHAR},
+      Fund_Server_Tel = #{fundServerTel,jdbcType=VARCHAR},
+      Fund_Internet_Address = #{fundInternetAddress,jdbcType=VARCHAR},
+      Share_Type = #{shareType,jdbcType=CHAR},
+      is_delete = #{isDelete,jdbcType=TINYINT},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

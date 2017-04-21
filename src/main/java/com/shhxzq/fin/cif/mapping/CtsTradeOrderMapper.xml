@@ -1,0 +1,605 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shhxzq.fin.cif.dao.CtsTradeOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.shhxzq.fin.cif.model.CtsTradeOrder" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="PARENT_ORDER_NO" property="parentOrderNo" jdbcType="CHAR" />
+    <result column="ORDER_NO" property="orderNo" jdbcType="CHAR" />
+    <result column="OUTER_SERIAL_NO" property="outerSerialNo" jdbcType="VARCHAR" />
+    <result column="ORDER_APKIND" property="orderApkind" jdbcType="CHAR" />
+    <result column="ORDER_SUB_APKIND" property="orderSubApkind" jdbcType="CHAR" />
+    <result column="CUST_NO" property="custNo" jdbcType="CHAR" />
+    <result column="CUST_NAME" property="custName" jdbcType="VARCHAR" />
+    <result column="ACCPT_MODE" property="accptMode" jdbcType="CHAR" />
+    <result column="BRANCH_CODE" property="branchCode" jdbcType="VARCHAR" />
+    <result column="TRADE_ACCO" property="tradeAcco" jdbcType="VARCHAR" />
+    <result column="SHARE_TYPE" property="shareType" jdbcType="CHAR" />
+    <result column="COMPANY_NO" property="companyNo" jdbcType="VARCHAR" />
+    <result column="SUB_COMPANY_NO" property="subCompanyNo" jdbcType="VARCHAR" />
+    <result column="FROM_PROD" property="fromProd" jdbcType="VARCHAR" />
+    <result column="FROM_PROD_TYPE" property="fromProdType" jdbcType="TINYINT" />
+    <result column="FROM_TANO" property="fromTano" jdbcType="VARCHAR" />
+    <result column="TO_PROD" property="toProd" jdbcType="VARCHAR" />
+    <result column="TO_PROD_TYPE" property="toProdType" jdbcType="TINYINT" />
+    <result column="TO_TANO" property="toTano" jdbcType="VARCHAR" />
+    <result column="BANK_SERIAL_ID" property="bankSerialId" jdbcType="VARCHAR" />
+    <result column="BANK_ACCO" property="bankAcco" jdbcType="VARCHAR" />
+    <result column="BANK_NO" property="bankNo" jdbcType="CHAR" />
+    <result column="BANK_NAME" property="bankName" jdbcType="VARCHAR" />
+    <result column="PLEDGE_ORDER_NO" property="pledgeOrderNo" jdbcType="CHAR" />
+    <result column="CHARGE_TYPE" property="chargeType" jdbcType="CHAR" />
+    <result column="PAYMENT_TYPE" property="paymentType" jdbcType="CHAR" />
+    <result column="BUSINESS_CODE" property="businessCode" jdbcType="CHAR" />
+    <result column="WORK_DATE" property="workDate" jdbcType="CHAR" />
+    <result column="AP_DATE" property="apDate" jdbcType="CHAR" />
+    <result column="AP_TIME" property="apTime" jdbcType="CHAR" />
+    <result column="AP_AMT" property="apAmt" jdbcType="DECIMAL" />
+    <result column="SUCC_AMT" property="succAmt" jdbcType="DECIMAL" />
+    <result column="FAIL_AMT" property="failAmt" jdbcType="DECIMAL" />
+    <result column="ACK_AMT" property="ackAmt" jdbcType="DECIMAL" />
+    <result column="ACK_QUTY" property="ackQuty" jdbcType="DECIMAL" />
+    <result column="ACK_FEE" property="ackFee" jdbcType="DECIMAL" />
+    <result column="ACK_AT" property="ackAt" jdbcType="TIMESTAMP" />
+    <result column="STATUS" property="status" jdbcType="VARCHAR" />
+    <result column="PROTOCOL_NO" property="protocolNo" jdbcType="CHAR" />
+    <result column="POINTS_AMOUNT" property="pointsAmount" jdbcType="DECIMAL" />
+    <result column="POINTS_QUANTITY" property="pointsQuantity" jdbcType="DECIMAL" />
+    <result column="POINTS_FROZEN_NO" property="pointsFrozenNo" jdbcType="VARCHAR" />
+    <result column="FAST_REDEEM_SUB_AMT" property="fastRedeemSubAmt" jdbcType="DECIMAL" />
+    <result column="FAST_REDEEM_FEE" property="fastRedeemFee" jdbcType="DECIMAL" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="IS_DELETE" property="isDelete" jdbcType="TINYINT" />
+    <result column="CREATED_AT" property="createdAt" jdbcType="TIMESTAMP" />
+    <result column="UPDATED_AT" property="updatedAt" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, PARENT_ORDER_NO, ORDER_NO, OUTER_SERIAL_NO, ORDER_APKIND, ORDER_SUB_APKIND, CUST_NO, 
+    CUST_NAME, ACCPT_MODE, BRANCH_CODE, TRADE_ACCO, SHARE_TYPE, COMPANY_NO, SUB_COMPANY_NO, 
+    FROM_PROD, FROM_PROD_TYPE, FROM_TANO, TO_PROD, TO_PROD_TYPE, TO_TANO, BANK_SERIAL_ID, 
+    BANK_ACCO, BANK_NO, BANK_NAME, PLEDGE_ORDER_NO, CHARGE_TYPE, PAYMENT_TYPE, BUSINESS_CODE, 
+    WORK_DATE, AP_DATE, AP_TIME, AP_AMT, SUCC_AMT, FAIL_AMT, ACK_AMT, ACK_QUTY, ACK_FEE, 
+    ACK_AT, STATUS, PROTOCOL_NO, POINTS_AMOUNT, POINTS_QUANTITY, POINTS_FROZEN_NO, FAST_REDEEM_SUB_AMT, 
+    FAST_REDEEM_FEE, REMARK, IS_DELETE, CREATED_AT, UPDATED_AT
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from CTS_TRADE_ORDER
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from CTS_TRADE_ORDER
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.shhxzq.fin.cif.model.CtsTradeOrder" useGeneratedKeys="true" keyProperty="id" >
+    insert into CTS_TRADE_ORDER (PARENT_ORDER_NO, ORDER_NO, OUTER_SERIAL_NO, 
+      ORDER_APKIND, ORDER_SUB_APKIND, CUST_NO, 
+      CUST_NAME, ACCPT_MODE, BRANCH_CODE, 
+      TRADE_ACCO, SHARE_TYPE, COMPANY_NO, 
+      SUB_COMPANY_NO, FROM_PROD, FROM_PROD_TYPE, 
+      FROM_TANO, TO_PROD, TO_PROD_TYPE, 
+      TO_TANO, BANK_SERIAL_ID, BANK_ACCO, 
+      BANK_NO, BANK_NAME, PLEDGE_ORDER_NO, 
+      CHARGE_TYPE, PAYMENT_TYPE, BUSINESS_CODE, 
+      WORK_DATE, AP_DATE, AP_TIME, AP_AMT, 
+      SUCC_AMT, FAIL_AMT, ACK_AMT, 
+      ACK_QUTY, ACK_FEE, ACK_AT, 
+      STATUS, PROTOCOL_NO, POINTS_AMOUNT, 
+      POINTS_QUANTITY, POINTS_FROZEN_NO, FAST_REDEEM_SUB_AMT, 
+      FAST_REDEEM_FEE, REMARK, IS_DELETE, 
+      CREATED_AT, UPDATED_AT)
+    values (#{parentOrderNo,jdbcType=CHAR}, #{orderNo,jdbcType=CHAR}, #{outerSerialNo,jdbcType=VARCHAR}, 
+      #{orderApkind,jdbcType=CHAR}, #{orderSubApkind,jdbcType=CHAR}, #{custNo,jdbcType=CHAR}, 
+      #{custName,jdbcType=VARCHAR}, #{accptMode,jdbcType=CHAR}, #{branchCode,jdbcType=VARCHAR}, 
+      #{tradeAcco,jdbcType=VARCHAR}, #{shareType,jdbcType=CHAR}, #{companyNo,jdbcType=VARCHAR}, 
+      #{subCompanyNo,jdbcType=VARCHAR}, #{fromProd,jdbcType=VARCHAR}, #{fromProdType,jdbcType=TINYINT}, 
+      #{fromTano,jdbcType=VARCHAR}, #{toProd,jdbcType=VARCHAR}, #{toProdType,jdbcType=TINYINT}, 
+      #{toTano,jdbcType=VARCHAR}, #{bankSerialId,jdbcType=VARCHAR}, #{bankAcco,jdbcType=VARCHAR}, 
+      #{bankNo,jdbcType=CHAR}, #{bankName,jdbcType=VARCHAR}, #{pledgeOrderNo,jdbcType=CHAR}, 
+      #{chargeType,jdbcType=CHAR}, #{paymentType,jdbcType=CHAR}, #{businessCode,jdbcType=CHAR}, 
+      #{workDate,jdbcType=CHAR}, #{apDate,jdbcType=CHAR}, #{apTime,jdbcType=CHAR}, #{apAmt,jdbcType=DECIMAL}, 
+      #{succAmt,jdbcType=DECIMAL}, #{failAmt,jdbcType=DECIMAL}, #{ackAmt,jdbcType=DECIMAL}, 
+      #{ackQuty,jdbcType=DECIMAL}, #{ackFee,jdbcType=DECIMAL}, #{ackAt,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=VARCHAR}, #{protocolNo,jdbcType=CHAR}, #{pointsAmount,jdbcType=DECIMAL}, 
+      #{pointsQuantity,jdbcType=DECIMAL}, #{pointsFrozenNo,jdbcType=VARCHAR}, #{fastRedeemSubAmt,jdbcType=DECIMAL}, 
+      #{fastRedeemFee,jdbcType=DECIMAL}, #{remark,jdbcType=VARCHAR}, #{isDelete,jdbcType=TINYINT}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shhxzq.fin.cif.model.CtsTradeOrder" useGeneratedKeys="true" keyProperty="id" >
+    insert into CTS_TRADE_ORDER
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="parentOrderNo != null" >
+        PARENT_ORDER_NO,
+      </if>
+      <if test="orderNo != null" >
+        ORDER_NO,
+      </if>
+      <if test="outerSerialNo != null" >
+        OUTER_SERIAL_NO,
+      </if>
+      <if test="orderApkind != null" >
+        ORDER_APKIND,
+      </if>
+      <if test="orderSubApkind != null" >
+        ORDER_SUB_APKIND,
+      </if>
+      <if test="custNo != null" >
+        CUST_NO,
+      </if>
+      <if test="custName != null" >
+        CUST_NAME,
+      </if>
+      <if test="accptMode != null" >
+        ACCPT_MODE,
+      </if>
+      <if test="branchCode != null" >
+        BRANCH_CODE,
+      </if>
+      <if test="tradeAcco != null" >
+        TRADE_ACCO,
+      </if>
+      <if test="shareType != null" >
+        SHARE_TYPE,
+      </if>
+      <if test="companyNo != null" >
+        COMPANY_NO,
+      </if>
+      <if test="subCompanyNo != null" >
+        SUB_COMPANY_NO,
+      </if>
+      <if test="fromProd != null" >
+        FROM_PROD,
+      </if>
+      <if test="fromProdType != null" >
+        FROM_PROD_TYPE,
+      </if>
+      <if test="fromTano != null" >
+        FROM_TANO,
+      </if>
+      <if test="toProd != null" >
+        TO_PROD,
+      </if>
+      <if test="toProdType != null" >
+        TO_PROD_TYPE,
+      </if>
+      <if test="toTano != null" >
+        TO_TANO,
+      </if>
+      <if test="bankSerialId != null" >
+        BANK_SERIAL_ID,
+      </if>
+      <if test="bankAcco != null" >
+        BANK_ACCO,
+      </if>
+      <if test="bankNo != null" >
+        BANK_NO,
+      </if>
+      <if test="bankName != null" >
+        BANK_NAME,
+      </if>
+      <if test="pledgeOrderNo != null" >
+        PLEDGE_ORDER_NO,
+      </if>
+      <if test="chargeType != null" >
+        CHARGE_TYPE,
+      </if>
+      <if test="paymentType != null" >
+        PAYMENT_TYPE,
+      </if>
+      <if test="businessCode != null" >
+        BUSINESS_CODE,
+      </if>
+      <if test="workDate != null" >
+        WORK_DATE,
+      </if>
+      <if test="apDate != null" >
+        AP_DATE,
+      </if>
+      <if test="apTime != null" >
+        AP_TIME,
+      </if>
+      <if test="apAmt != null" >
+        AP_AMT,
+      </if>
+      <if test="succAmt != null" >
+        SUCC_AMT,
+      </if>
+      <if test="failAmt != null" >
+        FAIL_AMT,
+      </if>
+      <if test="ackAmt != null" >
+        ACK_AMT,
+      </if>
+      <if test="ackQuty != null" >
+        ACK_QUTY,
+      </if>
+      <if test="ackFee != null" >
+        ACK_FEE,
+      </if>
+      <if test="ackAt != null" >
+        ACK_AT,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="protocolNo != null" >
+        PROTOCOL_NO,
+      </if>
+      <if test="pointsAmount != null" >
+        POINTS_AMOUNT,
+      </if>
+      <if test="pointsQuantity != null" >
+        POINTS_QUANTITY,
+      </if>
+      <if test="pointsFrozenNo != null" >
+        POINTS_FROZEN_NO,
+      </if>
+      <if test="fastRedeemSubAmt != null" >
+        FAST_REDEEM_SUB_AMT,
+      </if>
+      <if test="fastRedeemFee != null" >
+        FAST_REDEEM_FEE,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="isDelete != null" >
+        IS_DELETE,
+      </if>
+      <if test="createdAt != null" >
+        CREATED_AT,
+      </if>
+      <if test="updatedAt != null" >
+        UPDATED_AT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="parentOrderNo != null" >
+        #{parentOrderNo,jdbcType=CHAR},
+      </if>
+      <if test="orderNo != null" >
+        #{orderNo,jdbcType=CHAR},
+      </if>
+      <if test="outerSerialNo != null" >
+        #{outerSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderApkind != null" >
+        #{orderApkind,jdbcType=CHAR},
+      </if>
+      <if test="orderSubApkind != null" >
+        #{orderSubApkind,jdbcType=CHAR},
+      </if>
+      <if test="custNo != null" >
+        #{custNo,jdbcType=CHAR},
+      </if>
+      <if test="custName != null" >
+        #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="accptMode != null" >
+        #{accptMode,jdbcType=CHAR},
+      </if>
+      <if test="branchCode != null" >
+        #{branchCode,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeAcco != null" >
+        #{tradeAcco,jdbcType=VARCHAR},
+      </if>
+      <if test="shareType != null" >
+        #{shareType,jdbcType=CHAR},
+      </if>
+      <if test="companyNo != null" >
+        #{companyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="subCompanyNo != null" >
+        #{subCompanyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="fromProd != null" >
+        #{fromProd,jdbcType=VARCHAR},
+      </if>
+      <if test="fromProdType != null" >
+        #{fromProdType,jdbcType=TINYINT},
+      </if>
+      <if test="fromTano != null" >
+        #{fromTano,jdbcType=VARCHAR},
+      </if>
+      <if test="toProd != null" >
+        #{toProd,jdbcType=VARCHAR},
+      </if>
+      <if test="toProdType != null" >
+        #{toProdType,jdbcType=TINYINT},
+      </if>
+      <if test="toTano != null" >
+        #{toTano,jdbcType=VARCHAR},
+      </if>
+      <if test="bankSerialId != null" >
+        #{bankSerialId,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAcco != null" >
+        #{bankAcco,jdbcType=VARCHAR},
+      </if>
+      <if test="bankNo != null" >
+        #{bankNo,jdbcType=CHAR},
+      </if>
+      <if test="bankName != null" >
+        #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="pledgeOrderNo != null" >
+        #{pledgeOrderNo,jdbcType=CHAR},
+      </if>
+      <if test="chargeType != null" >
+        #{chargeType,jdbcType=CHAR},
+      </if>
+      <if test="paymentType != null" >
+        #{paymentType,jdbcType=CHAR},
+      </if>
+      <if test="businessCode != null" >
+        #{businessCode,jdbcType=CHAR},
+      </if>
+      <if test="workDate != null" >
+        #{workDate,jdbcType=CHAR},
+      </if>
+      <if test="apDate != null" >
+        #{apDate,jdbcType=CHAR},
+      </if>
+      <if test="apTime != null" >
+        #{apTime,jdbcType=CHAR},
+      </if>
+      <if test="apAmt != null" >
+        #{apAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="succAmt != null" >
+        #{succAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="failAmt != null" >
+        #{failAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="ackAmt != null" >
+        #{ackAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="ackQuty != null" >
+        #{ackQuty,jdbcType=DECIMAL},
+      </if>
+      <if test="ackFee != null" >
+        #{ackFee,jdbcType=DECIMAL},
+      </if>
+      <if test="ackAt != null" >
+        #{ackAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="protocolNo != null" >
+        #{protocolNo,jdbcType=CHAR},
+      </if>
+      <if test="pointsAmount != null" >
+        #{pointsAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="pointsQuantity != null" >
+        #{pointsQuantity,jdbcType=DECIMAL},
+      </if>
+      <if test="pointsFrozenNo != null" >
+        #{pointsFrozenNo,jdbcType=VARCHAR},
+      </if>
+      <if test="fastRedeemSubAmt != null" >
+        #{fastRedeemSubAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="fastRedeemFee != null" >
+        #{fastRedeemFee,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createdAt != null" >
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null" >
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shhxzq.fin.cif.model.CtsTradeOrder" >
+    update CTS_TRADE_ORDER
+    <set >
+      <if test="parentOrderNo != null" >
+        PARENT_ORDER_NO = #{parentOrderNo,jdbcType=CHAR},
+      </if>
+      <if test="orderNo != null" >
+        ORDER_NO = #{orderNo,jdbcType=CHAR},
+      </if>
+      <if test="outerSerialNo != null" >
+        OUTER_SERIAL_NO = #{outerSerialNo,jdbcType=VARCHAR},
+      </if>
+      <if test="orderApkind != null" >
+        ORDER_APKIND = #{orderApkind,jdbcType=CHAR},
+      </if>
+      <if test="orderSubApkind != null" >
+        ORDER_SUB_APKIND = #{orderSubApkind,jdbcType=CHAR},
+      </if>
+      <if test="custNo != null" >
+        CUST_NO = #{custNo,jdbcType=CHAR},
+      </if>
+      <if test="custName != null" >
+        CUST_NAME = #{custName,jdbcType=VARCHAR},
+      </if>
+      <if test="accptMode != null" >
+        ACCPT_MODE = #{accptMode,jdbcType=CHAR},
+      </if>
+      <if test="branchCode != null" >
+        BRANCH_CODE = #{branchCode,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeAcco != null" >
+        TRADE_ACCO = #{tradeAcco,jdbcType=VARCHAR},
+      </if>
+      <if test="shareType != null" >
+        SHARE_TYPE = #{shareType,jdbcType=CHAR},
+      </if>
+      <if test="companyNo != null" >
+        COMPANY_NO = #{companyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="subCompanyNo != null" >
+        SUB_COMPANY_NO = #{subCompanyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="fromProd != null" >
+        FROM_PROD = #{fromProd,jdbcType=VARCHAR},
+      </if>
+      <if test="fromProdType != null" >
+        FROM_PROD_TYPE = #{fromProdType,jdbcType=TINYINT},
+      </if>
+      <if test="fromTano != null" >
+        FROM_TANO = #{fromTano,jdbcType=VARCHAR},
+      </if>
+      <if test="toProd != null" >
+        TO_PROD = #{toProd,jdbcType=VARCHAR},
+      </if>
+      <if test="toProdType != null" >
+        TO_PROD_TYPE = #{toProdType,jdbcType=TINYINT},
+      </if>
+      <if test="toTano != null" >
+        TO_TANO = #{toTano,jdbcType=VARCHAR},
+      </if>
+      <if test="bankSerialId != null" >
+        BANK_SERIAL_ID = #{bankSerialId,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAcco != null" >
+        BANK_ACCO = #{bankAcco,jdbcType=VARCHAR},
+      </if>
+      <if test="bankNo != null" >
+        BANK_NO = #{bankNo,jdbcType=CHAR},
+      </if>
+      <if test="bankName != null" >
+        BANK_NAME = #{bankName,jdbcType=VARCHAR},
+      </if>
+      <if test="pledgeOrderNo != null" >
+        PLEDGE_ORDER_NO = #{pledgeOrderNo,jdbcType=CHAR},
+      </if>
+      <if test="chargeType != null" >
+        CHARGE_TYPE = #{chargeType,jdbcType=CHAR},
+      </if>
+      <if test="paymentType != null" >
+        PAYMENT_TYPE = #{paymentType,jdbcType=CHAR},
+      </if>
+      <if test="businessCode != null" >
+        BUSINESS_CODE = #{businessCode,jdbcType=CHAR},
+      </if>
+      <if test="workDate != null" >
+        WORK_DATE = #{workDate,jdbcType=CHAR},
+      </if>
+      <if test="apDate != null" >
+        AP_DATE = #{apDate,jdbcType=CHAR},
+      </if>
+      <if test="apTime != null" >
+        AP_TIME = #{apTime,jdbcType=CHAR},
+      </if>
+      <if test="apAmt != null" >
+        AP_AMT = #{apAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="succAmt != null" >
+        SUCC_AMT = #{succAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="failAmt != null" >
+        FAIL_AMT = #{failAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="ackAmt != null" >
+        ACK_AMT = #{ackAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="ackQuty != null" >
+        ACK_QUTY = #{ackQuty,jdbcType=DECIMAL},
+      </if>
+      <if test="ackFee != null" >
+        ACK_FEE = #{ackFee,jdbcType=DECIMAL},
+      </if>
+      <if test="ackAt != null" >
+        ACK_AT = #{ackAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="protocolNo != null" >
+        PROTOCOL_NO = #{protocolNo,jdbcType=CHAR},
+      </if>
+      <if test="pointsAmount != null" >
+        POINTS_AMOUNT = #{pointsAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="pointsQuantity != null" >
+        POINTS_QUANTITY = #{pointsQuantity,jdbcType=DECIMAL},
+      </if>
+      <if test="pointsFrozenNo != null" >
+        POINTS_FROZEN_NO = #{pointsFrozenNo,jdbcType=VARCHAR},
+      </if>
+      <if test="fastRedeemSubAmt != null" >
+        FAST_REDEEM_SUB_AMT = #{fastRedeemSubAmt,jdbcType=DECIMAL},
+      </if>
+      <if test="fastRedeemFee != null" >
+        FAST_REDEEM_FEE = #{fastRedeemFee,jdbcType=DECIMAL},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null" >
+        IS_DELETE = #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createdAt != null" >
+        CREATED_AT = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null" >
+        UPDATED_AT = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shhxzq.fin.cif.model.CtsTradeOrder" >
+    update CTS_TRADE_ORDER
+    set PARENT_ORDER_NO = #{parentOrderNo,jdbcType=CHAR},
+      ORDER_NO = #{orderNo,jdbcType=CHAR},
+      OUTER_SERIAL_NO = #{outerSerialNo,jdbcType=VARCHAR},
+      ORDER_APKIND = #{orderApkind,jdbcType=CHAR},
+      ORDER_SUB_APKIND = #{orderSubApkind,jdbcType=CHAR},
+      CUST_NO = #{custNo,jdbcType=CHAR},
+      CUST_NAME = #{custName,jdbcType=VARCHAR},
+      ACCPT_MODE = #{accptMode,jdbcType=CHAR},
+      BRANCH_CODE = #{branchCode,jdbcType=VARCHAR},
+      TRADE_ACCO = #{tradeAcco,jdbcType=VARCHAR},
+      SHARE_TYPE = #{shareType,jdbcType=CHAR},
+      COMPANY_NO = #{companyNo,jdbcType=VARCHAR},
+      SUB_COMPANY_NO = #{subCompanyNo,jdbcType=VARCHAR},
+      FROM_PROD = #{fromProd,jdbcType=VARCHAR},
+      FROM_PROD_TYPE = #{fromProdType,jdbcType=TINYINT},
+      FROM_TANO = #{fromTano,jdbcType=VARCHAR},
+      TO_PROD = #{toProd,jdbcType=VARCHAR},
+      TO_PROD_TYPE = #{toProdType,jdbcType=TINYINT},
+      TO_TANO = #{toTano,jdbcType=VARCHAR},
+      BANK_SERIAL_ID = #{bankSerialId,jdbcType=VARCHAR},
+      BANK_ACCO = #{bankAcco,jdbcType=VARCHAR},
+      BANK_NO = #{bankNo,jdbcType=CHAR},
+      BANK_NAME = #{bankName,jdbcType=VARCHAR},
+      PLEDGE_ORDER_NO = #{pledgeOrderNo,jdbcType=CHAR},
+      CHARGE_TYPE = #{chargeType,jdbcType=CHAR},
+      PAYMENT_TYPE = #{paymentType,jdbcType=CHAR},
+      BUSINESS_CODE = #{businessCode,jdbcType=CHAR},
+      WORK_DATE = #{workDate,jdbcType=CHAR},
+      AP_DATE = #{apDate,jdbcType=CHAR},
+      AP_TIME = #{apTime,jdbcType=CHAR},
+      AP_AMT = #{apAmt,jdbcType=DECIMAL},
+      SUCC_AMT = #{succAmt,jdbcType=DECIMAL},
+      FAIL_AMT = #{failAmt,jdbcType=DECIMAL},
+      ACK_AMT = #{ackAmt,jdbcType=DECIMAL},
+      ACK_QUTY = #{ackQuty,jdbcType=DECIMAL},
+      ACK_FEE = #{ackFee,jdbcType=DECIMAL},
+      ACK_AT = #{ackAt,jdbcType=TIMESTAMP},
+      STATUS = #{status,jdbcType=VARCHAR},
+      PROTOCOL_NO = #{protocolNo,jdbcType=CHAR},
+      POINTS_AMOUNT = #{pointsAmount,jdbcType=DECIMAL},
+      POINTS_QUANTITY = #{pointsQuantity,jdbcType=DECIMAL},
+      POINTS_FROZEN_NO = #{pointsFrozenNo,jdbcType=VARCHAR},
+      FAST_REDEEM_SUB_AMT = #{fastRedeemSubAmt,jdbcType=DECIMAL},
+      FAST_REDEEM_FEE = #{fastRedeemFee,jdbcType=DECIMAL},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      IS_DELETE = #{isDelete,jdbcType=TINYINT},
+      CREATED_AT = #{createdAt,jdbcType=TIMESTAMP},
+      UPDATED_AT = #{updatedAt,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

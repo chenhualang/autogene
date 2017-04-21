@@ -1,0 +1,760 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shhxzq.fin.cif.dao.HopDailyProfitMapper">
+  <resultMap id="BaseResultMap" type="com.shhxzq.fin.cif.model.HopDailyProfit">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="ta_no" jdbcType="VARCHAR" property="taNo" />
+    <result column="partner_id" jdbcType="VARCHAR" property="partnerId" />
+    <result column="ecpay_code" jdbcType="VARCHAR" property="ecpayCode" />
+    <result column="sp_user" jdbcType="VARCHAR" property="spUser" />
+    <result column="sp_trans_id" jdbcType="VARCHAR" property="spTransId" />
+    <result column="partner_fund_no" jdbcType="VARCHAR" property="partnerFundNo" />
+    <result column="total_units" jdbcType="DECIMAL" property="totalUnits" />
+    <result column="partner_profit" jdbcType="DECIMAL" property="partnerProfit" />
+    <result column="fund_id" jdbcType="VARCHAR" property="fundId" />
+    <result column="charge_type" jdbcType="CHAR" property="chargeType" />
+    <result column="before_day_profit" jdbcType="DECIMAL" property="beforeDayProfit" />
+    <result column="profit_units" jdbcType="DECIMAL" property="profitUnits" />
+    <result column="redeem_units" jdbcType="DECIMAL" property="redeemUnits" />
+    <result column="transfer_date" jdbcType="CHAR" property="transferDate" />
+    <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="COMPANY_NO" jdbcType="VARCHAR" property="companyNo" />
+    <result column="SUB_COMPANY_NO" jdbcType="VARCHAR" property="subCompanyNo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, ta_no, partner_id, ecpay_code, sp_user, sp_trans_id, partner_fund_no, total_units, 
+    partner_profit, fund_id, charge_type, before_day_profit, profit_units, redeem_units, 
+    transfer_date, is_delete, created_at, updated_at, COMPANY_NO, SUB_COMPANY_NO
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CCS_DAILY_PROFIT
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from CCS_DAILY_PROFIT
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.shhxzq.fin.cif.model.HopDailyProfit" useGeneratedKeys="true">
+    insert into CCS_DAILY_PROFIT (ta_no, partner_id, ecpay_code, 
+      sp_user, sp_trans_id, partner_fund_no, 
+      total_units, partner_profit, fund_id, 
+      charge_type, before_day_profit, profit_units, 
+      redeem_units, transfer_date, is_delete, 
+      created_at, updated_at, COMPANY_NO, 
+      SUB_COMPANY_NO)
+    values (#{taNo,jdbcType=VARCHAR}, #{partnerId,jdbcType=VARCHAR}, #{ecpayCode,jdbcType=VARCHAR}, 
+      #{spUser,jdbcType=VARCHAR}, #{spTransId,jdbcType=VARCHAR}, #{partnerFundNo,jdbcType=VARCHAR}, 
+      #{totalUnits,jdbcType=DECIMAL}, #{partnerProfit,jdbcType=DECIMAL}, #{fundId,jdbcType=VARCHAR}, 
+      #{chargeType,jdbcType=CHAR}, #{beforeDayProfit,jdbcType=DECIMAL}, #{profitUnits,jdbcType=DECIMAL}, 
+      #{redeemUnits,jdbcType=DECIMAL}, #{transferDate,jdbcType=CHAR}, #{isDelete,jdbcType=TINYINT}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, #{companyNo,jdbcType=VARCHAR}, 
+      #{subCompanyNo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.shhxzq.fin.cif.model.HopDailyProfit" useGeneratedKeys="true">
+    insert into CCS_DAILY_PROFIT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="taNo != null">
+        ta_no,
+      </if>
+      <if test="partnerId != null">
+        partner_id,
+      </if>
+      <if test="ecpayCode != null">
+        ecpay_code,
+      </if>
+      <if test="spUser != null">
+        sp_user,
+      </if>
+      <if test="spTransId != null">
+        sp_trans_id,
+      </if>
+      <if test="partnerFundNo != null">
+        partner_fund_no,
+      </if>
+      <if test="totalUnits != null">
+        total_units,
+      </if>
+      <if test="partnerProfit != null">
+        partner_profit,
+      </if>
+      <if test="fundId != null">
+        fund_id,
+      </if>
+      <if test="chargeType != null">
+        charge_type,
+      </if>
+      <if test="beforeDayProfit != null">
+        before_day_profit,
+      </if>
+      <if test="profitUnits != null">
+        profit_units,
+      </if>
+      <if test="redeemUnits != null">
+        redeem_units,
+      </if>
+      <if test="transferDate != null">
+        transfer_date,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="createdAt != null">
+        created_at,
+      </if>
+      <if test="updatedAt != null">
+        updated_at,
+      </if>
+      <if test="companyNo != null">
+        COMPANY_NO,
+      </if>
+      <if test="subCompanyNo != null">
+        SUB_COMPANY_NO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="taNo != null">
+        #{taNo,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerId != null">
+        #{partnerId,jdbcType=VARCHAR},
+      </if>
+      <if test="ecpayCode != null">
+        #{ecpayCode,jdbcType=VARCHAR},
+      </if>
+      <if test="spUser != null">
+        #{spUser,jdbcType=VARCHAR},
+      </if>
+      <if test="spTransId != null">
+        #{spTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerFundNo != null">
+        #{partnerFundNo,jdbcType=VARCHAR},
+      </if>
+      <if test="totalUnits != null">
+        #{totalUnits,jdbcType=DECIMAL},
+      </if>
+      <if test="partnerProfit != null">
+        #{partnerProfit,jdbcType=DECIMAL},
+      </if>
+      <if test="fundId != null">
+        #{fundId,jdbcType=VARCHAR},
+      </if>
+      <if test="chargeType != null">
+        #{chargeType,jdbcType=CHAR},
+      </if>
+      <if test="beforeDayProfit != null">
+        #{beforeDayProfit,jdbcType=DECIMAL},
+      </if>
+      <if test="profitUnits != null">
+        #{profitUnits,jdbcType=DECIMAL},
+      </if>
+      <if test="redeemUnits != null">
+        #{redeemUnits,jdbcType=DECIMAL},
+      </if>
+      <if test="transferDate != null">
+        #{transferDate,jdbcType=CHAR},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="companyNo != null">
+        #{companyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="subCompanyNo != null">
+        #{subCompanyNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shhxzq.fin.cif.model.HopDailyProfit">
+    update CCS_DAILY_PROFIT
+    <set>
+      <if test="taNo != null">
+        ta_no = #{taNo,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerId != null">
+        partner_id = #{partnerId,jdbcType=VARCHAR},
+      </if>
+      <if test="ecpayCode != null">
+        ecpay_code = #{ecpayCode,jdbcType=VARCHAR},
+      </if>
+      <if test="spUser != null">
+        sp_user = #{spUser,jdbcType=VARCHAR},
+      </if>
+      <if test="spTransId != null">
+        sp_trans_id = #{spTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerFundNo != null">
+        partner_fund_no = #{partnerFundNo,jdbcType=VARCHAR},
+      </if>
+      <if test="totalUnits != null">
+        total_units = #{totalUnits,jdbcType=DECIMAL},
+      </if>
+      <if test="partnerProfit != null">
+        partner_profit = #{partnerProfit,jdbcType=DECIMAL},
+      </if>
+      <if test="fundId != null">
+        fund_id = #{fundId,jdbcType=VARCHAR},
+      </if>
+      <if test="chargeType != null">
+        charge_type = #{chargeType,jdbcType=CHAR},
+      </if>
+      <if test="beforeDayProfit != null">
+        before_day_profit = #{beforeDayProfit,jdbcType=DECIMAL},
+      </if>
+      <if test="profitUnits != null">
+        profit_units = #{profitUnits,jdbcType=DECIMAL},
+      </if>
+      <if test="redeemUnits != null">
+        redeem_units = #{redeemUnits,jdbcType=DECIMAL},
+      </if>
+      <if test="transferDate != null">
+        transfer_date = #{transferDate,jdbcType=CHAR},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createdAt != null">
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="companyNo != null">
+        COMPANY_NO = #{companyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="subCompanyNo != null">
+        SUB_COMPANY_NO = #{subCompanyNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shhxzq.fin.cif.model.HopDailyProfit">
+    update CCS_DAILY_PROFIT
+    set ta_no = #{taNo,jdbcType=VARCHAR},
+      partner_id = #{partnerId,jdbcType=VARCHAR},
+      ecpay_code = #{ecpayCode,jdbcType=VARCHAR},
+      sp_user = #{spUser,jdbcType=VARCHAR},
+      sp_trans_id = #{spTransId,jdbcType=VARCHAR},
+      partner_fund_no = #{partnerFundNo,jdbcType=VARCHAR},
+      total_units = #{totalUnits,jdbcType=DECIMAL},
+      partner_profit = #{partnerProfit,jdbcType=DECIMAL},
+      fund_id = #{fundId,jdbcType=VARCHAR},
+      charge_type = #{chargeType,jdbcType=CHAR},
+      before_day_profit = #{beforeDayProfit,jdbcType=DECIMAL},
+      profit_units = #{profitUnits,jdbcType=DECIMAL},
+      redeem_units = #{redeemUnits,jdbcType=DECIMAL},
+      transfer_date = #{transferDate,jdbcType=CHAR},
+      is_delete = #{isDelete,jdbcType=TINYINT},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      COMPANY_NO = #{companyNo,jdbcType=VARCHAR},
+      SUB_COMPANY_NO = #{subCompanyNo,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="com.shhxzq.fin.cif.model.HopDailyProfit">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="ta_no" jdbcType="VARCHAR" property="taNo" />
+    <result column="partner_id" jdbcType="VARCHAR" property="partnerId" />
+    <result column="ecpay_code" jdbcType="VARCHAR" property="ecpayCode" />
+    <result column="sp_user" jdbcType="VARCHAR" property="spUser" />
+    <result column="sp_trans_id" jdbcType="VARCHAR" property="spTransId" />
+    <result column="partner_fund_no" jdbcType="VARCHAR" property="partnerFundNo" />
+    <result column="total_units" jdbcType="DECIMAL" property="totalUnits" />
+    <result column="partner_profit" jdbcType="DECIMAL" property="partnerProfit" />
+    <result column="fund_id" jdbcType="VARCHAR" property="fundId" />
+    <result column="charge_type" jdbcType="CHAR" property="chargeType" />
+    <result column="before_day_profit" jdbcType="DECIMAL" property="beforeDayProfit" />
+    <result column="profit_units" jdbcType="DECIMAL" property="profitUnits" />
+    <result column="redeem_units" jdbcType="DECIMAL" property="redeemUnits" />
+    <result column="transfer_date" jdbcType="CHAR" property="transferDate" />
+    <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+    <result column="COMPANY_NO" jdbcType="VARCHAR" property="companyNo" />
+    <result column="SUB_COMPANY_NO" jdbcType="VARCHAR" property="subCompanyNo" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, ta_no, partner_id, ecpay_code, sp_user, sp_trans_id, partner_fund_no, total_units, 
+    partner_profit, fund_id, charge_type, before_day_profit, profit_units, redeem_units, 
+    transfer_date, is_delete, created_at, updated_at, COMPANY_NO, SUB_COMPANY_NO
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CCS_DAILY_PROFIT
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from CCS_DAILY_PROFIT
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.shhxzq.fin.cif.model.HopDailyProfit" useGeneratedKeys="true">
+    insert into CCS_DAILY_PROFIT (ta_no, partner_id, ecpay_code, 
+      sp_user, sp_trans_id, partner_fund_no, 
+      total_units, partner_profit, fund_id, 
+      charge_type, before_day_profit, profit_units, 
+      redeem_units, transfer_date, is_delete, 
+      created_at, updated_at, COMPANY_NO, 
+      SUB_COMPANY_NO)
+    values (#{taNo,jdbcType=VARCHAR}, #{partnerId,jdbcType=VARCHAR}, #{ecpayCode,jdbcType=VARCHAR}, 
+      #{spUser,jdbcType=VARCHAR}, #{spTransId,jdbcType=VARCHAR}, #{partnerFundNo,jdbcType=VARCHAR}, 
+      #{totalUnits,jdbcType=DECIMAL}, #{partnerProfit,jdbcType=DECIMAL}, #{fundId,jdbcType=VARCHAR}, 
+      #{chargeType,jdbcType=CHAR}, #{beforeDayProfit,jdbcType=DECIMAL}, #{profitUnits,jdbcType=DECIMAL}, 
+      #{redeemUnits,jdbcType=DECIMAL}, #{transferDate,jdbcType=CHAR}, #{isDelete,jdbcType=TINYINT}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP}, #{companyNo,jdbcType=VARCHAR}, 
+      #{subCompanyNo,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.shhxzq.fin.cif.model.HopDailyProfit" useGeneratedKeys="true">
+    insert into CCS_DAILY_PROFIT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="taNo != null">
+        ta_no,
+      </if>
+      <if test="partnerId != null">
+        partner_id,
+      </if>
+      <if test="ecpayCode != null">
+        ecpay_code,
+      </if>
+      <if test="spUser != null">
+        sp_user,
+      </if>
+      <if test="spTransId != null">
+        sp_trans_id,
+      </if>
+      <if test="partnerFundNo != null">
+        partner_fund_no,
+      </if>
+      <if test="totalUnits != null">
+        total_units,
+      </if>
+      <if test="partnerProfit != null">
+        partner_profit,
+      </if>
+      <if test="fundId != null">
+        fund_id,
+      </if>
+      <if test="chargeType != null">
+        charge_type,
+      </if>
+      <if test="beforeDayProfit != null">
+        before_day_profit,
+      </if>
+      <if test="profitUnits != null">
+        profit_units,
+      </if>
+      <if test="redeemUnits != null">
+        redeem_units,
+      </if>
+      <if test="transferDate != null">
+        transfer_date,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="createdAt != null">
+        created_at,
+      </if>
+      <if test="updatedAt != null">
+        updated_at,
+      </if>
+      <if test="companyNo != null">
+        COMPANY_NO,
+      </if>
+      <if test="subCompanyNo != null">
+        SUB_COMPANY_NO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="taNo != null">
+        #{taNo,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerId != null">
+        #{partnerId,jdbcType=VARCHAR},
+      </if>
+      <if test="ecpayCode != null">
+        #{ecpayCode,jdbcType=VARCHAR},
+      </if>
+      <if test="spUser != null">
+        #{spUser,jdbcType=VARCHAR},
+      </if>
+      <if test="spTransId != null">
+        #{spTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerFundNo != null">
+        #{partnerFundNo,jdbcType=VARCHAR},
+      </if>
+      <if test="totalUnits != null">
+        #{totalUnits,jdbcType=DECIMAL},
+      </if>
+      <if test="partnerProfit != null">
+        #{partnerProfit,jdbcType=DECIMAL},
+      </if>
+      <if test="fundId != null">
+        #{fundId,jdbcType=VARCHAR},
+      </if>
+      <if test="chargeType != null">
+        #{chargeType,jdbcType=CHAR},
+      </if>
+      <if test="beforeDayProfit != null">
+        #{beforeDayProfit,jdbcType=DECIMAL},
+      </if>
+      <if test="profitUnits != null">
+        #{profitUnits,jdbcType=DECIMAL},
+      </if>
+      <if test="redeemUnits != null">
+        #{redeemUnits,jdbcType=DECIMAL},
+      </if>
+      <if test="transferDate != null">
+        #{transferDate,jdbcType=CHAR},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="companyNo != null">
+        #{companyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="subCompanyNo != null">
+        #{subCompanyNo,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shhxzq.fin.cif.model.HopDailyProfit">
+    update CCS_DAILY_PROFIT
+    <set>
+      <if test="taNo != null">
+        ta_no = #{taNo,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerId != null">
+        partner_id = #{partnerId,jdbcType=VARCHAR},
+      </if>
+      <if test="ecpayCode != null">
+        ecpay_code = #{ecpayCode,jdbcType=VARCHAR},
+      </if>
+      <if test="spUser != null">
+        sp_user = #{spUser,jdbcType=VARCHAR},
+      </if>
+      <if test="spTransId != null">
+        sp_trans_id = #{spTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerFundNo != null">
+        partner_fund_no = #{partnerFundNo,jdbcType=VARCHAR},
+      </if>
+      <if test="totalUnits != null">
+        total_units = #{totalUnits,jdbcType=DECIMAL},
+      </if>
+      <if test="partnerProfit != null">
+        partner_profit = #{partnerProfit,jdbcType=DECIMAL},
+      </if>
+      <if test="fundId != null">
+        fund_id = #{fundId,jdbcType=VARCHAR},
+      </if>
+      <if test="chargeType != null">
+        charge_type = #{chargeType,jdbcType=CHAR},
+      </if>
+      <if test="beforeDayProfit != null">
+        before_day_profit = #{beforeDayProfit,jdbcType=DECIMAL},
+      </if>
+      <if test="profitUnits != null">
+        profit_units = #{profitUnits,jdbcType=DECIMAL},
+      </if>
+      <if test="redeemUnits != null">
+        redeem_units = #{redeemUnits,jdbcType=DECIMAL},
+      </if>
+      <if test="transferDate != null">
+        transfer_date = #{transferDate,jdbcType=CHAR},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createdAt != null">
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="companyNo != null">
+        COMPANY_NO = #{companyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="subCompanyNo != null">
+        SUB_COMPANY_NO = #{subCompanyNo,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shhxzq.fin.cif.model.HopDailyProfit">
+    update CCS_DAILY_PROFIT
+    set ta_no = #{taNo,jdbcType=VARCHAR},
+      partner_id = #{partnerId,jdbcType=VARCHAR},
+      ecpay_code = #{ecpayCode,jdbcType=VARCHAR},
+      sp_user = #{spUser,jdbcType=VARCHAR},
+      sp_trans_id = #{spTransId,jdbcType=VARCHAR},
+      partner_fund_no = #{partnerFundNo,jdbcType=VARCHAR},
+      total_units = #{totalUnits,jdbcType=DECIMAL},
+      partner_profit = #{partnerProfit,jdbcType=DECIMAL},
+      fund_id = #{fundId,jdbcType=VARCHAR},
+      charge_type = #{chargeType,jdbcType=CHAR},
+      before_day_profit = #{beforeDayProfit,jdbcType=DECIMAL},
+      profit_units = #{profitUnits,jdbcType=DECIMAL},
+      redeem_units = #{redeemUnits,jdbcType=DECIMAL},
+      transfer_date = #{transferDate,jdbcType=CHAR},
+      is_delete = #{isDelete,jdbcType=TINYINT},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      COMPANY_NO = #{companyNo,jdbcType=VARCHAR},
+      SUB_COMPANY_NO = #{subCompanyNo,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <resultMap id="BaseResultMap" type="com.shhxzq.fin.cif.model.HopDailyProfit">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="ta_no" jdbcType="VARCHAR" property="taNo" />
+    <result column="partner_id" jdbcType="VARCHAR" property="partnerId" />
+    <result column="ecpay_code" jdbcType="VARCHAR" property="ecpayCode" />
+    <result column="sp_user" jdbcType="VARCHAR" property="spUser" />
+    <result column="sp_trans_id" jdbcType="VARCHAR" property="spTransId" />
+    <result column="partner_fund_no" jdbcType="VARCHAR" property="partnerFundNo" />
+    <result column="total_units" jdbcType="DECIMAL" property="totalUnits" />
+    <result column="partner_profit" jdbcType="DECIMAL" property="partnerProfit" />
+    <result column="fund_id" jdbcType="VARCHAR" property="fundId" />
+    <result column="charge_type" jdbcType="CHAR" property="chargeType" />
+    <result column="before_day_profit" jdbcType="DECIMAL" property="beforeDayProfit" />
+    <result column="profit_units" jdbcType="DECIMAL" property="profitUnits" />
+    <result column="redeem_units" jdbcType="DECIMAL" property="redeemUnits" />
+    <result column="transfer_date" jdbcType="CHAR" property="transferDate" />
+    <result column="is_delete" jdbcType="TINYINT" property="isDelete" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, ta_no, partner_id, ecpay_code, sp_user, sp_trans_id, partner_fund_no, total_units, 
+    partner_profit, fund_id, charge_type, before_day_profit, profit_units, redeem_units, 
+    transfer_date, is_delete, created_at, updated_at
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CCS_DAILY_PROFIT
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from CCS_DAILY_PROFIT
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.shhxzq.fin.cif.model.HopDailyProfit" useGeneratedKeys="true">
+    insert into CCS_DAILY_PROFIT (ta_no, partner_id, ecpay_code, 
+      sp_user, sp_trans_id, partner_fund_no, 
+      total_units, partner_profit, fund_id, 
+      charge_type, before_day_profit, profit_units, 
+      redeem_units, transfer_date, is_delete, 
+      created_at, updated_at)
+    values (#{taNo,jdbcType=VARCHAR}, #{partnerId,jdbcType=VARCHAR}, #{ecpayCode,jdbcType=VARCHAR}, 
+      #{spUser,jdbcType=VARCHAR}, #{spTransId,jdbcType=VARCHAR}, #{partnerFundNo,jdbcType=VARCHAR}, 
+      #{totalUnits,jdbcType=DECIMAL}, #{partnerProfit,jdbcType=DECIMAL}, #{fundId,jdbcType=VARCHAR}, 
+      #{chargeType,jdbcType=CHAR}, #{beforeDayProfit,jdbcType=DECIMAL}, #{profitUnits,jdbcType=DECIMAL}, 
+      #{redeemUnits,jdbcType=DECIMAL}, #{transferDate,jdbcType=CHAR}, #{isDelete,jdbcType=TINYINT}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.shhxzq.fin.cif.model.HopDailyProfit" useGeneratedKeys="true">
+    insert into CCS_DAILY_PROFIT
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="taNo != null">
+        ta_no,
+      </if>
+      <if test="partnerId != null">
+        partner_id,
+      </if>
+      <if test="ecpayCode != null">
+        ecpay_code,
+      </if>
+      <if test="spUser != null">
+        sp_user,
+      </if>
+      <if test="spTransId != null">
+        sp_trans_id,
+      </if>
+      <if test="partnerFundNo != null">
+        partner_fund_no,
+      </if>
+      <if test="totalUnits != null">
+        total_units,
+      </if>
+      <if test="partnerProfit != null">
+        partner_profit,
+      </if>
+      <if test="fundId != null">
+        fund_id,
+      </if>
+      <if test="chargeType != null">
+        charge_type,
+      </if>
+      <if test="beforeDayProfit != null">
+        before_day_profit,
+      </if>
+      <if test="profitUnits != null">
+        profit_units,
+      </if>
+      <if test="redeemUnits != null">
+        redeem_units,
+      </if>
+      <if test="transferDate != null">
+        transfer_date,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="createdAt != null">
+        created_at,
+      </if>
+      <if test="updatedAt != null">
+        updated_at,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="taNo != null">
+        #{taNo,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerId != null">
+        #{partnerId,jdbcType=VARCHAR},
+      </if>
+      <if test="ecpayCode != null">
+        #{ecpayCode,jdbcType=VARCHAR},
+      </if>
+      <if test="spUser != null">
+        #{spUser,jdbcType=VARCHAR},
+      </if>
+      <if test="spTransId != null">
+        #{spTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerFundNo != null">
+        #{partnerFundNo,jdbcType=VARCHAR},
+      </if>
+      <if test="totalUnits != null">
+        #{totalUnits,jdbcType=DECIMAL},
+      </if>
+      <if test="partnerProfit != null">
+        #{partnerProfit,jdbcType=DECIMAL},
+      </if>
+      <if test="fundId != null">
+        #{fundId,jdbcType=VARCHAR},
+      </if>
+      <if test="chargeType != null">
+        #{chargeType,jdbcType=CHAR},
+      </if>
+      <if test="beforeDayProfit != null">
+        #{beforeDayProfit,jdbcType=DECIMAL},
+      </if>
+      <if test="profitUnits != null">
+        #{profitUnits,jdbcType=DECIMAL},
+      </if>
+      <if test="redeemUnits != null">
+        #{redeemUnits,jdbcType=DECIMAL},
+      </if>
+      <if test="transferDate != null">
+        #{transferDate,jdbcType=CHAR},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shhxzq.fin.cif.model.HopDailyProfit">
+    update CCS_DAILY_PROFIT
+    <set>
+      <if test="taNo != null">
+        ta_no = #{taNo,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerId != null">
+        partner_id = #{partnerId,jdbcType=VARCHAR},
+      </if>
+      <if test="ecpayCode != null">
+        ecpay_code = #{ecpayCode,jdbcType=VARCHAR},
+      </if>
+      <if test="spUser != null">
+        sp_user = #{spUser,jdbcType=VARCHAR},
+      </if>
+      <if test="spTransId != null">
+        sp_trans_id = #{spTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="partnerFundNo != null">
+        partner_fund_no = #{partnerFundNo,jdbcType=VARCHAR},
+      </if>
+      <if test="totalUnits != null">
+        total_units = #{totalUnits,jdbcType=DECIMAL},
+      </if>
+      <if test="partnerProfit != null">
+        partner_profit = #{partnerProfit,jdbcType=DECIMAL},
+      </if>
+      <if test="fundId != null">
+        fund_id = #{fundId,jdbcType=VARCHAR},
+      </if>
+      <if test="chargeType != null">
+        charge_type = #{chargeType,jdbcType=CHAR},
+      </if>
+      <if test="beforeDayProfit != null">
+        before_day_profit = #{beforeDayProfit,jdbcType=DECIMAL},
+      </if>
+      <if test="profitUnits != null">
+        profit_units = #{profitUnits,jdbcType=DECIMAL},
+      </if>
+      <if test="redeemUnits != null">
+        redeem_units = #{redeemUnits,jdbcType=DECIMAL},
+      </if>
+      <if test="transferDate != null">
+        transfer_date = #{transferDate,jdbcType=CHAR},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=TINYINT},
+      </if>
+      <if test="createdAt != null">
+        created_at = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        updated_at = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shhxzq.fin.cif.model.HopDailyProfit">
+    update CCS_DAILY_PROFIT
+    set ta_no = #{taNo,jdbcType=VARCHAR},
+      partner_id = #{partnerId,jdbcType=VARCHAR},
+      ecpay_code = #{ecpayCode,jdbcType=VARCHAR},
+      sp_user = #{spUser,jdbcType=VARCHAR},
+      sp_trans_id = #{spTransId,jdbcType=VARCHAR},
+      partner_fund_no = #{partnerFundNo,jdbcType=VARCHAR},
+      total_units = #{totalUnits,jdbcType=DECIMAL},
+      partner_profit = #{partnerProfit,jdbcType=DECIMAL},
+      fund_id = #{fundId,jdbcType=VARCHAR},
+      charge_type = #{chargeType,jdbcType=CHAR},
+      before_day_profit = #{beforeDayProfit,jdbcType=DECIMAL},
+      profit_units = #{profitUnits,jdbcType=DECIMAL},
+      redeem_units = #{redeemUnits,jdbcType=DECIMAL},
+      transfer_date = #{transferDate,jdbcType=CHAR},
+      is_delete = #{isDelete,jdbcType=TINYINT},
+      created_at = #{createdAt,jdbcType=TIMESTAMP},
+      updated_at = #{updatedAt,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

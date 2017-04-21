@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shhxzq.fin.cif.dao.HopConfirmOrderMapper">
+  <resultMap id="BaseResultMap" type="com.shhxzq.fin.cif.model.HopConfirmOrder">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="TRADE_REQ_NO" jdbcType="CHAR" property="tradeReqNo" />
+    <result column="ORDER_NO" jdbcType="VARCHAR" property="orderNo" />
+    <result column="OUTER_TRANS_ID" jdbcType="VARCHAR" property="outerTransId" />
+    <result column="TRADE_ACCO" jdbcType="VARCHAR" property="tradeAcco" />
+    <result column="PROD_ID" jdbcType="VARCHAR" property="prodId" />
+    <result column="APPLY_AMOUNT" jdbcType="DECIMAL" property="applyAmount" />
+    <result column="APPLY_SHARE" jdbcType="DECIMAL" property="applyShare" />
+    <result column="COMPANY_NO" jdbcType="VARCHAR" property="companyNo" />
+    <result column="SUB_COMPANY_NO" jdbcType="VARCHAR" property="subCompanyNo" />
+    <result column="TA_NO" jdbcType="VARCHAR" property="taNo" />
+    <result column="PAYMENT_TYPE" jdbcType="CHAR" property="paymentType" />
+    <result column="CHARGE_TYPE" jdbcType="CHAR" property="chargeType" />
+    <result column="WORK_DATE" jdbcType="CHAR" property="workDate" />
+    <result column="APKIND" jdbcType="CHAR" property="apkind" />
+    <result column="CONFIRM_AMOUNT" jdbcType="DECIMAL" property="confirmAmount" />
+    <result column="CONFIRM_SHARE" jdbcType="DECIMAL" property="confirmShare" />
+    <result column="COFIRM_DATE" jdbcType="CHAR" property="cofirmDate" />
+    <result column="FEE" jdbcType="DECIMAL" property="fee" />
+    <result column="ORDER_STATUS" jdbcType="CHAR" property="orderStatus" />
+    <result column="RET_MSG" jdbcType="VARCHAR" property="retMsg" />
+    <result column="IS_DELETE" jdbcType="BIT" property="isDelete" />
+    <result column="CREATED_AT" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="UPDATED_AT" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, TRADE_REQ_NO, ORDER_NO, OUTER_TRANS_ID, TRADE_ACCO, PROD_ID, APPLY_AMOUNT, APPLY_SHARE, 
+    COMPANY_NO, SUB_COMPANY_NO, TA_NO, PAYMENT_TYPE, CHARGE_TYPE, WORK_DATE, APKIND, 
+    CONFIRM_AMOUNT, CONFIRM_SHARE, COFIRM_DATE, FEE, ORDER_STATUS, RET_MSG, IS_DELETE, 
+    CREATED_AT, UPDATED_AT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CTS_TRADE_CONFIRM
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from CTS_TRADE_CONFIRM
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.shhxzq.fin.cif.model.HopConfirmOrder" useGeneratedKeys="true">
+    insert into CTS_TRADE_CONFIRM (TRADE_REQ_NO, ORDER_NO, OUTER_TRANS_ID, 
+      TRADE_ACCO, PROD_ID, APPLY_AMOUNT, 
+      APPLY_SHARE, COMPANY_NO, SUB_COMPANY_NO, 
+      TA_NO, PAYMENT_TYPE, CHARGE_TYPE, 
+      WORK_DATE, APKIND, CONFIRM_AMOUNT, 
+      CONFIRM_SHARE, COFIRM_DATE, FEE, 
+      ORDER_STATUS, RET_MSG, IS_DELETE, 
+      CREATED_AT, UPDATED_AT)
+    values (#{tradeReqNo,jdbcType=CHAR}, #{orderNo,jdbcType=VARCHAR}, #{outerTransId,jdbcType=VARCHAR}, 
+      #{tradeAcco,jdbcType=VARCHAR}, #{prodId,jdbcType=VARCHAR}, #{applyAmount,jdbcType=DECIMAL}, 
+      #{applyShare,jdbcType=DECIMAL}, #{companyNo,jdbcType=VARCHAR}, #{subCompanyNo,jdbcType=VARCHAR}, 
+      #{taNo,jdbcType=VARCHAR}, #{paymentType,jdbcType=CHAR}, #{chargeType,jdbcType=CHAR}, 
+      #{workDate,jdbcType=CHAR}, #{apkind,jdbcType=CHAR}, #{confirmAmount,jdbcType=DECIMAL}, 
+      #{confirmShare,jdbcType=DECIMAL}, #{cofirmDate,jdbcType=CHAR}, #{fee,jdbcType=DECIMAL}, 
+      #{orderStatus,jdbcType=CHAR}, #{retMsg,jdbcType=VARCHAR}, #{isDelete,jdbcType=BIT}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.shhxzq.fin.cif.model.HopConfirmOrder" useGeneratedKeys="true">
+    insert into CTS_TRADE_CONFIRM
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tradeReqNo != null">
+        TRADE_REQ_NO,
+      </if>
+      <if test="orderNo != null">
+        ORDER_NO,
+      </if>
+      <if test="outerTransId != null">
+        OUTER_TRANS_ID,
+      </if>
+      <if test="tradeAcco != null">
+        TRADE_ACCO,
+      </if>
+      <if test="prodId != null">
+        PROD_ID,
+      </if>
+      <if test="applyAmount != null">
+        APPLY_AMOUNT,
+      </if>
+      <if test="applyShare != null">
+        APPLY_SHARE,
+      </if>
+      <if test="companyNo != null">
+        COMPANY_NO,
+      </if>
+      <if test="subCompanyNo != null">
+        SUB_COMPANY_NO,
+      </if>
+      <if test="taNo != null">
+        TA_NO,
+      </if>
+      <if test="paymentType != null">
+        PAYMENT_TYPE,
+      </if>
+      <if test="chargeType != null">
+        CHARGE_TYPE,
+      </if>
+      <if test="workDate != null">
+        WORK_DATE,
+      </if>
+      <if test="apkind != null">
+        APKIND,
+      </if>
+      <if test="confirmAmount != null">
+        CONFIRM_AMOUNT,
+      </if>
+      <if test="confirmShare != null">
+        CONFIRM_SHARE,
+      </if>
+      <if test="cofirmDate != null">
+        COFIRM_DATE,
+      </if>
+      <if test="fee != null">
+        FEE,
+      </if>
+      <if test="orderStatus != null">
+        ORDER_STATUS,
+      </if>
+      <if test="retMsg != null">
+        RET_MSG,
+      </if>
+      <if test="isDelete != null">
+        IS_DELETE,
+      </if>
+      <if test="createdAt != null">
+        CREATED_AT,
+      </if>
+      <if test="updatedAt != null">
+        UPDATED_AT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tradeReqNo != null">
+        #{tradeReqNo,jdbcType=CHAR},
+      </if>
+      <if test="orderNo != null">
+        #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="outerTransId != null">
+        #{outerTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeAcco != null">
+        #{tradeAcco,jdbcType=VARCHAR},
+      </if>
+      <if test="prodId != null">
+        #{prodId,jdbcType=VARCHAR},
+      </if>
+      <if test="applyAmount != null">
+        #{applyAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="applyShare != null">
+        #{applyShare,jdbcType=DECIMAL},
+      </if>
+      <if test="companyNo != null">
+        #{companyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="subCompanyNo != null">
+        #{subCompanyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="taNo != null">
+        #{taNo,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentType != null">
+        #{paymentType,jdbcType=CHAR},
+      </if>
+      <if test="chargeType != null">
+        #{chargeType,jdbcType=CHAR},
+      </if>
+      <if test="workDate != null">
+        #{workDate,jdbcType=CHAR},
+      </if>
+      <if test="apkind != null">
+        #{apkind,jdbcType=CHAR},
+      </if>
+      <if test="confirmAmount != null">
+        #{confirmAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="confirmShare != null">
+        #{confirmShare,jdbcType=DECIMAL},
+      </if>
+      <if test="cofirmDate != null">
+        #{cofirmDate,jdbcType=CHAR},
+      </if>
+      <if test="fee != null">
+        #{fee,jdbcType=DECIMAL},
+      </if>
+      <if test="orderStatus != null">
+        #{orderStatus,jdbcType=CHAR},
+      </if>
+      <if test="retMsg != null">
+        #{retMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shhxzq.fin.cif.model.HopConfirmOrder">
+    update CTS_TRADE_CONFIRM
+    <set>
+      <if test="tradeReqNo != null">
+        TRADE_REQ_NO = #{tradeReqNo,jdbcType=CHAR},
+      </if>
+      <if test="orderNo != null">
+        ORDER_NO = #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="outerTransId != null">
+        OUTER_TRANS_ID = #{outerTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeAcco != null">
+        TRADE_ACCO = #{tradeAcco,jdbcType=VARCHAR},
+      </if>
+      <if test="prodId != null">
+        PROD_ID = #{prodId,jdbcType=VARCHAR},
+      </if>
+      <if test="applyAmount != null">
+        APPLY_AMOUNT = #{applyAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="applyShare != null">
+        APPLY_SHARE = #{applyShare,jdbcType=DECIMAL},
+      </if>
+      <if test="companyNo != null">
+        COMPANY_NO = #{companyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="subCompanyNo != null">
+        SUB_COMPANY_NO = #{subCompanyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="taNo != null">
+        TA_NO = #{taNo,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentType != null">
+        PAYMENT_TYPE = #{paymentType,jdbcType=CHAR},
+      </if>
+      <if test="chargeType != null">
+        CHARGE_TYPE = #{chargeType,jdbcType=CHAR},
+      </if>
+      <if test="workDate != null">
+        WORK_DATE = #{workDate,jdbcType=CHAR},
+      </if>
+      <if test="apkind != null">
+        APKIND = #{apkind,jdbcType=CHAR},
+      </if>
+      <if test="confirmAmount != null">
+        CONFIRM_AMOUNT = #{confirmAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="confirmShare != null">
+        CONFIRM_SHARE = #{confirmShare,jdbcType=DECIMAL},
+      </if>
+      <if test="cofirmDate != null">
+        COFIRM_DATE = #{cofirmDate,jdbcType=CHAR},
+      </if>
+      <if test="fee != null">
+        FEE = #{fee,jdbcType=DECIMAL},
+      </if>
+      <if test="orderStatus != null">
+        ORDER_STATUS = #{orderStatus,jdbcType=CHAR},
+      </if>
+      <if test="retMsg != null">
+        RET_MSG = #{retMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        IS_DELETE = #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="createdAt != null">
+        CREATED_AT = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        UPDATED_AT = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shhxzq.fin.cif.model.HopConfirmOrder">
+    update CTS_TRADE_CONFIRM
+    set TRADE_REQ_NO = #{tradeReqNo,jdbcType=CHAR},
+      ORDER_NO = #{orderNo,jdbcType=VARCHAR},
+      OUTER_TRANS_ID = #{outerTransId,jdbcType=VARCHAR},
+      TRADE_ACCO = #{tradeAcco,jdbcType=VARCHAR},
+      PROD_ID = #{prodId,jdbcType=VARCHAR},
+      APPLY_AMOUNT = #{applyAmount,jdbcType=DECIMAL},
+      APPLY_SHARE = #{applyShare,jdbcType=DECIMAL},
+      COMPANY_NO = #{companyNo,jdbcType=VARCHAR},
+      SUB_COMPANY_NO = #{subCompanyNo,jdbcType=VARCHAR},
+      TA_NO = #{taNo,jdbcType=VARCHAR},
+      PAYMENT_TYPE = #{paymentType,jdbcType=CHAR},
+      CHARGE_TYPE = #{chargeType,jdbcType=CHAR},
+      WORK_DATE = #{workDate,jdbcType=CHAR},
+      APKIND = #{apkind,jdbcType=CHAR},
+      CONFIRM_AMOUNT = #{confirmAmount,jdbcType=DECIMAL},
+      CONFIRM_SHARE = #{confirmShare,jdbcType=DECIMAL},
+      COFIRM_DATE = #{cofirmDate,jdbcType=CHAR},
+      FEE = #{fee,jdbcType=DECIMAL},
+      ORDER_STATUS = #{orderStatus,jdbcType=CHAR},
+      RET_MSG = #{retMsg,jdbcType=VARCHAR},
+      IS_DELETE = #{isDelete,jdbcType=BIT},
+      CREATED_AT = #{createdAt,jdbcType=TIMESTAMP},
+      UPDATED_AT = #{updatedAt,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.shhxzq.fin.hop.model.HopConfirmOrder">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="TRADE_REQ_NO" jdbcType="CHAR" property="tradeReqNo" />
+    <result column="ORDER_NO" jdbcType="VARCHAR" property="orderNo" />
+    <result column="OUTER_TRANS_ID" jdbcType="VARCHAR" property="outerTransId" />
+    <result column="TRADE_ACCO" jdbcType="VARCHAR" property="tradeAcco" />
+    <result column="PROD_ID" jdbcType="VARCHAR" property="prodId" />
+    <result column="APPLY_AMOUNT" jdbcType="DECIMAL" property="applyAmount" />
+    <result column="APPLY_SHARE" jdbcType="DECIMAL" property="applyShare" />
+    <result column="COMPANY_NO" jdbcType="VARCHAR" property="companyNo" />
+    <result column="SUB_COMPANY_NO" jdbcType="VARCHAR" property="subCompanyNo" />
+    <result column="PAYMENT_TYPE" jdbcType="CHAR" property="paymentType" />
+    <result column="BANK_ACCOUNT" jdbcType="VARCHAR" property="bankAccount" />
+    <result column="BANK_NO" jdbcType="CHAR" property="bankNo" />
+    <result column="CHARGE_TYPE" jdbcType="CHAR" property="chargeType" />
+    <result column="WORK_DATE" jdbcType="CHAR" property="workDate" />
+    <result column="APKIND" jdbcType="CHAR" property="apkind" />
+    <result column="ORDER_STATUS" jdbcType="CHAR" property="orderStatus" />
+    <result column="RET_MSG" jdbcType="VARCHAR" property="retMsg" />
+    <result column="IS_DELETE" jdbcType="BIT" property="isDelete" />
+    <result column="CREATED_AT" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="UPDATED_AT" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, TRADE_REQ_NO, ORDER_NO, OUTER_TRANS_ID, TRADE_ACCO, PROD_ID, APPLY_AMOUNT, APPLY_SHARE, 
+    COMPANY_NO, SUB_COMPANY_NO, PAYMENT_TYPE, BANK_ACCOUNT, BANK_NO, CHARGE_TYPE, WORK_DATE, 
+    APKIND, ORDER_STATUS, RET_MSG, IS_DELETE, CREATED_AT, UPDATED_AT
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from CTS_TRDAE_CONFIRM
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from CTS_TRDAE_CONFIRM
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyProperty="id" parameterType="com.shhxzq.fin.cif.model.HopConfirmOrder" useGeneratedKeys="true">
+    insert into CTS_TRDAE_CONFIRM (TRADE_REQ_NO, ORDER_NO, OUTER_TRANS_ID, 
+      TRADE_ACCO, PROD_ID, APPLY_AMOUNT, 
+      APPLY_SHARE, COMPANY_NO, SUB_COMPANY_NO, 
+      PAYMENT_TYPE, BANK_ACCOUNT, BANK_NO, 
+      CHARGE_TYPE, WORK_DATE, APKIND, 
+      ORDER_STATUS, RET_MSG, IS_DELETE, 
+      CREATED_AT, UPDATED_AT)
+    values (#{tradeReqNo,jdbcType=CHAR}, #{orderNo,jdbcType=VARCHAR}, #{outerTransId,jdbcType=VARCHAR}, 
+      #{tradeAcco,jdbcType=VARCHAR}, #{prodId,jdbcType=VARCHAR}, #{applyAmount,jdbcType=DECIMAL}, 
+      #{applyShare,jdbcType=DECIMAL}, #{companyNo,jdbcType=VARCHAR}, #{subCompanyNo,jdbcType=VARCHAR}, 
+      #{paymentType,jdbcType=CHAR}, #{bankAccount,jdbcType=VARCHAR}, #{bankNo,jdbcType=CHAR}, 
+      #{chargeType,jdbcType=CHAR}, #{workDate,jdbcType=CHAR}, #{apkind,jdbcType=CHAR}, 
+      #{orderStatus,jdbcType=CHAR}, #{retMsg,jdbcType=VARCHAR}, #{isDelete,jdbcType=BIT}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyProperty="id" parameterType="com.shhxzq.fin.cif.model.HopConfirmOrder" useGeneratedKeys="true">
+    insert into CTS_TRDAE_CONFIRM
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="tradeReqNo != null">
+        TRADE_REQ_NO,
+      </if>
+      <if test="orderNo != null">
+        ORDER_NO,
+      </if>
+      <if test="outerTransId != null">
+        OUTER_TRANS_ID,
+      </if>
+      <if test="tradeAcco != null">
+        TRADE_ACCO,
+      </if>
+      <if test="prodId != null">
+        PROD_ID,
+      </if>
+      <if test="applyAmount != null">
+        APPLY_AMOUNT,
+      </if>
+      <if test="applyShare != null">
+        APPLY_SHARE,
+      </if>
+      <if test="companyNo != null">
+        COMPANY_NO,
+      </if>
+      <if test="subCompanyNo != null">
+        SUB_COMPANY_NO,
+      </if>
+      <if test="paymentType != null">
+        PAYMENT_TYPE,
+      </if>
+      <if test="bankAccount != null">
+        BANK_ACCOUNT,
+      </if>
+      <if test="bankNo != null">
+        BANK_NO,
+      </if>
+      <if test="chargeType != null">
+        CHARGE_TYPE,
+      </if>
+      <if test="workDate != null">
+        WORK_DATE,
+      </if>
+      <if test="apkind != null">
+        APKIND,
+      </if>
+      <if test="orderStatus != null">
+        ORDER_STATUS,
+      </if>
+      <if test="retMsg != null">
+        RET_MSG,
+      </if>
+      <if test="isDelete != null">
+        IS_DELETE,
+      </if>
+      <if test="createdAt != null">
+        CREATED_AT,
+      </if>
+      <if test="updatedAt != null">
+        UPDATED_AT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="tradeReqNo != null">
+        #{tradeReqNo,jdbcType=CHAR},
+      </if>
+      <if test="orderNo != null">
+        #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="outerTransId != null">
+        #{outerTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeAcco != null">
+        #{tradeAcco,jdbcType=VARCHAR},
+      </if>
+      <if test="prodId != null">
+        #{prodId,jdbcType=VARCHAR},
+      </if>
+      <if test="applyAmount != null">
+        #{applyAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="applyShare != null">
+        #{applyShare,jdbcType=DECIMAL},
+      </if>
+      <if test="companyNo != null">
+        #{companyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="subCompanyNo != null">
+        #{subCompanyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentType != null">
+        #{paymentType,jdbcType=CHAR},
+      </if>
+      <if test="bankAccount != null">
+        #{bankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="bankNo != null">
+        #{bankNo,jdbcType=CHAR},
+      </if>
+      <if test="chargeType != null">
+        #{chargeType,jdbcType=CHAR},
+      </if>
+      <if test="workDate != null">
+        #{workDate,jdbcType=CHAR},
+      </if>
+      <if test="apkind != null">
+        #{apkind,jdbcType=CHAR},
+      </if>
+      <if test="orderStatus != null">
+        #{orderStatus,jdbcType=CHAR},
+      </if>
+      <if test="retMsg != null">
+        #{retMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shhxzq.fin.cif.model.HopConfirmOrder">
+    update CTS_TRDAE_CONFIRM
+    <set>
+      <if test="tradeReqNo != null">
+        TRADE_REQ_NO = #{tradeReqNo,jdbcType=CHAR},
+      </if>
+      <if test="orderNo != null">
+        ORDER_NO = #{orderNo,jdbcType=VARCHAR},
+      </if>
+      <if test="outerTransId != null">
+        OUTER_TRANS_ID = #{outerTransId,jdbcType=VARCHAR},
+      </if>
+      <if test="tradeAcco != null">
+        TRADE_ACCO = #{tradeAcco,jdbcType=VARCHAR},
+      </if>
+      <if test="prodId != null">
+        PROD_ID = #{prodId,jdbcType=VARCHAR},
+      </if>
+      <if test="applyAmount != null">
+        APPLY_AMOUNT = #{applyAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="applyShare != null">
+        APPLY_SHARE = #{applyShare,jdbcType=DECIMAL},
+      </if>
+      <if test="companyNo != null">
+        COMPANY_NO = #{companyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="subCompanyNo != null">
+        SUB_COMPANY_NO = #{subCompanyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="paymentType != null">
+        PAYMENT_TYPE = #{paymentType,jdbcType=CHAR},
+      </if>
+      <if test="bankAccount != null">
+        BANK_ACCOUNT = #{bankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="bankNo != null">
+        BANK_NO = #{bankNo,jdbcType=CHAR},
+      </if>
+      <if test="chargeType != null">
+        CHARGE_TYPE = #{chargeType,jdbcType=CHAR},
+      </if>
+      <if test="workDate != null">
+        WORK_DATE = #{workDate,jdbcType=CHAR},
+      </if>
+      <if test="apkind != null">
+        APKIND = #{apkind,jdbcType=CHAR},
+      </if>
+      <if test="orderStatus != null">
+        ORDER_STATUS = #{orderStatus,jdbcType=CHAR},
+      </if>
+      <if test="retMsg != null">
+        RET_MSG = #{retMsg,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null">
+        IS_DELETE = #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="createdAt != null">
+        CREATED_AT = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatedAt != null">
+        UPDATED_AT = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shhxzq.fin.cif.model.HopConfirmOrder">
+    update CTS_TRDAE_CONFIRM
+    set TRADE_REQ_NO = #{tradeReqNo,jdbcType=CHAR},
+      ORDER_NO = #{orderNo,jdbcType=VARCHAR},
+      OUTER_TRANS_ID = #{outerTransId,jdbcType=VARCHAR},
+      TRADE_ACCO = #{tradeAcco,jdbcType=VARCHAR},
+      PROD_ID = #{prodId,jdbcType=VARCHAR},
+      APPLY_AMOUNT = #{applyAmount,jdbcType=DECIMAL},
+      APPLY_SHARE = #{applyShare,jdbcType=DECIMAL},
+      COMPANY_NO = #{companyNo,jdbcType=VARCHAR},
+      SUB_COMPANY_NO = #{subCompanyNo,jdbcType=VARCHAR},
+      PAYMENT_TYPE = #{paymentType,jdbcType=CHAR},
+      BANK_ACCOUNT = #{bankAccount,jdbcType=VARCHAR},
+      BANK_NO = #{bankNo,jdbcType=CHAR},
+      CHARGE_TYPE = #{chargeType,jdbcType=CHAR},
+      WORK_DATE = #{workDate,jdbcType=CHAR},
+      APKIND = #{apkind,jdbcType=CHAR},
+      ORDER_STATUS = #{orderStatus,jdbcType=CHAR},
+      RET_MSG = #{retMsg,jdbcType=VARCHAR},
+      IS_DELETE = #{isDelete,jdbcType=BIT},
+      CREATED_AT = #{createdAt,jdbcType=TIMESTAMP},
+      UPDATED_AT = #{updatedAt,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

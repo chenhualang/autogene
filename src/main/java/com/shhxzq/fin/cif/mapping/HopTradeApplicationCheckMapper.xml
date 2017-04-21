@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.shhxzq.fin.cif.dao.HopTradeApplicationCheckMapper" >
+  <resultMap id="BaseResultMap" type="com.shhxzq.fin.cif.model.HopTradeApplicationCheck" >
+    <id column="ID" property="id" jdbcType="BIGINT" />
+    <result column="COMPANY_NO" property="companyNo" jdbcType="VARCHAR" />
+    <result column="SUB_COMPANY_NO" property="subCompanyNo" jdbcType="VARCHAR" />
+    <result column="SERIAL_NO" property="serialNo" jdbcType="CHAR" />
+    <result column="PARTNER_CUST_NO" property="partnerCustNo" jdbcType="CHAR" />
+    <result column="TRADE_ACCO" property="tradeAcco" jdbcType="VARCHAR" />
+    <result column="PROD_ID" property="prodId" jdbcType="VARCHAR" />
+    <result column="AMOUNT" property="amount" jdbcType="DECIMAL" />
+    <result column="SHARE" property="share" jdbcType="DECIMAL" />
+    <result column="PAYMENT_TYPE" property="paymentType" jdbcType="CHAR" />
+    <result column="BANK_ACCOUNT" property="bankAccount" jdbcType="CHAR" />
+    <result column="BANK_NO" property="bankNo" jdbcType="CHAR" />
+    <result column="CHARGE_TYPE" property="chargeType" jdbcType="CHAR" />
+    <result column="APKIND" property="apkind" jdbcType="CHAR" />
+    <result column="STATUS" property="status" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, COMPANY_NO, SUB_COMPANY_NO, SERIAL_NO, PARTNER_CUST_NO, TRADE_ACCO, PROD_ID, 
+    AMOUNT, SHARE, PAYMENT_TYPE, BANK_ACCOUNT, BANK_NO, CHARGE_TYPE, APKIND, STATUS
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from HOP_TRADE_APPLICATION_CHECK
+    where ID = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from HOP_TRADE_APPLICATION_CHECK
+    where ID = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.shhxzq.fin.cif.model.HopTradeApplicationCheck" useGeneratedKeys="true" keyProperty="id" >
+    insert into HOP_TRADE_APPLICATION_CHECK (COMPANY_NO, SUB_COMPANY_NO, SERIAL_NO, 
+      PARTNER_CUST_NO, TRADE_ACCO, PROD_ID, 
+      AMOUNT, SHARE, PAYMENT_TYPE, 
+      BANK_ACCOUNT, BANK_NO, CHARGE_TYPE, 
+      APKIND, STATUS)
+    values (#{companyNo,jdbcType=VARCHAR}, #{subCompanyNo,jdbcType=VARCHAR}, #{serialNo,jdbcType=CHAR}, 
+      #{partnerCustNo,jdbcType=CHAR}, #{tradeAcco,jdbcType=VARCHAR}, #{prodId,jdbcType=VARCHAR}, 
+      #{amount,jdbcType=DECIMAL}, #{share,jdbcType=DECIMAL}, #{paymentType,jdbcType=CHAR}, 
+      #{bankAccount,jdbcType=CHAR}, #{bankNo,jdbcType=CHAR}, #{chargeType,jdbcType=CHAR}, 
+      #{apkind,jdbcType=CHAR}, #{status,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.shhxzq.fin.cif.model.HopTradeApplicationCheck" useGeneratedKeys="true" keyProperty="id" >
+    insert into HOP_TRADE_APPLICATION_CHECK
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="companyNo != null" >
+        COMPANY_NO,
+      </if>
+      <if test="subCompanyNo != null" >
+        SUB_COMPANY_NO,
+      </if>
+      <if test="serialNo != null" >
+        SERIAL_NO,
+      </if>
+      <if test="partnerCustNo != null" >
+        PARTNER_CUST_NO,
+      </if>
+      <if test="tradeAcco != null" >
+        TRADE_ACCO,
+      </if>
+      <if test="prodId != null" >
+        PROD_ID,
+      </if>
+      <if test="amount != null" >
+        AMOUNT,
+      </if>
+      <if test="share != null" >
+        SHARE,
+      </if>
+      <if test="paymentType != null" >
+        PAYMENT_TYPE,
+      </if>
+      <if test="bankAccount != null" >
+        BANK_ACCOUNT,
+      </if>
+      <if test="bankNo != null" >
+        BANK_NO,
+      </if>
+      <if test="chargeType != null" >
+        CHARGE_TYPE,
+      </if>
+      <if test="apkind != null" >
+        APKIND,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="companyNo != null" >
+        #{companyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="subCompanyNo != null" >
+        #{subCompanyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNo != null" >
+        #{serialNo,jdbcType=CHAR},
+      </if>
+      <if test="partnerCustNo != null" >
+        #{partnerCustNo,jdbcType=CHAR},
+      </if>
+      <if test="tradeAcco != null" >
+        #{tradeAcco,jdbcType=VARCHAR},
+      </if>
+      <if test="prodId != null" >
+        #{prodId,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null" >
+        #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="share != null" >
+        #{share,jdbcType=DECIMAL},
+      </if>
+      <if test="paymentType != null" >
+        #{paymentType,jdbcType=CHAR},
+      </if>
+      <if test="bankAccount != null" >
+        #{bankAccount,jdbcType=CHAR},
+      </if>
+      <if test="bankNo != null" >
+        #{bankNo,jdbcType=CHAR},
+      </if>
+      <if test="chargeType != null" >
+        #{chargeType,jdbcType=CHAR},
+      </if>
+      <if test="apkind != null" >
+        #{apkind,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.shhxzq.fin.cif.model.HopTradeApplicationCheck" >
+    update HOP_TRADE_APPLICATION_CHECK
+    <set >
+      <if test="companyNo != null" >
+        COMPANY_NO = #{companyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="subCompanyNo != null" >
+        SUB_COMPANY_NO = #{subCompanyNo,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNo != null" >
+        SERIAL_NO = #{serialNo,jdbcType=CHAR},
+      </if>
+      <if test="partnerCustNo != null" >
+        PARTNER_CUST_NO = #{partnerCustNo,jdbcType=CHAR},
+      </if>
+      <if test="tradeAcco != null" >
+        TRADE_ACCO = #{tradeAcco,jdbcType=VARCHAR},
+      </if>
+      <if test="prodId != null" >
+        PROD_ID = #{prodId,jdbcType=VARCHAR},
+      </if>
+      <if test="amount != null" >
+        AMOUNT = #{amount,jdbcType=DECIMAL},
+      </if>
+      <if test="share != null" >
+        SHARE = #{share,jdbcType=DECIMAL},
+      </if>
+      <if test="paymentType != null" >
+        PAYMENT_TYPE = #{paymentType,jdbcType=CHAR},
+      </if>
+      <if test="bankAccount != null" >
+        BANK_ACCOUNT = #{bankAccount,jdbcType=CHAR},
+      </if>
+      <if test="bankNo != null" >
+        BANK_NO = #{bankNo,jdbcType=CHAR},
+      </if>
+      <if test="chargeType != null" >
+        CHARGE_TYPE = #{chargeType,jdbcType=CHAR},
+      </if>
+      <if test="apkind != null" >
+        APKIND = #{apkind,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=CHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.shhxzq.fin.cif.model.HopTradeApplicationCheck" >
+    update HOP_TRADE_APPLICATION_CHECK
+    set COMPANY_NO = #{companyNo,jdbcType=VARCHAR},
+      SUB_COMPANY_NO = #{subCompanyNo,jdbcType=VARCHAR},
+      SERIAL_NO = #{serialNo,jdbcType=CHAR},
+      PARTNER_CUST_NO = #{partnerCustNo,jdbcType=CHAR},
+      TRADE_ACCO = #{tradeAcco,jdbcType=VARCHAR},
+      PROD_ID = #{prodId,jdbcType=VARCHAR},
+      AMOUNT = #{amount,jdbcType=DECIMAL},
+      SHARE = #{share,jdbcType=DECIMAL},
+      PAYMENT_TYPE = #{paymentType,jdbcType=CHAR},
+      BANK_ACCOUNT = #{bankAccount,jdbcType=CHAR},
+      BANK_NO = #{bankNo,jdbcType=CHAR},
+      CHARGE_TYPE = #{chargeType,jdbcType=CHAR},
+      APKIND = #{apkind,jdbcType=CHAR},
+      STATUS = #{status,jdbcType=CHAR}
+    where ID = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
